@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html  lang="pt-br" ng-app="selfservice">
+<head>
+	<meta http-equiv="Content-Language" content="pt-br, en, es">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- <script src="http://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
+	<script src="js/lib/angular.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/controllers/principal-controller.js"></script>
+	<title>Self Order</title>
+</head>
+<body ng-controller="PrincipalController">
+	<section class="container "  >
+		<header class="navbar-header">
+		<a href="" ><img class="imagem reducaoImagemMenu" src="img/bandeiraEUA.png"></a>
+			<nav id="menuSuperior" class="navbar navbar-default navbar-fixed-top navbar-inverse navbar-static-top">
+				<div class="container " >
+					<div id="btnVoltar" class="col-xs-10 col-sm-3 col-md-6 col-lg-7" >
+						<button type="button" class="btn btn-default btn-lg" aria-label="Left Align">
+							<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						</button>
+
+					</div>
+					<!--SubTotal apresentado no menu superior, este valor vem dos cálculos feitos no arquivo PrincipalController.js-->
+					<div id="valor" class="row col-xs-2 col-sm-3 col-md-6 col-lg-5 " >
+						<input type="text" disabled  class="subTotal"   maxlength="10" size="10" ng-repeat="item in subValor"  value="{{item.subTotal | currency: 'R$ '}}" />
+						<!--<button ng-mousemove="count = count + 1" ng-init="count=10">
+						  m
+						</button>
+						count: {{count}}
+						-->
+					</div>
+				</div>
+			</nav>
+		</header>
+		<section class="container">
+			<div class="container-fluid">
+				<div >
+					<img id="imgLogo" class="navbar-fixed-center" >
+				</div>
+			</div>
+		</section>
+		<footer class="panel-footer">
+			<nav id="menuInferior" class="navbar navbar-default navbar-fixed-bottom  navbar-fixed-center navbar-inverse navbar-static-bottom">
+				<div class="container " >
+					<div class="paddingMenu">
+						<div class="row col-xs-4 col-sm-4 col-md-3 col-lg-4" >
+							<button type="button" class="btn btn-default btn-lg" >
+								<span class="glyphicon glyphicon-cutlery" ></span>
+							</button>
+						</div>
+						<div class="row col-xs-4 col-sm-4 col-md-3 col-lg-4">
+							<button type="button" class="btn btn-default btn-lg" >
+								<span class="glyphicon glyphicon-credit-card" ></span>
+							</button>
+						</div>
+						<div class="row col-xs-4 col-sm-4 col-md-3 col-lg-4">
+							<button type="button" class="btn btn-default btn-lg" >
+								<span class="glyphicon glyphicon-dashboard" ></span>
+							</button>
+						</div>
+						<div class="row col-xs-1 col-sm-1 col-md-4 col-lg-1">
+							<button type="button" class="btn btn-default btn-lg" >
+								<span class="glyphicon glyphicon-earphone" ></span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</footer>
+	</section>
+		<script src="js/calculos.js"></script>
+		<!--<script src="js/parcialConta.js"></script>-->
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
