@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html  ng-app lang="pt-br">
+<head>
+	<meta http-equiv="Content-Language" content="pt-br, en, es">
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="http://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<title>Self Order</title>
+</head>
+<body >
+	<div class="container" ng-controller="PrincipalController" >
+		<header>
+		<a href="" ><img class="imagem reducaoImagemMenu" src="img/bandeiraEUA.png"></a>
+			<nav class="navbar navbar-default navbar-fixed-top navbar-inverse navbar-static-top">
+				<div class="container " >
+					<div class="row col-xs-11 col-sm-3 col-md-6 col-lg-7" >
+						<button type="button" class="btn btn-default btn-lg" aria-label="Left Align">
+							<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						</button>
+						
+					</div>
+					
+					<div class="row col-xs-1 col-sm-3 col-md-6 col-lg-5 " ng-show="true">
+						<p id="subTotal" onclick="subTotal()" class="subTotal" >R$ 0,00</p>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<section class="container">
+			<div class="container-fluid">
+				<div >
+					<img id="imgLogo" class="navbar-fixed-center" alt="">
+				</div>
+			</div>
+		</section>
+		<footer>
+			<nav class="navbar-fixed-bottom  navbar-inverse">
+				<div class="container " >
+					<div class="paddingMenu">
+						<div class="row col-xs-4 col-sm-3 col-md-3 col-lg-3 paddingCol-lg-4" >
+							<button type="button" class="btn btn-default btn-lg" aria-label="Left Align">
+								<span class="glyphicon glyphicon-home" ></span>
+							</button>
+						</div>
+						<div class="row col-xs-4 col-sm-4 col-md-3 col-lg-3">
+							<button type="button" class="btn btn-default btn-lg" >
+								<span class="glyphicon glyphicon-credit-card" ></span>
+							</button>
+						</div>
+						<div class="row col-xs-4 col-sm-4 col-md-3 col-lg-3">
+							
+							<button type="button" class="btn btn-default btn-lg" >
+								<span class="glyphicon glyphicon-list-alt" ></span>
+							</button>
+						</div>
+						<div class="row col-xs-1 col-sm-1 col-md-3 col-lg-1">
+							<button type="button" class="btn btn-default btn-lg" >
+								<span class="glyphicon glyphicon-phone-alt" ></span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</footer>
+	</div>
+		<script src="js/calculos.js"></script>
+		<script src="js/parcialConta.js"></script>
+		<script src="js/PrincipalController.js"></script>
+		<script type="text/javascript" src="jquery.js"></script>	
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
