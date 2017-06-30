@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html  lang="pt-br" ng-app="selfservice">
+<head>
+	<base href="/">
+	<meta http-equiv="Content-Language" content="pt-br, en, es">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- <script src="http://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"></script> -->
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
+
+	<!-- Import´s do angular -->
+	<script src="js/lib/angular.min.js"></script>
+	<script src="js/lib/angular-animate.min.js"></script>
+	<script src="js/lib/angular-route.min.js"></script>
+	<!-- <link rel="stylesheet" href="//rawgit.com/JanStevens/angular-growl-2/master/build/angular-growl.css" /> -->
+	<script src="js/main.js"></script>
+
+	<!-- Controllers -->
+	<script src="js/controllers/principal-controller.js"></script>
+	<script src="js/controllers/cardapio-controller.js"></script>
+	<script src="js/controllers/fazer-pedido-controller.js"></script>
+	<script src="js/controllers/conta-controller.js"></script>
+	<script src="js/controllers/acompanhar-pedido-controller.js"></script>
+	<script src="js/controllers/chamar-garcom-controller.js"></script>
+
+	<!-- Diretivas -->
+	<!-- <script src="js/directives/minhas-diretivas.js"></script> -->
+
+	<title>Self Order</title>
+</head>
+<body ng-controller="PrincipalController">
+	<!-- <section class="container "  > -->
+
+	<div id="menuSuperior" class="container">
+		<header class="navbar-header ">
+			<a href="" ><img class="imagem reducaoImagemMenu" src="img/bandeiraEUA.png"></a>
+			<!-- coloquei o navbar-fixed-center  nesta div nav... -->
+			<nav  class="navbar navbar-default navbar-fixed-top navbar-inverse navbar-static-top">
+				<div class="container " >
+					<div id="btnVoltar" class="col-xs-10 col-sm-3 col-md-6 col-lg-7" >
+						<a href="/" ng-click="esconderBtnVoltar = true">
+							<button  type="button" class="btn btn-default btn-lg" ng-hide="esconderBtnVoltar" >
+								<span class="glyphicon glyphicon-chevron-left" ></span>
+							</button>
+						</a>
+					</div>
+
+					<!--SubTotal apresentado no menu superior, este valor vem dos cálculos feitos no arquivo PrincipalController.js-->
+					<!-- <div id="valor" class="row col-xs-2 col-sm-3 col-md-6 col-lg-5 " >
+						<input type="text" disabled  class="subTotal"   maxlength="10" size="10"  value="{{subValor | currency: 'R$ '}}" />
+					</div> -->
+				</div>
+			</nav>
+		</header>
+	</div>
+
+		<section class="container" ng-hide="!esconderBtnVoltar">
+			<div class="container-fluid">
+				<div >
+					<img id="imgLogo" class="navbar-fixed-center opacity" >
+				</div>
+			</div>
+		</section>
+
+		<!-- <div ng-include="'/home/cardapio'"></div> -->
+
+		<!-- Chama paginas dentro da pasta Parciais -->
+		<div class=" container  painel painel-default"><!--view-animate-container -->
+		</br>
+		</br>
+		</br>
+
+			<ng-view class=""></ng-view><!--view-animate-->
+		</div>
+		<!-- Menu Inferior (Botões de Cardapio, Fechar Conta, Descrição/Gastos e Chamar Garçon) -->
+		  <footer class="panel-footer">
+		    <nav id="menuInferior" class="navbar navbar-default navbar-fixed-bottom  navbar-fixed-center navbar-inverse navbar-static-bottom">
+		      <div class="container " >
+		        <div class="paddingMenu">
+		          <div class="row col-xs-4 col-sm-4 col-md-3 col-lg-4" >
+								<a href="home/cardapio" ng-click="esconderBtnVoltar = false" >
+									<button type="button" class="btn btn-default btn-lg" >
+								 		<span class="glyphicon glyphicon-cutlery" ></span>
+		            	</button>
+								</a>
+		          </div>
+		          <div class="row col-xs-4 col-sm-4 col-md-3 col-lg-4">
+								<a href="home/conta" ng-click="esconderBtnVoltar = false" >
+			            <button type="button" class="btn btn-default btn-lg" >
+			              <span class="glyphicon glyphicon-credit-card" ></span>
+			            </button>
+								</a>
+		          </div>
+		          <div class="row col-xs-4 col-sm-4 col-md-3 col-lg-4">
+								<a href="home/acompanhamento" ng-click="esconderBtnVoltar = false" >
+			            <button type="button" class="btn btn-default btn-lg" >
+			              <span class="glyphicon glyphicon-dashboard" ></span>
+			            </button>
+								</a>
+		          </div>
+		          <div class="row col-xs-1 col-sm-1 col-md-4 col-lg-1">
+								<a href="home/chamar" ng-click="esconderBtnVoltar = false" >
+									<div growl></div>
+			            <button type="button" class="btn btn-default btn-lg" ng-click="alerta()" >
+			              <span class="glyphicon glyphicon-earphone" ></span>
+			            </button>
+								</a>
+		          </div>
+		        </div>
+		      </div>
+		    </nav>
+		  </footer>
+		<!-- </section> -->
+
+		<!-- <script src="js/calculos.js"></script> -->
+		<!--<script src="js/parcialConta.js"></script>-->
+		<!-- <script type="text/javascript" src="jquery.js"></script> -->
+		<!-- <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script> -->
+</body>
+</html>
