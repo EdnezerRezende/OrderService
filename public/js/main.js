@@ -1,4 +1,4 @@
-angular.module('selfservice', ['ngRoute', 'ngAnimate'])
+angular.module('selfservice', ['ngRoute', 'ngAnimate', 'pascalprecht.translate'])
 .config(function($routeProvider, $locationProvider){
 
   $locationProvider.html5Mode(true);
@@ -17,9 +17,10 @@ angular.module('selfservice', ['ngRoute', 'ngAnimate'])
 
 
   // Página ativada quando Acompanhar o Pedido.
-  $routeProvider.when('/home/pedido', {
+  $routeProvider.when('/home/pedido/:itemId', {
     templateUrl: 'parciais/fazerPedido.html',
-    controller: 'FazerPedidoController'
+    controller: 'CardapioController',
+    controllerAs: 'FazerPedidoController'
   });
 
   // Página ativada quando solicitado Fechar Conta.

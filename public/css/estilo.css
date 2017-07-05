@@ -21,6 +21,12 @@ container .navbar-header{
    -moz-box-shadow: 1x 10px 10px rgba(0,0,0,.3);
 }
 
+.alinharTraducao{
+	display: inline-flex;
+	align-items: center;
+
+}
+
 #menuInferior{
 
 
@@ -80,6 +86,16 @@ container .navbar-header{
         -o-background-size: cover;
         background-size: 100% 72%;
 }
+@media (min-width: 350px) {
+	.fixarFiltro {
+			width: 96%;
+			margin-left: 12px !important;
+	}
+	.alinharTraducao{
+			display: inline-flex;
+			align-items: center;
+	}
+}
 @media (max-width: 445px){
 		#valor{
 			padding-top: 4%;
@@ -88,11 +104,28 @@ container .navbar-header{
 
 			margin-left: -40px;
 		}
+		.confFiltro{
+			width: 80% !important;
+			margin-top: -16.4% !important;
+		}
+
 }
+@media (min-width: 500px){
+	.fixarFiltro {
+	position: fixed;
+	margin-left: 34px !important;
+	width: 82%;
+	}
+}
+
 @media (min-width: 450px){
 		#valor{
 			padding-top: 2%;
 			//padding-left: 70%
+		}
+		.confFiltro{
+			width: 85% !important;
+			margin-top: -8.4% !important;
 		}
 
 }
@@ -113,6 +146,10 @@ container .navbar-header{
 		background-image: url('../img/LogoBombeiros.png');
 
 	}
+	.confFiltro{
+		width: 37% !important;
+		margin-top: 0.5% !important;
+	}
 }
 @media(min-width:1000px){
 	#valor{
@@ -120,6 +157,14 @@ container .navbar-header{
 	}
 	#menuInferior{
 		text-align: center;
+	}
+	.confFiltro{
+		width: 37% !important;
+		margin-top: 0.5% !important;
+	}
+	.alinharTraducao{
+		display: inline-flex;
+		align-items: center;
 	}
 }
 
@@ -145,15 +190,15 @@ footer{
 .panel{
 	background-size: cover;
 }
-
+.alinha{
+	display: flex;
+	align-items: center;
+}
 .reducaoImagemMenu{
-	max-width:100px;
-    max-height:15px;
-    width: auto;
-    height: auto;
-	margin: 16% 0% 0% 86%;
-
-
+	display: flex;
+    width: 60%;
+    height: 60%;
+    padding: 5%;
 }
 .subTotal{
 	background-position: center;
@@ -176,34 +221,85 @@ footer{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	flex-wrap: wrap-reverse;
+	width: 90%;
+	text-align: center;
+	margin-top: 10%;
+	margin-left: 7%;
+	flex-wrap: wrap;
 }
 .alinharCardapio{
 	display: flex;
-	align-items: stretch;
-	flex-wrap: inherit;
+	align-items: flex-end;
+	flex-wrap: wrap;
 	background-color: lavender
 	;
 }
 .alinharSeta{
-	display: flex;
-	align-items: center;
-
+	position: inherit !important;
+	display: grid;
+	align-content: center;
+	margin-left: 16%;
+	/*align-items: center;*/
+	text-align: center;
 }
-.setaContainer{
+.alinharContainerSeta{
 	background-color: inherit;
 	height: 100%;
 	width: 100%;
 	position: inherit !important;
 	background-color: black;
 	font-size: -webkit-xxx-large;
+	position: inherit !important;
+}
+.setaContainer{
+	background-color: inherit;
+	height: 119%;
+	width: 100%;
+	position: inherit !important;
+	background-color: black;
+	font-size: -webkit-xxx-large;
+	position: inherit !important;
 }
 .provisorio{
 	/*margin-top: 10%;*/
 	text-align: center;
+	margin-top: -1.2%;
 }
+
+/*.fixarJumbotron{
+	position: fixed;
+
+}*/
 .provisorioimg {
 	width: 30%;
 	height: 30%
+}
+.fixarFiltro{
+	position: fixed;
+	margin-left: 59px;
+	width: 82%;
+}
+.confFiltro{
+	width: 85% ;
+	margin-top: -8.4% ;
+}
+.painel-animado {
+
+	 -moz-transition:transform 0.8s;
+	 -webkit-transition:transform 0.8s;
+	 -ms-transition:transform 0.8s;
+	 -o-transition:transform 0.8s;
+	 transition:transform 0.8s;
+}
+.painel-animado.ng-leave-active {
+  -moz-transform: scale(0.1);
+  -webkit-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  -o-transform: scale(0.1);
+  transform: scale(0.1);
+}
+.tratarMenuFiltro{
+	display: flex;
+	margin-top: -4%;
 }
 }

@@ -1,4 +1,4 @@
-angular.module('selfservice').controller('PrincipalController',  function($scope) {
+angular.module('selfservice').controller('PrincipalController',  function($scope, $translate) {
 	$scope.esconderBtnVoltar = true;
 	// $scope.esconderImagemLogo = false;
 	// valor SubTotal do menu superior.
@@ -17,6 +17,16 @@ angular.module('selfservice').controller('PrincipalController',  function($scope
 	// 	$scope.subValor.push({subTotal: $scope.subValor.subTotal});
 	// };
 
+	$scope.changeLanguage = "";
 
+	/* Esta função modifica o idioma do nosso app. */
+	$scope.changeLanguage = function (locale){
+		/* Define o novo idioma atual */
+ 		$translate.use(locale);
+
+	};
+	// function changeLanguage(locale) {
+	// 	alert('Você selecionou o idioma: ' + locale);
+	// }
 
 });

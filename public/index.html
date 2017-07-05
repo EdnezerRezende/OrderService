@@ -20,6 +20,7 @@
 	<script src="js/lib/angular.min.js"></script>
 	<script src="js/lib/angular-animate.min.js"></script>
 	<script src="js/lib/angular-route.min.js"></script>
+	<script src="js/lib/angular-translate.min.js"></script>
 	<!-- <link rel="stylesheet" href="//rawgit.com/JanStevens/angular-growl-2/master/build/angular-growl.css" /> -->
 	<script src="js/main.js"></script>
 
@@ -30,6 +31,7 @@
 	<script src="js/controllers/conta-controller.js"></script>
 	<script src="js/controllers/acompanhar-pedido-controller.js"></script>
 	<script src="js/controllers/chamar-garcom-controller.js"></script>
+	<script src="js/inter.js"></script>
 
 	<!-- Diretivas -->
 	<!-- <script src="js/directives/minhas-diretivas.js"></script> -->
@@ -41,23 +43,47 @@
 
 	<div id="menuSuperior" class="container">
 		<header class="navbar-header ">
-			<a href="" ><img class="imagem reducaoImagemMenu" src="img/bandeiraEUA.png"></a>
-			<!-- coloquei o navbar-fixed-center  nesta div nav... -->
 			<nav  class="navbar navbar-default navbar-fixed-top navbar-inverse navbar-static-top">
 				<div class="container " >
-					<div id="btnVoltar" class="col-xs-10 col-sm-3 col-md-6 col-lg-7" >
+					<div id="btnVoltar" class="col-xs-8 col-sm-3 col-md-6 col-lg-8" >
 						<a href="/" ng-click="esconderBtnVoltar = true">
 							<button  type="button" class="btn btn-default btn-lg" ng-hide="esconderBtnVoltar" >
 								<span class="glyphicon glyphicon-chevron-left" ></span>
 							</button>
 						</a>
 					</div>
-
-					<!--SubTotal apresentado no menu superior, este valor vem dos cálculos feitos no arquivo PrincipalController.js-->
+					<div class="alinharTraducao col-xs-4 col-sm-4 col-md-3 col-lg-4">
+						<div class="row ">
+								<a ng-click="changeLanguage('pt')" ><img class="reducaoImagemMenu" src="img/brasil_trabalhado.png"></a>
+						</div>
+						<div class="row ">
+								<a ng-click="changeLanguage('en')" ><img class="reducaoImagemMenu" src="img/bandeiraEUA.png"></a>
+						</div>
+						<div class="row ">
+								<a ng-click="changeLanguage('es')" ><img class="reducaoImagemMenu" src="img/espanha.png"></a>
+						</div>
+					</div>
+				</div>
+				<!--SubTotal apresentado no menu superior, este valor vem dos cálculos feitos no arquivo PrincipalController.js-->
 					<!-- <div id="valor" class="row col-xs-2 col-sm-3 col-md-6 col-lg-5 " >
 						<input type="text" disabled  class="subTotal"   maxlength="10" size="10"  value="{{subValor | currency: 'R$ '}}" />
 					</div> -->
-				</div>
+					<!-- <div class=" alinharTraducao">
+						<div class="col-xs-2 col-sm-3 col-md-6 col-lg-5 ">
+									<a ng-click="changeLanguage('pt')" ><img class="reducaoImagemMenu" src="img/bandeiraBrasil.png"></a>
+									<a ng-click="changeLanguage('en')" ><img class="reducaoImagemMenu" src="img/bandeiraEUA.png"></a>
+									<a ng-click="changeLanguage('es')" ><img class="reducaoImagemMenu" src="img/espanha.png"></a>
+						</div>
+					</div> -->
+				<!-- </div> -->
+
+				<!-- <div class="container"
+					<div class="row alinharTraducao btn-group input-group ">
+							<a ng-click="changeLanguage('pt')" ><img class="imagem reducaoImagemMenu" src="img/Brasil.jpg"></a>
+							<a ng-click="changeLanguage('en')" ><img class="imagem reducaoImagemMenu" src="img/bandeiraEUA.png"></a>
+							<a ng-click="changeLanguage('es')" ><img class="imagem reducaoImagemMenu" src="img/espanha.png"></a>
+					</div>
+				</div> -->
 			</nav>
 		</header>
 	</div>
@@ -73,7 +99,7 @@
 		<!-- <div ng-include="'/home/cardapio'"></div> -->
 
 		<!-- Chama paginas dentro da pasta Parciais -->
-		<div class=" container  painel painel-default"><!--view-animate-container -->
+		<div class=""><!--view-animate-container -->
 		</br>
 		</br>
 		</br>
@@ -122,7 +148,7 @@
 
 		<!-- <script src="js/calculos.js"></script> -->
 		<!--<script src="js/parcialConta.js"></script>-->
-		<!-- <script type="text/javascript" src="jquery.js"></script> -->
-		<!-- <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script> -->
+		<script type="text/javascript" src="jquery.js"></script>
+		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
