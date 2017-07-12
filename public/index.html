@@ -12,14 +12,12 @@
 	<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<!-- <script src="http://code.angularjs.org/1.0.1/angular-1.0.1.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.js"></script> -->
-	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script> -->
-
 	<!-- Import´s do angular -->
 	<script src="js/lib/angular.min.js"></script>
+	<!-- Angular UI Router -->
+	<script src="js/lib/angular-ui-router.min.js"></script>
 	<script src="js/lib/angular-animate.min.js"></script>
-	<script src="js/lib/angular-route.min.js"></script>
+	<!-- <script src="js/lib/angular-route.min.js"></script> -->
 	<script src="js/lib/angular-translate.min.js"></script>
 	<!-- <link rel="stylesheet" href="//rawgit.com/JanStevens/angular-growl-2/master/build/angular-growl.css" /> -->
 	<script src="js/main.js"></script>
@@ -38,7 +36,7 @@
 
 	<title>Self Order</title>
 </head>
-<body ng-controller="PrincipalController">
+<body>
 	<!-- <section class="container "  > -->
 
 	<div id="menuSuperior" class="container">
@@ -46,49 +44,35 @@
 			<nav  class="navbar navbar-default navbar-fixed-top navbar-inverse navbar-static-top">
 				<div class="container " >
 					<div id="btnVoltar" class="col-xs-8 col-sm-3 col-md-6 col-lg-8" >
-						<a href="/" ng-click="esconderBtnVoltar = true">
+						<a ui-sref="home" ng-click="esconderBtnVoltar = true">
 							<button  type="button" class="btn btn-default btn-lg" ng-hide="esconderBtnVoltar" >
 								<span class="glyphicon glyphicon-chevron-left" ></span>
 							</button>
 						</a>
 					</div>
-					<div class="alinharTraducao col-xs-4 col-sm-4 col-md-3 col-lg-4">
-						<div class="row ">
-								<a ng-click="changeLanguage('pt')" ><img class="reducaoImagemMenu" src="img/brasil_trabalhado.png"></a>
+					<div class="list-inline alinharTraducao col-xs-2 col-sm-3 col-md-6 col-lg-3 ">
+						<div>
+								<a ng-click="changeLanguage('en')"  >
+									<img class="reducaoImagemMenu " src="img/English_thumb.png">
+								</a>
 						</div>
-						<div class="row ">
-								<a ng-click="changeLanguage('en')" ><img class="reducaoImagemMenu" src="img/bandeiraEUA.png"></a>
+						</br>
+						</br>
+						<div>
+								<a ng-click="changeLanguage('pt')" ><img class="reducaoImagemMenu" src="img/Portuguese_thumb.png"></a>
 						</div>
-						<div class="row ">
-								<a ng-click="changeLanguage('es')" ><img class="reducaoImagemMenu" src="img/espanha.png"></a>
+						</br>
+						<div>
+								<a ng-click="changeLanguage('es')" ><img class="reducaoImagemMenu " src="img/Spain_thumb.png"></a>
 						</div>
 					</div>
 				</div>
-				<!--SubTotal apresentado no menu superior, este valor vem dos cálculos feitos no arquivo PrincipalController.js-->
-					<!-- <div id="valor" class="row col-xs-2 col-sm-3 col-md-6 col-lg-5 " >
-						<input type="text" disabled  class="subTotal"   maxlength="10" size="10"  value="{{subValor | currency: 'R$ '}}" />
-					</div> -->
-					<!-- <div class=" alinharTraducao">
-						<div class="col-xs-2 col-sm-3 col-md-6 col-lg-5 ">
-									<a ng-click="changeLanguage('pt')" ><img class="reducaoImagemMenu" src="img/bandeiraBrasil.png"></a>
-									<a ng-click="changeLanguage('en')" ><img class="reducaoImagemMenu" src="img/bandeiraEUA.png"></a>
-									<a ng-click="changeLanguage('es')" ><img class="reducaoImagemMenu" src="img/espanha.png"></a>
-						</div>
-					</div> -->
-				<!-- </div> -->
-
-				<!-- <div class="container"
-					<div class="row alinharTraducao btn-group input-group ">
-							<a ng-click="changeLanguage('pt')" ><img class="imagem reducaoImagemMenu" src="img/Brasil.jpg"></a>
-							<a ng-click="changeLanguage('en')" ><img class="imagem reducaoImagemMenu" src="img/bandeiraEUA.png"></a>
-							<a ng-click="changeLanguage('es')" ><img class="imagem reducaoImagemMenu" src="img/espanha.png"></a>
-					</div>
-				</div> -->
 			</nav>
 		</header>
 	</div>
 
-		<section class="container" ng-hide="!esconderBtnVoltar">
+			<!-- Tirei aqui o  -->
+		<section class="container" ng-hide="!esconderBtnVoltar" >
 			<div class="container-fluid">
 				<div >
 					<img id="imgLogo" class="navbar-fixed-center opacity" >
@@ -103,8 +87,8 @@
 		</br>
 		</br>
 		</br>
-
-			<ng-view class=""></ng-view><!--view-animate-->
+			<ui-view></ui-view>
+			<!-- <ng-view class=""></ng-view><!--view-animate-->
 		</div>
 		<!-- Menu Inferior (Botões de Cardapio, Fechar Conta, Descrição/Gastos e Chamar Garçon) -->
 		  <footer class="panel-footer">
@@ -112,28 +96,28 @@
 		      <div class="container " >
 		        <div class="paddingMenu">
 		          <div class="row col-xs-4 col-sm-4 col-md-3 col-lg-4" >
-								<a href="home/cardapio" ng-click="esconderBtnVoltar = false" >
+								<a ui-sref="cardapio" ng-click="esconderBtnVoltar = false" >
 									<button type="button" class="btn btn-default btn-lg" >
 								 		<span class="glyphicon glyphicon-cutlery" ></span>
 		            	</button>
 								</a>
 		          </div>
 		          <div class="row col-xs-4 col-sm-4 col-md-3 col-lg-4">
-								<a href="home/conta" ng-click="esconderBtnVoltar = false" >
+								<a ui-sref="conta" ng-click="esconderBtnVoltar = false" >
 			            <button type="button" class="btn btn-default btn-lg" >
 			              <span class="glyphicon glyphicon-credit-card" ></span>
 			            </button>
 								</a>
 		          </div>
 		          <div class="row col-xs-4 col-sm-4 col-md-3 col-lg-4">
-								<a href="home/acompanhamento" ng-click="esconderBtnVoltar = false" >
+								<a ui-sref="acompanhamento" ng-click="esconderBtnVoltar = false" >
 			            <button type="button" class="btn btn-default btn-lg" >
 			              <span class="glyphicon glyphicon-dashboard" ></span>
 			            </button>
 								</a>
 		          </div>
 		          <div class="row col-xs-1 col-sm-1 col-md-4 col-lg-1">
-								<a href="home/chamar" ng-click="esconderBtnVoltar = false" >
+								<a ui-sref="chamar" ng-click="esconderBtnVoltar = false" >
 									<div growl></div>
 			            <button type="button" class="btn btn-default btn-lg" ng-click="alerta()" >
 			              <span class="glyphicon glyphicon-earphone" ></span>
@@ -150,5 +134,6 @@
 		<!--<script src="js/parcialConta.js"></script>-->
 		<script type="text/javascript" src="jquery.js"></script>
 		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
 </body>
 </html>

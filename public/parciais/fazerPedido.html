@@ -2,10 +2,64 @@
   <div class="jumbotron ">
     <h3> Faça o Pedido </h3>
   </div>
-  <div >
-    <!-- <div class="alert alert-success" role="alert">...</div> -->
-    <img class="provisorioimg" src="{{emConstrucao}}">
-  </div>
-</br>
-</br>
+
+<form  name="formularioPedido" class=" " ng-submit="submeter()">
+  	<div class="formularioPedido col-xs-10 col-sm-10 col-md-10 col-lg-10">
+  		<div class="form-group">
+  			<label>Título</label>
+  			<input name="titulo" class="form-control" ng-model="pedido.titulo">
+  		</div>
+  		<div class="form-group centralizarImagemPedido">
+  			<!-- <label>URL</label> -->
+  			<img class=" img-responsive thumbnail"  width="50%" height="50%" align-items="center" max-width="200px" max-height="150px"  src="{{pedido.url}}">
+  		</div>
+  		<div class="form-group">
+  			<label>Descrição</label>
+  			<textarea name="descricao" class="form-control"  ng-disabled="true" ng-model="pedido.descricao">
+  			</textarea>
+  		</div>
+  		<div class="form-group">
+        <label>Valor</label>
+      </br>
+        <input class=" bordaPedido" type="text" name="" value="{{pedido.valor | currency: 'R$ '}}">
+      </div>
+      <div class="form-group">
+        <label>Observações: </label>
+      </br>
+        <textarea class=" bordaPedido" type="text" name="" ng-model="pedido.observacao" value="{{pedido.observacao}}" maxlength="100" size="50">
+        </textarea>
+      </div>
+      <div class="form-group">
+        <label>Quantidade</label>
+        </br>
+        <!-- <button type="button" class="btn btn-default" aria-label="Left Align"> -->
+        <a href="#" ng-click="btnDiminuir()" > <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a>
+        <!-- </button> -->
+            <input class="bordaPedido" type="text" ng-model="pedido.quantidade" maxlength="2" size="2" value="{{pedido.quantidade}}">
+        <!-- <button type="button" class="btn btn-default" aria-label="Left Align"> -->
+        <a href="#" ng-click="btnAumentar()" ><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></a>
+        <!-- </button> -->
+      </div>
+
+      <div class="form-group">
+        <div class="alinhaSelectPedido">
+          <select class="form-control" name="opcao" ng-model="pedido.adicional"
+            ng-options="opcao.id as opcao.titulo for opcao in cardapio">
+    				<option value="">Incremente seu Pedido</option>
+            <textarea name="opcao" rows="3" cols="30" ng-bind="pedido.adicional"></textarea>
+
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+    		<button ui-sref="acompanhamento" type="submit" class="btn btn-primary" >
+    		    Enviar
+    		</button>
+    		<a href="#" ng-click="goBack()" class="btn btn-primary">Voltar</a>
+        </br>
+      </div>
+      </br>
+  	</div>
+</form>
+
 </div>

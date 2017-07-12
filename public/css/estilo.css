@@ -108,6 +108,17 @@ container .navbar-header{
 			width: 80% !important;
 			margin-top: -16.4% !important;
 		}
+		.col-xs-2 {
+    	width: 25% !important;
+		}
+		.reducaoImagemMenu{
+			display: flex;
+	    padding: 5%;
+	    height: 50%;
+	    width: 100% !important;
+	    margin-top: 70%;
+	    margin-left: 100%;
+		}
 
 }
 @media (min-width: 500px){
@@ -126,6 +137,14 @@ container .navbar-header{
 		.confFiltro{
 			width: 85% !important;
 			margin-top: -8.4% !important;
+		}
+		.reducaoImagemMenu{
+			display: flex;
+			padding: 29%;
+			height: 100%;
+			width: 150%;
+			margin-top: 30%;
+			margin-left: 200%
 		}
 
 }
@@ -150,6 +169,14 @@ container .navbar-header{
 		width: 37% !important;
 		margin-top: 0.5% !important;
 	}
+	.reducaoImagemMenu{
+		display: flex;
+	    padding: 0%;
+			height: 40%;
+			width: 100%;
+			margin-top: 80%;
+	    margin-left: 1600%;
+	}
 }
 @media(min-width:1000px){
 	#valor{
@@ -166,11 +193,33 @@ container .navbar-header{
 		display: inline-flex;
 		align-items: center;
 	}
+	.reducaoImagemMenu{
+
+		padding: 2% !important;
+		height: 140% !important;
+		/*width: 21% !important;*/
+		margin-top: -142% !important;
+		margin-left: 3500% !important;
+	}
 }
 
 @media(min-width:1100px){
 	#menuInferior{
 		text-align: inherit;
+	}
+	.reducaoImagemMenu{
+		margin-top: -20% !important;
+		margin-left: 322% !important;
+	}
+	/*.reducaoImagemMenu{
+		margin-top: 6% !important;
+		margin-left: 80% !important;
+	}*/
+}
+@media (min-width: 1200px){
+	.reducaoImagemMenu{
+		margin-top: 45% !important;
+		margin-left: 880% !important;
 	}
 }
 @media (max-resolution: 1.5dppx){
@@ -194,12 +243,14 @@ footer{
 	display: flex;
 	align-items: center;
 }
-.reducaoImagemMenu{
+/*.reducaoImagemMenu{
 	display: flex;
-    width: 60%;
-    height: 60%;
-    padding: 5%;
-}
+    padding: 1%;
+		height: 40%;
+		width: 40%;
+		margin-top: 30%;
+    margin-left: 200%;
+}*/
 .subTotal{
 	background-position: center;
 	align-self: center;
@@ -301,5 +352,20 @@ footer{
 .tratarMenuFiltro{
 	display: flex;
 	margin-top: -4%;
+}
+.centralizarImagemPedido{
+	text-align: -webkit-center;
+}
+.bordaPedido{
+	border: ridge;
+}
+.formularioPedido{
+
+	margin-left: 10%;
+	position: inherit !important;
+	align-items: center;
+}
+.alinhaSelectPedido{
+	display: inline-flex;
 }
 }
