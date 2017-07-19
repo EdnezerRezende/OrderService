@@ -1,7 +1,6 @@
 angular.module('selfservice').controller('CardapioController', function($scope, $stateParams, $rootScope) {
-
+    $rootScope.tituloPagina = "Cardapio";
     var ctrl = this;
-    // $scope.cardapio = PedidoModel.All;
 
     $scope.esconderCategoria = '';
     $scope.filtro = '';
@@ -13,41 +12,23 @@ angular.module('selfservice').controller('CardapioController', function($scope, 
       while(i < $rootScope.cardapio.length && a === false){
         if($rootScope.cardapio[i].id === id){
           a= true;
-          $rootScope.pedido = $rootScope.cardapio[i];
+          $rootScope.detalharCardapio = $rootScope.cardapio[i];
         }else {
           i++;
         }
       }
-      // if(i < $rootScope.cardapio.length){
-      //   window.sessionStorage.setItem('pedido', JSON.stringify($rootScope.cardapio[i]));
-      // }else{
-      //   alert('Item não encontrado');
-      // }
 
     };
-    $scope.fechaMenu = 'true';
+    $scope.fechaMenu = false;
     $scope.vlrCollapse = "collapse";
     $scope.fecharMenu = function (){
-      if($scope.fechaMenu === 'true'){
-         $scope.vlrCollapse = "collapse";
-          $scope.fechaMenu='false';
-      }
+       var navMain = $("#menuCardapio");
+       navMain.on("click", "a", null, function () {
+           navMain.collapse('hide');
+           javascript:void(0);
+       });
     };
-    // function getCardapio() {
-    //        // Para carregar os usuarios usando o service
-    //        PedidoModel.all()
-    //          .then(function(response) {
-    //            ctrl.cardapio = response;
-    //
-    //          })
-    //          .catch(function(error) {
-    //            console.log("Erro carregando Cardápio");
-    //            console.log(error);
-    //          });
-    //      }
-    //
-    //      // Carrega todo Cardápio
-    //      getCardapio();
+
 
 
 });

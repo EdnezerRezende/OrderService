@@ -4,6 +4,9 @@ angular.module('selfservice').controller('PrincipalController', function($scope,
 	// valor SubTotal do menu superior.
 	// $scope.subValor =  100.00;
 
+
+
+	$rootScope.tituloPagina = "";
 	$rootScope.esconderBtnVoltar = true;
 
   $rootScope.emConstrucao = '../img/EmConstrucao.jpg';

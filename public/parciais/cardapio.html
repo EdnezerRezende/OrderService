@@ -5,21 +5,21 @@
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="{{vlrCollapse}}" data-target="#collapse-navbar"  aria-expanded="{{fechaMenu}}">
+          <!-- data-target="#collapse-navbar" -->
+          <button type="button" class="navbar-toggle collapsed" data-toggle="{{vlrCollapse}}"  data-target="#menuCardapio" aria-expanded="{{fechaMenu}}">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
         </div>
-        <!-- Filtro para ser utilizado nos ng-repeat -->
+        <!-- Filtro para ser utilizado no Cardápio ( ng-repeat )-->
           <input class="confFiltro form-control" placeholder="{{'label.filtroPlaced' | translate}}"  ng-model="filtro" ng-model-options="{ debounce: 500 }">
-          <div id="collapse-navbar" class="collapse navbar-collapse"  >
+          <div  id="menuCardapio" class="collapse navbar-collapse"  >
             <ul class="nav navbar-nav">
-              <li  ng-repeat-start="categoria in categorias | orderBy:'-categoria'">
-                <a href="#{{categoria.tipo}}"  ng-click="fecharMenu()" >{{categoria.tipo}}</a>
+              <li  ng-click="fecharMenu()" ng-repeat="categoria in categorias | orderBy:'-categoria'">
+                <a ng-href="#{{categoria.tipo}}" >{{categoria.tipo}}</a>
               </li>
-              <li ng-repeat-end></li>
             </ul>
         </div>
       </div>
@@ -28,22 +28,22 @@
 </div>
 <!-- Form contendo a categoria, título, imagem, descrição e valor dos produtos/serviços  -->
   <form name="formulario" class="row painel-animado gridCardapio "  ng-repeat="categoria in categorias | orderBy:'categorias.tipo'">
-    <div class="alinharSeta  provisorio thumbnail col-xs-10 col-sm-10 col-md-10 col-lg-10" >
+    <div class="alinharSeta  provisorio thumbnail col-xs-12 col-sm-10 col-md-10 col-lg-10" >
           <div  class="form-group jumbotron">
             <h3 id="{{categoria.tipo}}" ng-bind="categoria.tipo" > {{categoria.tipo}} </h3>
           </div>
           <div class=" thumbnail  container-fluid painel-animado" style="display: inline-flex" ng-if="categoria.tipo == item.categoria " ng-repeat="item in cardapio | orderBy: 'cardapio.titulo' | filter: filtro">
             <div class="form-group">
-              <img class=" img-responsive"  width="50%" height="50%" align-items="center" max-width="200px" max-height="150px"  src="{{item.url}}">
+              <img class=" imgCardapio"    src="{{item.url}}">
+              <!-- width="50%" height="50%" align-items="center" max-width="200px" max-height="150px" -->
             </div>
-            <div class="form-group" >
-              <h4 >{{item.titulo}}</h4>
-            </div>
-            <div class="form-group">
-              <p>{{item.descricao}}.</p>
-            </div>
-            <div class="form-group" >
-              <h4 >{{item.valor | currency: 'R$ '}}</h4>
+            <div class="list-group">
+              <div class="form-group" >
+                <h4 >{{item.titulo}}</h4>
+              </div>
+              <div class="form-group">
+                <p>{{item.descricao}}.</p>
+              </div>
             </div>
             <div class="form-group">
               <a href="/pedido/{{item.id}}"  ng-click="enviarItem(item)">
@@ -54,8 +54,8 @@
             </div>
 
             </div>
-          </div>
-    </form>
+    </div>
+  </form>
 
 </br>
 </br>

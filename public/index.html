@@ -43,35 +43,43 @@
 		<header class="navbar-header ">
 			<nav  class="navbar navbar-default navbar-fixed-top navbar-inverse navbar-static-top">
 				<div class="container " >
-					<div id="btnVoltar" class="col-xs-8 col-sm-3 col-md-6 col-lg-8" >
+					<div id="btnVoltar" class="col-xs-6 col-sm-3 col-md-5 col-lg-6" >
 						<a ui-sref="home" ng-click="esconderBtnVoltar = true">
 							<button  type="button" class="btn btn-default btn-lg" ng-hide="esconderBtnVoltar" >
 								<span class="glyphicon glyphicon-chevron-left" ></span>
 							</button>
 						</a>
 					</div>
-					<div class="list-inline alinharTraducao col-xs-2 col-sm-3 col-md-6 col-lg-3 ">
-						<div>
-								<a ng-click="changeLanguage('en')"  >
-									<img class="reducaoImagemMenu " src="img/English_thumb.png">
-								</a>
-						</div>
-						</br>
-						</br>
-						<div>
-								<a ng-click="changeLanguage('pt')" ><img class="reducaoImagemMenu" src="img/Portuguese_thumb.png"></a>
-						</div>
-						</br>
-						<div>
-								<a ng-click="changeLanguage('es')" ><img class="reducaoImagemMenu " src="img/Spain_thumb.png"></a>
-						</div>
+					<div id="tituloView" class="tituloView col-xs-3 col-sm-6 col-md-2 col-lg-2" >
+							<label >{{tituloPagina}}</label>
 					</div>
+					<div class="list-inline alinharTraducao col-xs-1 col-sm-1 col-md-6 col-lg-1 ">
+						<!-- <div> -->
+								<a ng-click="changeLanguage('en')"  class="reducaoImagemMenu " >
+									<img src="img/English_thumb.png">
+								</a>
+						<!-- </div> -->
+					</div>
+					<div  class="list-inline alinharTraducao col-xs-1 col-sm-1 col-md-6 col-lg-1 ">
+						<!-- <div> -->
+								<a ng-click="changeLanguage('pt')" class="reducaoImagemMenu " >
+									<img src="img/Portuguese_thumb.png">
+								</a>
+						<!-- </div> -->
+					</div>
+					<div  class="list-inline alinharTraducao col-xs-1 col-sm-1 col-md-6 col-lg-1 ">
+						<!-- <div> -->
+								<a ng-click="changeLanguage('es')" class="reducaoImagemMenu " >
+									<img src="img/Spain_thumb.png">
+								</a>
+						<!-- </div> -->
+					</div>
+					<!-- </div> -->
 				</div>
 			</nav>
 		</header>
 	</div>
 
-			<!-- Tirei aqui o  -->
 		<section class="container" ng-hide="!esconderBtnVoltar" >
 			<div class="container-fluid">
 				<div >
@@ -80,17 +88,14 @@
 			</div>
 		</section>
 
-		<!-- <div ng-include="'/home/cardapio'"></div> -->
-
-		<!-- Chama paginas dentro da pasta Parciais -->
+			<!-- Chama paginas dentro da pasta Parciais -->
 		<div class=""><!--view-animate-container -->
 		</br>
 		</br>
 		</br>
 			<ui-view></ui-view>
-			<!-- <ng-view class=""></ng-view><!--view-animate-->
 		</div>
-		<!-- Menu Inferior (Botões de Cardapio, Fechar Conta, Descrição/Gastos e Chamar Garçon) -->
+		<!-- Menu Inferior (Botões de Cardápio, Fechar Conta, Descrição/Gastos e Chamar Garçon) -->
 		  <footer class="panel-footer">
 		    <nav id="menuInferior" class="navbar navbar-default navbar-fixed-bottom  navbar-fixed-center navbar-inverse navbar-static-bottom">
 		      <div class="container " >
@@ -102,21 +107,14 @@
 		            	</button>
 								</a>
 		          </div>
-		          <div class="row col-xs-4 col-sm-4 col-md-3 col-lg-4">
-								<a ui-sref="conta" ng-click="esconderBtnVoltar = false" >
-			            <button type="button" class="btn btn-default btn-lg" >
-			              <span class="glyphicon glyphicon-credit-card" ></span>
-			            </button>
-								</a>
-		          </div>
-		          <div class="row col-xs-4 col-sm-4 col-md-3 col-lg-4">
+							<div class="row col-xs-4 col-sm-4 col-md-3 col-lg-4">
 								<a ui-sref="acompanhamento" ng-click="esconderBtnVoltar = false" >
 			            <button type="button" class="btn btn-default btn-lg" >
 			              <span class="glyphicon glyphicon-dashboard" ></span>
 			            </button>
 								</a>
 		          </div>
-		          <div class="row col-xs-1 col-sm-1 col-md-4 col-lg-1">
+		          <div class="row col-xs-4 col-sm-4 col-md-3 col-lg-4">
 								<a ui-sref="chamar" ng-click="esconderBtnVoltar = false" >
 									<div growl></div>
 			            <button type="button" class="btn btn-default btn-lg" ng-click="alerta()" >
@@ -124,6 +122,13 @@
 			            </button>
 								</a>
 		          </div>
+							<div class="row col-xs-1 col-sm-1 col-md-4 col-lg-1">
+								<a ui-sref="conta" ng-click="esconderBtnVoltar = false" >
+									<button type="button" class="btn btn-default btn-lg" >
+										<span class="glyphicon glyphicon-credit-card" ></span>
+									</button>
+								</a>
+							</div>
 		        </div>
 		      </div>
 		    </nav>

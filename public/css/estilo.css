@@ -86,15 +86,49 @@ container .navbar-header{
         -o-background-size: cover;
         background-size: 100% 72%;
 }
+@media (min-width: 300px){
+	.fixarFiltro {
+	position: fixed;
+	margin-left: -16px !important;
+	width: 100%;
+	margin-top: -2%;
+	}
+	.confFiltro {
+    width: 84% !important;
+    margin-top: -15% !important;
+		margin-left: 0%;
+	}
+}
+
 @media (min-width: 350px) {
 	.fixarFiltro {
 			width: 96%;
-			margin-left: 12px !important;
+			margin-left: -15.4px !important;
+			margin-top: -1.7%;
 	}
 	.alinharTraducao{
 			display: inline-flex;
 			align-items: center;
 	}
+	.confFiltro {
+		width: 85% !important;
+		margin-top: -13% !important;
+	}
+}
+
+@media (min-width: 370px){
+	.confFiltro {
+	    width: 87% !important;
+	    margin-top: -12.5% !important;
+			margin-left: 0%;
+	}
+}
+
+@media (min-width: 420px) {
+	.fixarFiltro {
+			margin-top: 0%;
+	}
+
 }
 @media (max-width: 445px){
 		#valor{
@@ -104,10 +138,10 @@ container .navbar-header{
 
 			margin-left: -40px;
 		}
-		.confFiltro{
-			width: 80% !important;
-			margin-top: -16.4% !important;
-		}
+		/*.confFiltro{
+			width: 84% !important;
+			margin-top: -15% !important;
+		}*/
 		.col-xs-2 {
     	width: 25% !important;
 		}
@@ -115,17 +149,28 @@ container .navbar-header{
 			display: flex;
 	    padding: 5%;
 	    height: 50%;
-	    width: 100% !important;
-	    margin-top: 70%;
-	    margin-left: 100%;
+	    /*width: 100% !important;*/
+	    /*margin-top: 70%;
+	    margin-left: 100%;*/
+		}
+		.tituloView{
+			margin-top: 4% !important;
+		}
+		.list-inline{
+			margin-top: 4% !important;
+			margin-left: 0% !important;
 		}
 
 }
 @media (min-width: 500px){
 	.fixarFiltro {
 	position: fixed;
-	margin-left: 34px !important;
+	margin-left: -15px !important;
 	width: 82%;
+	}
+	.confFiltro{
+		margin-top: -7% !important;
+
 	}
 }
 
@@ -135,16 +180,17 @@ container .navbar-header{
 			//padding-left: 70%
 		}
 		.confFiltro{
-			width: 85% !important;
-			margin-top: -8.4% !important;
+			width: 90% !important;
+			margin-top: -6.3%;
+			margin-left: 0%;
 		}
 		.reducaoImagemMenu{
 			display: flex;
-			padding: 29%;
+			padding: 59%;
 			height: 100%;
 			width: 150%;
-			margin-top: 30%;
-			margin-left: 200%
+			/*margin-top: 30%;
+			margin-left: 200%*/
 		}
 
 }
@@ -166,16 +212,42 @@ container .navbar-header{
 
 	}
 	.confFiltro{
-		width: 37% !important;
-		margin-top: 0.5% !important;
-	}
+		width: 40% !important;
+		/*margin-top: -6% !important;*/
+    margin-top: -6.4% !important;
+  }
 	.reducaoImagemMenu{
 		display: flex;
-	    padding: 0%;
+	    /*padding: 0%;
 			height: 40%;
 			width: 100%;
 			margin-top: 80%;
-	    margin-left: 1600%;
+	    margin-left: 1600%;*/
+	}
+}
+@media(min-width:768px){
+	.reducaoImagemMenu{
+		/*margin-top: 25% !important;
+		margin-left: 150% !important;*/
+		margin-top: -125% !important;
+		margin-left: 1150% !important;
+		padding: 33%;
+	}
+	.fixarFiltro{
+		margin-top: 0%;
+	}
+	.container{
+		width: 100% !important;
+	}
+	.collapse{
+		margin-top: -10%;
+		margin-left: 38% !important;
+	}
+	.confFiltro{
+		margin-top: 1% !important;
+	}
+	.tituloView{
+		margin-left: 18% !important;
 	}
 }
 @media(min-width:1000px){
@@ -188,6 +260,7 @@ container .navbar-header{
 	.confFiltro{
 		width: 37% !important;
 		margin-top: 0.5% !important;
+		margin-left: 3%;
 	}
 	.alinharTraducao{
 		display: inline-flex;
@@ -200,6 +273,9 @@ container .navbar-header{
 		/*width: 21% !important;*/
 		margin-top: -142% !important;
 		margin-left: 3500% !important;
+	}
+	.fixarFiltro{
+		margin-left: -42px !important;
 	}
 }
 
@@ -218,8 +294,20 @@ container .navbar-header{
 }
 @media (min-width: 1200px){
 	.reducaoImagemMenu{
-		margin-top: 45% !important;
-		margin-left: 880% !important;
+		margin-top: 25% !important;
+		margin-left: 150% !important;
+	}
+	.fixarFiltro{
+		margin-top: 0.45%;
+		margin-left: -15px !important;
+
+	}
+	.collapse{
+		margin-top: -10%;
+		margin-left: 38% !important;
+	}
+	.tituloView{
+		margin-left: -4% !important;
 	}
 }
 @media (max-resolution: 1.5dppx){
@@ -289,8 +377,9 @@ footer{
 	position: inherit !important;
 	display: grid;
 	align-content: center;
-	margin-left: 16%;
-	/*align-items: center;*/
+	margin-left: 3%;
+	width: 114% !important;
+	margin-right: -13.5%;
 	text-align: center;
 }
 .alinharContainerSeta{
@@ -328,7 +417,7 @@ footer{
 .fixarFiltro{
 	position: fixed;
 	margin-left: 59px;
-	width: 82%;
+	width: 100%;
 }
 .confFiltro{
 	width: 85% ;
@@ -359,7 +448,7 @@ footer{
 .bordaPedido{
 	border: ridge;
 }
-.formularioPedido{
+.formularioDetalharCardapio{
 
 	margin-left: 10%;
 	position: inherit !important;
@@ -367,5 +456,18 @@ footer{
 }
 .alinhaSelectPedido{
 	display: inline-flex;
+}
+.list-line{
+	margin-left: 7px;
+	margin-top: 4%;
+}
+.tituloView{
+	margin-left: -9%;
+  margin-top: 2%;
+	color: floralwhite;
+}
+.imgCardapio{
+	 width: 50%;
+	 height: 50%;
 }
 }

@@ -50,14 +50,14 @@ angular.module('selfservice', ['ui.router', 'pascalprecht.translate'])
 })
 .run(['$rootScope', '$window',
 function ($rootScope, $window) {
+  $rootScope.tituloPagina = "";
 
   $rootScope.goBack = function(){
    $window.history.back();
   };
 
+   $rootScope.detalharCardapio=[];
    $rootScope.pedido=[];
-
-   $rootScope.variavelGlobal = "Teste";
 
    $rootScope.categorias = [
      {
