@@ -15,7 +15,7 @@
         </div>
         <!-- Filtro para ser utilizado no Cardápio ( ng-repeat )-->
           <input class="confFiltro form-control" placeholder="{{'label.filtroPlaced' | translate}}"  ng-model="filtro" ng-model-options="{ debounce: 500 }">
-          <div  id="menuCardapio" class="collapse navbar-collapse"  >
+          <div  id="menuCardapio" class="tamanhoMenuCardapio collapse navbar-collapse "  >
             <ul class="nav navbar-nav">
               <li  ng-click="fecharMenu()" ng-repeat="categoria in categorias | orderBy:'-categoria'">
                 <a ng-href="#{{categoria.tipo}}" >{{categoria.tipo}}</a>

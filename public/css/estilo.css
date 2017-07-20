@@ -124,6 +124,12 @@ container .navbar-header{
 	}
 }
 
+@media(min-width: 410px){
+	.confFiltro{
+		margin-top: -11% !important;
+	}
+}
+
 @media (min-width: 420px) {
 	.fixarFiltro {
 			margin-top: 0%;
@@ -169,7 +175,7 @@ container .navbar-header{
 	width: 82%;
 	}
 	.confFiltro{
-		margin-top: -7% !important;
+		margin-top: -8% !important;
 
 	}
 }
@@ -194,6 +200,16 @@ container .navbar-header{
 		}
 
 }
+@media (min-width: 640px){
+	.confFiltro{
+		margin-top: -7% !important;
+	}
+}
+@media(min-width: 650px){
+	.confFiltro{
+	 margin-top: -6.6% !important;
+	}
+}
 @media (min-width: 700px){
 	/*.paddingMenu{
 		padding-left: 1%;
@@ -212,9 +228,9 @@ container .navbar-header{
 
 	}
 	.confFiltro{
-		width: 40% !important;
+		width: 92% !important;
 		/*margin-top: -6% !important;*/
-    margin-top: -6.4% !important;
+    margin-top: -6% !important;
   }
 	.reducaoImagemMenu{
 		display: flex;
@@ -229,8 +245,8 @@ container .navbar-header{
 	.reducaoImagemMenu{
 		/*margin-top: 25% !important;
 		margin-left: 150% !important;*/
-		margin-top: -125% !important;
-		margin-left: 1150% !important;
+		/*margin-top: -125% !important;
+		margin-left: 1150% !important;*/
 		padding: 33%;
 	}
 	.fixarFiltro{
@@ -239,16 +255,25 @@ container .navbar-header{
 	.container{
 		width: 100% !important;
 	}
+	.tamanhoMenuCardapio{
+		margin-top: -4% !important;
+		display: list-item !important;
+	}
 	.collapse{
 		margin-top: -10%;
 		margin-left: 38% !important;
 	}
 	.confFiltro{
 		margin-top: 1% !important;
+		width: 40% !important;
 	}
 	.tituloView{
-		margin-left: 18% !important;
+		margin-left: 0% !important;
+		margin-top: 1.4% !important;
 	}
+	/*.alinharTraducao{
+		padding-left: 44% !important;
+	}*/
 }
 @media(min-width:1000px){
 	#valor{
@@ -267,15 +292,15 @@ container .navbar-header{
 		align-items: center;
 	}
 	.reducaoImagemMenu{
-
+/*
 		padding: 2% !important;
 		height: 140% !important;
 		/*width: 21% !important;*/
-		margin-top: -142% !important;
-		margin-left: 3500% !important;
+		/*margin-top: 24% !important;
+		margin-left: 0% !important;*/
 	}
 	.fixarFiltro{
-		margin-left: -42px !important;
+		margin-left: -15px !important;
 	}
 }
 
@@ -285,7 +310,7 @@ container .navbar-header{
 	}
 	.reducaoImagemMenu{
 		margin-top: -20% !important;
-		margin-left: 322% !important;
+		margin-left: 200% !important;
 	}
 	/*.reducaoImagemMenu{
 		margin-top: 6% !important;
@@ -294,8 +319,9 @@ container .navbar-header{
 }
 @media (min-width: 1200px){
 	.reducaoImagemMenu{
-		margin-top: 25% !important;
-		margin-left: 150% !important;
+		margin-top: 17% !important;
+		margin-left: -25% !important;
+		padding: 0% !important;
 	}
 	.fixarFiltro{
 		margin-top: 0.45%;
