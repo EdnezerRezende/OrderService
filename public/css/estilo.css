@@ -109,6 +109,7 @@ container .navbar-header{
 	.alinharTraducao{
 			display: inline-flex;
 			align-items: center;
+			margin-left: 26px !important;
 	}
 	.confFiltro {
 		width: 85% !important;
@@ -132,7 +133,7 @@ container .navbar-header{
 
 @media (min-width: 420px) {
 	.fixarFiltro {
-			margin-top: 0%;
+			margin-top: -2%;
 	}
 
 }
@@ -388,9 +389,12 @@ footer{
 	align-items: center;
 	width: 90%;
 	text-align: center;
-	margin-top: 10%;
+	/*margin-top: 10%;*/
 	margin-left: 7%;
 	flex-wrap: wrap;
+}
+.marginTopForm{
+	margin-top: 12%;
 }
 .alinharCardapio{
 	display: flex;
@@ -403,7 +407,7 @@ footer{
 	position: inherit !important;
 	display: grid;
 	align-content: center;
-	margin-left: 3%;
+	margin-left: 0%;
 	width: 114% !important;
 	margin-right: -13.5%;
 	text-align: center;
@@ -425,11 +429,13 @@ footer{
 	background-color: black;
 	font-size: -webkit-xxx-large;
 	position: inherit !important;
+	line-height: 3 !important;
 }
 .provisorio{
 	/*margin-top: 10%;*/
 	text-align: center;
-	margin-top: -1.2%;
+	margin-top: 0%;
+	padding-right: 0% !important;
 }
 
 /*.fixarJumbotron{
@@ -493,7 +499,42 @@ footer{
 	color: floralwhite;
 }
 .imgCardapio{
-	 width: 50%;
-	 height: 50%;
+	 max-width: 180px;
+	 margin-top: 5%;
+	 margin-bottom: -12px;
+	 /*max-height: 180%;*/
+
+}
+.itemGridFormulario{
+	display: inline-flex !important;
+	align-items: flex-end;
+	align-content: space-between;
+	width: 100%;
+	height: 100%;
+}
+.list-group{
+	position: inherit !important;
+
+}
+.layoutTituDescForm{
+	padding-right: 0px !important;
+	box-shadow: 0 1px 2px rgba(0,0,0,0) !important;
+}
+.descricaoMargin{
+	margin-bottom: 0px !important;
+	margin-top: -2%;
+}
+.backgroundTitulo{
+	padding: 1%;
+	text-transform: uppercase;
+	background-color: #eee;
+}
+.textUpper{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.itemAlinhar{
+	display: flex;
+	color: black;
 }
 }

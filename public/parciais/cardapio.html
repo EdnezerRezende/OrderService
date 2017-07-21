@@ -1,6 +1,6 @@
 <!--Imagens do Cardapio Disponível-->
 <div class="container provisorio ">
-  <!-- Div responsável pelo menu collapsado e o filtro -->
+  <!-- Filtro e MENU -->
   <div class=" fixarFiltro">
     <nav class="navbar navbar-default">
       <div class="container">
@@ -26,36 +26,36 @@
     </nav>
   </div>
 </div>
-<!-- Form contendo a categoria, título, imagem, descrição e valor dos produtos/serviços  -->
-  <form name="formulario" class="row painel-animado gridCardapio "  ng-repeat="categoria in categorias | orderBy:'categorias.tipo'">
-    <div class="alinharSeta  provisorio thumbnail col-xs-12 col-sm-10 col-md-10 col-lg-10" >
-          <div  class="form-group jumbotron">
-            <h3 id="{{categoria.tipo}}" ng-bind="categoria.tipo" > {{categoria.tipo}} </h3>
+<!-- Form contendo a categoria, título, imagem e descrição dos produtos/serviços  -->
+<div class="marginTopForm">
+  <form name="formulario" class="row  painel-animado gridCardapio "  ng-repeat="categoria in categorias | orderBy:'categorias.tipo'">
+    <div class="alinharSeta  provisorio  col-xs-12 col-sm-10 col-md-10 col-lg-10" >
+          <div  class="form-group backgroundTitulo">
+              <h3 class="textUpper" id="{{categoria.tipo}}" ng-bind="categoria.tipo" > {{categoria.tipo}} </h3>
           </div>
-          <div class=" thumbnail  container-fluid painel-animado" style="display: inline-flex" ng-if="categoria.tipo == item.categoria " ng-repeat="item in cardapio | orderBy: 'cardapio.titulo' | filter: filtro">
-            <div class="form-group">
-              <img class=" imgCardapio"    src="{{item.url}}">
-              <!-- width="50%" height="50%" align-items="center" max-width="200px" max-height="150px" -->
-            </div>
-            <div class="list-group">
-              <div class="form-group" >
-                <h4 >{{item.titulo}}</h4>
-              </div>
+          <div class="descricaoMargin itemGridFormulario thumbnail  container-fluid painel-animado " ng-if="categoria.tipo == item.categoria " ng-repeat="item in cardapio | orderBy: 'cardapio.titulo' | filter: filtro">
+            <a href="/pedido/{{item.id}}"  class="itemAlinhar" ng-click="enviarItem(item)">
               <div class="form-group">
-                <p>{{item.descricao}}.</p>
+                <img class=" imgCardapio"    src="{{item.url}}">
               </div>
-            </div>
-            <div class="form-group">
-              <a href="/pedido/{{item.id}}"  ng-click="enviarItem(item)">
-                <div class="alinharContainerSeta">
-                    <span class="glyphicon glyphicon-menu-right setaContainer" ></span>
+              <div class=" layoutTituDescForm list-group col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                <div class="form-group" >
+                  <h4 class="textUpper">{{item.titulo}}</h4>
                 </div>
-              </a>
-            </div>
-
-            </div>
+                <div class=" form-group">
+                  <p>{{item.descricao}}.</p>
+                </div>
+              </div>
+              <div >
+                  <!-- <div class="alinharContainerSeta">
+                      <span class="glyphicon glyphicon-menu-right setaContainer" ></span>
+                  </div> -->
+              </div>
+            </a>
+          </div>
     </div>
   </form>
+</div>
 
 </br>
 </br>

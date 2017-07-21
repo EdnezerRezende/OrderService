@@ -131,7 +131,7 @@ function ($rootScope, $window) {
        id:7,
        categoria: "Bebidas",
        titulo: "Coca-Cola",
-       url: "img/coca-cola.jpg",
+       url: "img/coxinha.jpg",
        descricao: "Regrigerante sabor Coca-Cola",
        valor: 4.00
      }

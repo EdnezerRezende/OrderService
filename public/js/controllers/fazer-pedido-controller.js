@@ -1,5 +1,5 @@
 angular.module('selfservice').controller('FazerPedidoController', function($scope, $stateParams, $rootScope){
-
+  $rootScope.tituloPagina = "Pedido";
   $rootScope.pedido.observacao= "";
   $rootScope.pedido.quantidade = 1;
   $rootScope.pedido.valor = $rootScope.detalharCardapio.valor;
@@ -8,7 +8,7 @@ angular.module('selfservice').controller('FazerPedidoController', function($scop
     if($rootScope.pedido.quantidade > 1){
       var guarda = $rootScope.pedido.quantidade;
       guarda = guarda - 1;
-      $rootScope.pedido.valor =  $rootScope.pedido.valor - $rootScope.detalharCardapio.valor;
+      // $rootScope.pedido.valor =  $rootScope.pedido.valor - $rootScope.detalharCardapio.valor;
       $rootScope.pedido.quantidade = guarda;
     }
   };
@@ -17,7 +17,7 @@ angular.module('selfservice').controller('FazerPedidoController', function($scop
     if($rootScope.pedido.quantidade >= 1){
       var guarda = $rootScope.pedido.quantidade;
       guarda = guarda + 1;
-      $rootScope.pedido.valor =  $rootScope.pedido.valor + $rootScope.detalharCardapio.valor;
+      // $rootScope.pedido.valor =  $rootScope.pedido.valor + $rootScope.detalharCardapio.valor;
       $rootScope.pedido.quantidade = guarda;
     }
   };

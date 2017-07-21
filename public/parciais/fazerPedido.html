@@ -1,37 +1,34 @@
 <div class="provisorio ">
-  <div class="jumbotron ">
-    <h3> Faça o Pedido </h3>
-  </div>
 
 <form  name="formularioDetalharCardapio" class=" " ng-submit="submeter()">
   	<div class="formularioDetalharCardapio col-xs-10 col-sm-10 col-md-10 col-lg-10">
-  		<div class="form-group">
+  		<div class="list-group ">
   			<label>{{'label.titulo' | translate}}</label>
-  			<input name="titulo" ng-disabled="true" class="form-control" ng-model="detalharCardapio.titulo">
+  			<input name="titulo" ng-disabled="true" class="" style="width: 80%;" ng-model="detalharCardapio.titulo">
   		</div>
   		<div class="form-group centralizarImagemPedido">
   			<!-- Imagem-->
   			<img class=" img-responsive thumbnail"  width="50%" height="50%" align-items="center"
          max-width="200px" max-height="150px"  src="{{detalharCardapio.url}}">
   		</div>
-  		<div class="form-group">
+  		<div class="list-group">
   			<label>{{'label.descricao' | translate}}</label>
-  			<textarea name="descricao" class="form-control"
+  			<textarea name="descricao" class="" style="width: 80%;"
          ng-disabled="true" ng-model="detalharCardapio.descricao">
   			</textarea>
   		</div>
-  		<div class="form-group">
+  		<div class="list-group">
         <label ng-disabled="true" >{{'label.valor' | translate}}</label>
       </br>
-        <input class=" bordaPedido" type="text" name="" value="{{pedido.valor | currency: 'R$ '}}">
+        <input class=" bordaPedido" type="text" name=""  value="{{pedido.valor | currency: 'R$ '}}">
       </div>
-      <div class="form-group">
+      <div class="list-group">
         <label>{{'label.observacao' | translate}}</label>
       </br>
-        <textarea class=" bordaPedido" type="text" name="" ng-model="pedido.observacao" value="{{pedido.observacao}}" maxlength="100" size="50">
+        <textarea class=" bordaPedido" type="text" name="" style="width: 80%;" ng-model="pedido.observacao" value="{{pedido.observacao}}" maxlength="100" size="50">
         </textarea>
       </div>
-      <div class="form-group">
+      <div class="list-group">
         <label>{{'label.quantidade' | translate}}</label>
         </br>
         <a href="#" ng-click="btnDiminuir()" > <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a>
