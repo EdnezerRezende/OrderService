@@ -98,13 +98,22 @@ container .navbar-header{
     margin-top: -15% !important;
 		margin-left: 0%;
 	}
+	.ajusteButtonTraducao{
+		padding: 2px 2px !important;
+		margin-top: -6px !important;
+	}
+}
+@media (max-width: 312px){
+	/*.col-xs-2{
+		    width: 16.66666667% !important;
+	}*/
 }
 
-@media (min-width: 350px) {
+@media (min-width: 250px) {
 	.fixarFiltro {
 			width: 96%;
 			margin-left: -15.4px !important;
-			margin-top: -1.7%;
+			margin-top: -2.7%;
 	}
 	.alinharTraducao{
 			display: inline-flex;
@@ -112,16 +121,70 @@ container .navbar-header{
 			margin-left: 26px !important;
 	}
 	.confFiltro {
-		width: 85% !important;
-		margin-top: -13% !important;
+		width: 78% !important;
+		margin-top: -20% !important;
+		/*width: 85% !important;
+		margin-top: -13% !important;*/
+	}
+	.itemAlinhar{
+		margin-bottom: -10% !important;
+	}
+	.ajusteButtonTraducao{
+		    padding: 2px 2px !important;
+				margin-top: -6px !important;
+	}
+	.tituloView{
+		 margin-left: -25% !important;
 	}
 }
+@media(min-width: 263px){
+	.confFiltro {
+		width: 79% !important;
+		margin-top: -19% !important;
 
+	}
+}
+/*@media(min-width: 272px){
+	.alinharTraducao{
+		padding-left: 10% !important;
+	}
+}*/
+@media(min-width: 285px){
+	.confFiltro {
+		width: 79% !important;
+		margin-top: -18% !important;
+
+	}
+}
+@media(min-width: 300px){
+	.confFiltro {
+		width: 80% !important;
+		margin-top: -17% !important;
+
+	}
+}
+@media(min-width: 310px){
+	.confFiltro {
+		width: 83% !important;
+		margin-top: -16% !important;
+
+	}
+}
+@media(min-width: 330px){
+	.confFiltro {
+		width: 84% !important;
+		margin-top: -15% !important;
+
+	}
+}
 @media (min-width: 370px){
 	.confFiltro {
-	    width: 87% !important;
-	    margin-top: -12.5% !important;
+	    width: 85% !important;
+	    margin-top: -13.3% !important;
 			margin-left: 0%;
+	}
+	#btnVoltar.col-xs-6{
+		width: 56%;
 	}
 }
 
@@ -137,7 +200,7 @@ container .navbar-header{
 	}
 
 }
-@media (max-width: 445px){
+@media (max-width: 449px){
 		#valor{
 			padding-top: 4%;
 		}
@@ -149,9 +212,9 @@ container .navbar-header{
 			width: 84% !important;
 			margin-top: -15% !important;
 		}*/
-		.col-xs-2 {
+		/*.col-xs-2 {
     	width: 25% !important;
-		}
+		}*/
 		.reducaoImagemMenu{
 			display: flex;
 	    padding: 5%;
@@ -169,6 +232,12 @@ container .navbar-header{
 		}
 
 }
+/*@media(min-width: 446px){
+	.alinharTraducao{
+		margin-left: 25px !important;
+		padding-left: 5% !important;
+	}
+}*/
 @media (min-width: 500px){
 	.fixarFiltro {
 	position: fixed;
@@ -179,6 +248,7 @@ container .navbar-header{
 		margin-top: -8% !important;
 
 	}
+
 }
 
 @media (min-width: 450px){
@@ -186,8 +256,11 @@ container .navbar-header{
 			padding-top: 2%;
 			//padding-left: 70%
 		}
+		.ajusteButtonTraducao{
+			 margin-top: 7px !important;
+		}
 		.confFiltro{
-			width: 90% !important;
+			width: 88% !important;
 			margin-top: -6.3%;
 			margin-left: 0%;
 		}
@@ -199,7 +272,19 @@ container .navbar-header{
 			/*margin-top: 30%;
 			margin-left: 200%*/
 		}
+		.alinharTraducao{
+			margin-left: 25px !important;
+		}
 
+}
+@media (min-width: 560px){
+	.itemAlinhar{
+			margin-bottom: -1% !important;
+		}
+	.ajusteButtonTraducao {
+    padding: 8px 15px !important;
+    margin-top: 0px !important;
+	}
 }
 @media (min-width: 640px){
 	.confFiltro{
@@ -209,6 +294,9 @@ container .navbar-header{
 @media(min-width: 650px){
 	.confFiltro{
 	 margin-top: -6.6% !important;
+	}
+	.imgCardapio {
+      margin-top: 7% !important;
 	}
 }
 @media (min-width: 700px){
@@ -241,6 +329,9 @@ container .navbar-header{
 			margin-top: 80%;
 	    margin-left: 1600%;*/
 	}
+	.alinharTraducao{
+		margin-left: 23px !important;
+	}
 }
 @media(min-width:768px){
 	.reducaoImagemMenu{
@@ -251,13 +342,13 @@ container .navbar-header{
 		padding: 33%;
 	}
 	.fixarFiltro{
-		margin-top: 0%;
+		margin-top: -1.4%;
 	}
 	.container{
 		width: 100% !important;
 	}
 	.tamanhoMenuCardapio{
-		margin-top: -4% !important;
+		margin-top: -6% !important;
 		display: list-item !important;
 	}
 	.collapse{
@@ -272,9 +363,27 @@ container .navbar-header{
 		margin-left: 0% !important;
 		margin-top: 1.4% !important;
 	}
+	#btnVoltar.col-sm-3{
+		width: 39%;
+
+	}
+	.imgCardapio {
+      margin-top: 8% !important;
+	}
 	/*.alinharTraducao{
 		padding-left: 44% !important;
 	}*/
+
+}
+@media(min-width: 800px){
+	.imgCardapio {
+			margin-top: 8% !important;
+	}
+}
+@media(min-width: 900px){
+	.marginTopForm {
+    margin-top: 5% !important;
+	}
 }
 @media(min-width:1000px){
 	#valor{
@@ -306,9 +415,9 @@ container .navbar-header{
 }
 
 @media(min-width:1100px){
-	#menuInferior{
+	/*#menuInferior{
 		text-align: inherit;
-	}
+	}*/
 	.reducaoImagemMenu{
 		margin-top: -20% !important;
 		margin-left: 200% !important;
@@ -317,6 +426,9 @@ container .navbar-header{
 		margin-top: 6% !important;
 		margin-left: 80% !important;
 	}*/
+	.marginTopForm {
+    margin-top: 3%;
+	}
 }
 @media (min-width: 1200px){
 	.reducaoImagemMenu{
@@ -325,7 +437,7 @@ container .navbar-header{
 		padding: 0% !important;
 	}
 	.fixarFiltro{
-		margin-top: 0.45%;
+		margin-top: -1%;
 		margin-left: -15px !important;
 
 	}
@@ -394,7 +506,7 @@ footer{
 	flex-wrap: wrap;
 }
 .marginTopForm{
-	margin-top: 12%;
+	margin-top: 8%;
 }
 .alinharCardapio{
 	display: flex;
@@ -519,6 +631,7 @@ footer{
 .layoutTituDescForm{
 	padding-right: 0px !important;
 	box-shadow: 0 1px 2px rgba(0,0,0,0) !important;
+	margin-top: 9px;
 }
 .descricaoMargin{
 	margin-bottom: 0px !important;
@@ -527,7 +640,7 @@ footer{
 .backgroundTitulo{
 	padding: 1%;
 	text-transform: uppercase;
-	background-color: #eee;
+	background-color: #EF4;
 }
 .textUpper{
 	text-transform: uppercase;
@@ -536,5 +649,17 @@ footer{
 .itemAlinhar{
 	display: flex;
 	color: black;
+	width: 100%;
+}
+.configuracoesDetalhePedido{
+	 margin-left: 1px !important;
+	 width: 100% !important;
+}
+.tratarImgDetalhe{
+	    margin-top: -55% !important;
+			max-width: 277px !important;
+}
+.campoBlue{
+	background-color: blue;
 }
 }

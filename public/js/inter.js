@@ -14,7 +14,9 @@ angular.module('selfservice')
     'label.observacao': 'Note',
     'label.quantidade': 'Amount',
     'label.voltar': 'Come back',
-    'label.enviar': 'To Send'
+    'label.enviar': 'CONFIRM',
+    'Cardapio': 'Menu',
+    'Pedido': 'Order'
 
   });
 
@@ -30,7 +32,9 @@ angular.module('selfservice')
     'label.observacao': 'Observação',
     'label.quantidade': 'Quantidade',
     'label.voltar': 'Voltar',
-    'label.enviar': 'Enviar'
+    'label.enviar': 'CONFIRMAR',
+    'Cardapio': 'Cardápio',
+    'Pedido': 'Pedido'
   });
 
   $translateProvider.translations('es', {
@@ -45,7 +49,9 @@ angular.module('selfservice')
     'label.observacao': 'Observación',
     'label.quantidade': 'Cantidad',
     'label.voltar': 'Volver',
-    'label.enviar': 'Enviar'
+    'label.enviar': 'CONFIRMAR',
+    'Cardapio': 'Menú',
+    'Pedido': 'Solicitud'
 
   });
 

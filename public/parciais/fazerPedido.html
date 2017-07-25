@@ -1,54 +1,36 @@
-<div class="provisorio ">
-
-<form  name="formularioDetalharCardapio" class=" " ng-submit="submeter()">
-  	<div class="formularioDetalharCardapio col-xs-10 col-sm-10 col-md-10 col-lg-10">
-  		<div class="list-group ">
-  			<label>{{'label.titulo' | translate}}</label>
-  			<input name="titulo" ng-disabled="true" class="" style="width: 80%;" ng-model="detalharCardapio.titulo">
-  		</div>
-  		<div class="form-group centralizarImagemPedido">
-  			<!-- Imagem-->
-  			<img class=" img-responsive thumbnail"  width="50%" height="50%" align-items="center"
-         max-width="200px" max-height="150px"  src="{{detalharCardapio.url}}">
-  		</div>
-  		<div class="list-group">
-  			<label>{{'label.descricao' | translate}}</label>
-  			<textarea name="descricao" class="" style="width: 80%;"
-         ng-disabled="true" ng-model="detalharCardapio.descricao">
-  			</textarea>
-  		</div>
-  		<div class="list-group">
-        <label ng-disabled="true" >{{'label.valor' | translate}}</label>
-      </br>
-        <input class=" bordaPedido" type="text" name=""  value="{{pedido.valor | currency: 'R$ '}}">
-      </div>
-      <div class="list-group">
-        <label>{{'label.observacao' | translate}}</label>
-      </br>
-        <textarea class=" bordaPedido" type="text" name="" style="width: 80%;" ng-model="pedido.observacao" value="{{pedido.observacao}}" maxlength="100" size="50">
-        </textarea>
-      </div>
-      <div class="list-group">
-        <label>{{'label.quantidade' | translate}}</label>
-        </br>
-        <a href="#" ng-click="btnDiminuir()" > <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a>
-              <input class="bordaPedido" type="text" ng-model="pedido.quantidade" maxlength="2" size="2" value="{{pedido.quantidade}}">
-        <a href="#" ng-click="btnAumentar()" >
-          <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-        </a>
-
-      </div>
-        <div class="form-group">
-          <a href="#" ng-click="goBack()" class="btn btn-primary">{{'label.voltar' | translate}}</a>
-    		<button ui-sref="acompanhamento" type="submit" class="btn btn-primary" >
-    		   {{'label.enviar' | translate}}
-    		</button>
-        </br>
-        </br>
-        </br>
-      </div>
-      </br>
-  	</div>
-</form>
-
+<!-- <div class="provisorio "> -->
+<div class="marginTopForm">
+  <form name="formulario" class="row  painel-animado gridCardapio configuracoesDetalhePedido " ng-submit="submeter()>
+    <div class="alinharSeta  provisorio  col-xs-12 col-sm-10 col-md-10 col-lg-10" >
+          <div class="descricaoMargin itemGridFormulario thumbnail  container-fluid painel-animado " ng-disabled="true" ng-model="detalharCardapio.descricao">
+              <div class="form-group">
+                <img class=" img-responsive imgCardapio tratarImgDetalhe"    src="{{detalharCardapio.url}}">
+              </div>
+              <div class=" layoutTituDescForm list-group col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                <div class="form-group" >
+                  <h4 class="textUpper">{{detalharCardapio.titulo}}</h4>
+                </div>
+                <div class=" form-group">
+                  <p>{{detalharCardapio.descricao}}.</p>
+                  <b>SERVE 3 PESSOAS</b>
+                </div>
+                <input class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="5" value="{{pedido.valor | currency: 'R$ '}}">
+                <a href="#" ng-click="btnDiminuir()" > <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a>
+                <input class="bordaPedido " type="text" ng-model="pedido.quantidade" maxlength="2" size="2" value="{{pedido.quantidade}}">
+                <a href="#" ng-click="btnAumentar()" >
+                  <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                </a>
+              </div>
+          </div>
+          <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <a href="#" ng-click="goBack()" class="btn btn-primary">{{'label.voltar' | translate}}</a>
+            <button ui-sref="acompanhamento" type="submit" class="btn btn-primary" >
+              {{'label.enviar' | translate}}
+            </button>
+          </div>
+    </div>
+  </form>
 </div>
+
+
+<!-- </div> -->
