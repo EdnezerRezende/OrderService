@@ -2,6 +2,16 @@ html,
 body{
 	height: 100%;
 }
+.content-center {
+	position: fixed !important;
+	margin-top: -5em;
+	margin-left: -1em;
+	padding-right: 0% !important;
+	padding-left: 0% !important;
+	max-width: 100% !important;
+	padding: 9px 10px;
+ }
+
 header {
 
 	background-size: cover;
@@ -134,7 +144,7 @@ container .navbar-header{
 				margin-top: -6px !important;
 	}
 	.tituloView{
-		 margin-left: -25% !important;
+		 /*margin-left: 41% !important;*/
 	}
 }
 @media(min-width: 263px){
@@ -196,7 +206,7 @@ container .navbar-header{
 
 @media (min-width: 420px) {
 	.fixarFiltro {
-			margin-top: -2%;
+			margin-top: -9.4%;
 	}
 
 }
@@ -262,7 +272,7 @@ container .navbar-header{
 		.confFiltro{
 			width: 88% !important;
 			margin-top: -6.3%;
-			margin-left: 0%;
+			margin-left: -2.4%;
 		}
 		.reducaoImagemMenu{
 			display: flex;
@@ -293,7 +303,7 @@ container .navbar-header{
 }
 @media(min-width: 650px){
 	.confFiltro{
-	 margin-top: -6.6% !important;
+	 margin-top: 0% !important;
 	}
 	.imgCardapio {
       margin-top: 7% !important;
@@ -348,13 +358,14 @@ container .navbar-header{
 		width: 100% !important;
 	}
 	.tamanhoMenuCardapio{
+		/*float: right;*/
 		margin-top: -6% !important;
 		display: list-item !important;
 	}
-	.collapse{
+	/*.collapse{
 		margin-top: -10%;
 		margin-left: 38% !important;
-	}
+	}*/
 	.confFiltro{
 		margin-top: 1% !important;
 		width: 40% !important;
@@ -373,7 +384,9 @@ container .navbar-header{
 	/*.alinharTraducao{
 		padding-left: 44% !important;
 	}*/
-
+	.navbar-toggle {
+    display: grid !important;
+	}
 }
 @media(min-width: 800px){
 	.imgCardapio {
@@ -606,9 +619,9 @@ footer{
 	margin-top: 4%;
 }
 .tituloView{
-	margin-left: -9%;
-  margin-top: 2%;
-	color: floralwhite;
+	margin-left: 41%;
+  margin-top: -5%;
+	/*color: floralwhite;*/
 }
 .imgCardapio{
 	 max-width: 180px;
@@ -629,9 +642,23 @@ footer{
 
 }
 .layoutTituDescForm{
+	text-align: left;
+	font-size: 12px;
+	margin-left: 7px;
 	padding-right: 0px !important;
 	box-shadow: 0 1px 2px rgba(0,0,0,0) !important;
-	margin-top: 9px;
+	margin-top: 0px;
+}
+.descricaoCardapio{
+	text-align: left;
+	font-size: 10px;
+	color: black;
+	margin-top: -15px;
+	margin-left: 6px;
+}
+.observacaoCardapio{
+	font-size: 10px;
+	color: red;
 }
 .descricaoMargin{
 	margin-bottom: 0px !important;
@@ -662,4 +689,15 @@ footer{
 .campoBlue{
 	background-color: blue;
 }
+.alinharMenuCardapio{
+	float: left !important;
+}
+	.controleLupa{
+		margin-bottom: 1em !important;
+		margin-top: -3em !important;
+	}
+	.tituloView2{
+		margin-top: -2em !important;
+		margin-left: 40%;
+	}
 }

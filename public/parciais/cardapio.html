@@ -1,33 +1,41 @@
 <!--Imagens do Cardapio Disponível-->
 <div class="container provisorio ">
   <!-- Filtro e MENU -->
-  <div class=" fixarFiltro">
+  <div class="content-center col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
           <!-- data-target="#collapse-navbar" -->
-          <button type="button" class="navbar-toggle collapsed" data-toggle="{{vlrCollapse}}"  data-target="#menuCardapio" aria-expanded="{{fechaMenu}}">
+          <button type="button" class="alinharMenuCardapio navbar-toggle collapsed" data-toggle="{{vlrCollapse}}"  data-target="#menuCardapio" aria-expanded="{{fechaMenu}}">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
         </div>
+        <div id="tituloView" class="textUpper tituloView2 col-xs-2 col-sm-2 col-md-2 col-lg-2" >
+            <label >{{tituloPagina | translate}}</label>
+        </div>
         <!-- Filtro para ser utilizado no Cardápio ( ng-repeat )-->
-          <input class="confFiltro form-control" placeholder="{{'label.filtroPlaced' | translate}}"  ng-model="filtro" ng-model-options="{ debounce: 500 }">
+          <a class="navbar-toggle collapsed controleLupa" data-toggle="collapse"  data-target="#filtroColapsado" aria-expanded="false">
+            <p hidden="false" class="glyphicon glyphicon-search" ></p>
+          </a>
+
+          <input id="filtroColapsado" class=" form-control collapse navbar-collapse" placeholder="{{'label.filtroPlaced' | translate}}"  ng-model="filtro" ng-model-options="{ debounce: 500 }">
+
           <div  id="menuCardapio" class="tamanhoMenuCardapio collapse navbar-collapse "  >
             <ul class="nav navbar-nav">
               <li  ng-click="fecharMenu()" ng-repeat="categoria in categorias | orderBy:'-categoria'">
                 <a ng-href="#{{categoria.tipo}}" >{{categoria.tipo}}</a>
               </li>
             </ul>
-        </div>
+          </div>
       </div>
     </nav>
   </div>
 </div>
 <!-- Form contendo a categoria, título, imagem e descrição dos produtos/serviços  -->
-<div class="marginTopForm">
+<div class=""><!--Tirei marginTopForm dessa div-->
   <form name="formulario" class="row  painel-animado gridCardapio "  ng-repeat="categoria in categorias | orderBy:'categorias.tipo'">
     <div class="alinharSeta  provisorio  col-xs-12 col-sm-10 col-md-10 col-lg-10" >
           <div  class="form-group backgroundTitulo">
@@ -42,8 +50,10 @@
                 <div class="form-group" >
                   <h4 class="textUpper">{{item.titulo}}</h4>
                 </div>
-                <div class=" form-group">
+                <div class="form-group descricaoCardapio">
                   <p>{{item.descricao}}.</p>
+                </div>
+                <div class="observacaoCardapio">
                   <b>SERVE 3 PESSOAS</b>
                 </div>
               </div>
