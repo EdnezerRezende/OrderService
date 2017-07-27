@@ -384,8 +384,15 @@ container .navbar-header{
 	/*.alinharTraducao{
 		padding-left: 44% !important;
 	}*/
-	.navbar-toggle {
+	/*.navbar-toggle {
     display: grid !important;
+	}*/
+	.layoutFiltro768{
+		float: right;
+    margin-top: 1em;
+	}
+	.tituloView2 {
+    margin-top: 1em !important;
 	}
 }
 @media(min-width: 800px){
@@ -537,6 +544,15 @@ footer{
 	margin-right: -13.5%;
 	text-align: center;
 }
+.alinharSeta2{
+	position: inherit !important;
+	display: grid;
+	align-content: center;
+	margin-left: 0%;
+	width: 100% !important;
+  padding-left: 0em !important;
+	text-align: center;
+}
 .alinharContainerSeta{
 	background-color: inherit;
 	height: 100%;
@@ -636,6 +652,8 @@ footer{
 	align-content: space-between;
 	width: 100%;
 	height: 100%;
+	/*margin-left: -16px !important;
+padding-right: 60px !important;*/
 }
 .list-group{
 	position: inherit !important;
@@ -683,7 +701,7 @@ footer{
 	 width: 100% !important;
 }
 .tratarImgDetalhe{
-	    margin-top: -55% !important;
+	    /*margin-top: -55% !important;*/
 			max-width: 277px !important;
 }
 .campoBlue{
@@ -697,7 +715,11 @@ footer{
 		margin-top: -3em !important;
 	}
 	.tituloView2{
-		margin-top: -2em !important;
+		margin-top: -2em ;
+		margin-left: 40%;
+	}
+	.tituloViewPedido{
+		margin-top: 1em ;
 		margin-left: 40%;
 	}
 }

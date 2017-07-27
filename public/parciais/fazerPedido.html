@@ -1,12 +1,28 @@
 <!-- <div class="provisorio "> -->
+<div class="container provisorio ">
+  <!-- Filtro e MENU -->
+  <div class="content-center col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
+    <nav class="navbar navbar-default">
+      <div class="container">
+
+        <div id="tituloView" class="textUpper tituloViewPedido col-xs-2 col-sm-2 col-md-2 col-lg-2" >
+            <label >{{tituloPagina | translate}}</label>
+        </div>
+
+      </div>
+    </nav>
+  </div>
+</div>
+
+
 <div class="marginTopForm">
-  <form name="formulario" class="row  painel-animado gridCardapio configuracoesDetalhePedido " ng-submit="submeter()>
-    <div class="alinharSeta  provisorio  col-xs-12 col-sm-10 col-md-10 col-lg-10" >
+  <form name="formulario" class="row  painel-animado gridCardapio configuracoesDetalhePedido " ng-submit="submeter()">
+    <div class="alinharSeta2  provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
           <div class="descricaoMargin itemGridFormulario thumbnail  container-fluid painel-animado " ng-disabled="true" ng-model="detalharCardapio.descricao">
               <div class="form-group">
-                <img class=" img-responsive imgCardapio tratarImgDetalhe"    src="{{detalharCardapio.url}}">
+                <img class=" imgCardapio tratarImgDetalhe"    src="{{detalharCardapio.url}}"><!-- img-responsive-->
               </div>
-              <div class=" layoutTituDescForm list-group col-xs-12 col-sm-10 col-md-10 col-lg-10">
+              <div class=" layoutTituDescForm list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group" >
                   <h4 class="textUpper">{{detalharCardapio.titulo}}</h4>
                 </div>

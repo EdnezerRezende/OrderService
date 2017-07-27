@@ -1,4 +1,4 @@
-angular.module('selfservice', ['ui.router', 'pascalprecht.translate'])
+angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate'])
 .config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
   $locationProvider.html5Mode(true);
@@ -136,9 +136,6 @@ function ($rootScope, $window) {
        valor: 4.00
      }
    ];
-
-
-
 
 }]);
 ;

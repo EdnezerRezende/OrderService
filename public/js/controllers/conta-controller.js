@@ -1,3 +1,3 @@
-angular.module('selfservice').controller('ContaController', function($scope) {
+angular.module('fazerumpedido').controller('ContaController', function($scope) {
 
 });

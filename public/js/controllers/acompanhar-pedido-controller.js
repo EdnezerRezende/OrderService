@@ -1,2 +1,2 @@
-angular.module('selfservice').controller('AcompanharPedidoController', function($scope) {
+angular.module('fazerumpedido').controller('AcompanharPedidoController', function($scope) {
 });

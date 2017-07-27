@@ -1,4 +1,4 @@
-angular.module('selfservice').controller('FazerPedidoController', function($scope, $stateParams, $rootScope){
+angular.module('fazerumpedido').controller('FazerPedidoController', function($scope, $stateParams, $rootScope){
   $rootScope.tituloPagina = "Pedido";
   $rootScope.pedido.observacao= "";
   $rootScope.pedido.quantidade = 1;

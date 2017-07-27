@@ -1,4 +1,4 @@
-angular.module('selfservice')
+angular.module('fazerumpedido')
 .config(['$translateProvider', function ($translateProvider) {
 
   $translateProvider.translations('en', {

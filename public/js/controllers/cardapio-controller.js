@@ -1,4 +1,4 @@
-angular.module('selfservice').controller('CardapioController', function($scope, $stateParams, $rootScope) {
+angular.module('fazerumpedido').controller('CardapioController', function($scope, $stateParams, $rootScope) {
     $rootScope.tituloPagina = "Cardapio";
     var ctrl = this;
 

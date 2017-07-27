@@ -1,4 +1,4 @@
-angular.module('selfservice').controller('PrincipalController', function($scope, $rootScope, $stateParams, $state, $translate, $location) {
+angular.module('fazerumpedido').controller('PrincipalController', function($scope, $rootScope, $stateParams, $state, $translate, $location) {
 	// $scope.esconderBtnVoltar = true;
 	// $scope.esconderImagemLogo = false;
 	// valor SubTotal do menu superior.

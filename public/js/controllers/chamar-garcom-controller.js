@@ -1,4 +1,4 @@
-angular.module('selfservice').controller('ChamarGarcomController', function($scope) {
+angular.module('fazerumpedido').controller('ChamarGarcomController', function($scope) {
 
   $scope.alerta = function(){
       var config = {};
