@@ -13,15 +13,15 @@
             <span class="icon-bar"></span>
           </button>
         </div>
-        <div id="tituloView" class="textUpper tituloView2 col-xs-2 col-sm-2 col-md-2 col-lg-2" >
+        <!-- <div id="tituloView" class="textUpper tituloView2 col-xs-2 col-sm-2 col-md-2 col-lg-2" >
             <label >{{tituloPagina | translate}}</label>
-        </div>
+        </div> -->
         <!-- Filtro para ser utilizado no Cardápio ( ng-repeat )-->
-          <a class="navbar-toggle collapsed controleLupa" data-toggle="collapse"  data-target="#filtroColapsado" aria-expanded="false">
-            <p hidden="false" class="glyphicon glyphicon-search" ></p>
+          <a class="navbar-toggle collapsed controleLupa"   >
+            <p  class="glyphicon glyphicon-search" ></p>
           </a>
 
-          <input id="filtroColapsado" class="layoutFiltro768 form-control collapse navbar-collapse" placeholder="{{'label.filtroPlaced' | translate}}"  ng-model="filtro" ng-model-options="{ debounce: 500 }">
+          <input  class="layoutFiltro768 alinharInputFiltro form-control navbar-collapse" placeholder="{{'label.filtroPlaced' | translate}}"  ng-model="filtro" ng-model-options="{ debounce: 500 }">
 
           <div  id="menuCardapio" class="tamanhoMenuCardapio collapse navbar-collapse "  >
             <ul class="nav navbar-nav">
@@ -39,23 +39,27 @@
   <form name="formulario" class="row  painel-animado gridCardapio "  ng-repeat="categoria in categorias | orderBy:'categorias.tipo'">
     <div class="alinharSeta  provisorio  col-xs-12 col-sm-10 col-md-10 col-lg-10" >
           <div  class="form-group backgroundTitulo">
-              <h3 class="textUpper" id="{{categoria.tipo}}" ng-bind="categoria.tipo" > {{categoria.tipo}} </h3>
+              <h3 class="textUpper textCategoria" id="{{categoria.tipo}}" ng-bind="categoria.tipo" > {{categoria.tipo}} </h3>
           </div>
           <div class="descricaoMargin itemGridFormulario thumbnail  container-fluid painel-animado " ng-if="categoria.tipo == item.categoria " ng-repeat="item in cardapio | orderBy: 'cardapio.titulo' | filter: filtro">
             <a href="/pedido/{{item.id}}"  class="itemAlinhar" ng-click="enviarItem(item)">
               <div class="form-group">
                 <img class=" imgCardapio"    src="{{item.url}}">
-              </div>
-              <div class=" layoutTituDescForm list-group col-xs-12 col-sm-10 col-md-10 col-lg-10">
-                <div class="form-group" >
-                  <h4 class="textUpper">{{item.titulo}}</h4>
-                </div>
-                <div class="form-group descricaoCardapio">
-                  <p>{{item.descricao}}.</p>
+                <div class="paddingValorCardapio">
+                  <input class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10" value="{{item.valor | currency: 'R$ '}}">
                 </div>
                 <div class="observacaoCardapio">
                   <b>SERVE 3 PESSOAS</b>
                 </div>
+              </div>
+              <div class="noBorder list-group col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                <div class="layoutTituDescForm form-group" >
+                  <p class="textUpperTitulo">{{item.titulo}}</p>
+                </div>
+                <div class="form-group descricaoCardapio">
+                  <p>{{item.descricao}}.</p>
+                </div>
+
               </div>
               <div >
                   <!-- <div class="alinharContainerSeta">

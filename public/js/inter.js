@@ -21,7 +21,7 @@ angular.module('fazerumpedido')
   });
 
   $translateProvider.translations('pt', {
-    'label.filtroPlaced': 'Filtrar produto desejado',
+    'label.filtroPlaced': 'CARDÁPIO',
     'label.tituloPagina': 'Cardápio',
     'label.tituloFecharConta': 'Fechamento de Conta',
     'label.tituloAcompanhar': 'Acompanhamento de Pedido',
