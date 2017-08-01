@@ -28,6 +28,11 @@ angular.module('fazerumpedido').controller('CardapioController', function($scope
            javascript:void(0);
        });
     };
+    $scope.ativaFiltro = function (){
+      console.log("aqui");
+        $("#campoFiltroAtivo").focus;
+        
+    };
 
 
 
