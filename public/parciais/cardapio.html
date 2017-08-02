@@ -17,12 +17,11 @@
             <label >{{tituloPagina | translate}}</label>
         </div> -->
         <!-- Filtro para ser utilizado no Cardápio ( ng-repeat )-->
-          <a id="atvFi" class="navbar-toggle collapsed controleLupa" target="campoFiltroAtivo" ng-click="ativar = true" ng-click="ativaFiltro()" >
+          <a id="atvFi" class="navbar-toggle collapsed controleLupa" target="campoFiltroAtivo"  ng-click="ativaFiltro()" >
             <p  class="glyphicon glyphicon-search" ></p>
           </a>
 
-          <input  id="campoFiltroAtivo" class="layoutFiltro768 alinharInputFiltro form-control navbar-collapse"  ng-show="!ativar" placeholder="{{'label.filtroPlaced' | translate}}"  ng-model="filtro">
-          <input  id="campoFiltroAtivo" class="layoutFiltro768 alinharInputFiltro form-control navbar-collapse" onfocus="" ng-show="ativar" placeholder="PESQUISE O PRODUTO DESEJADO"  ng-model="filtro">
+          <input  id="campoFiltroAtivo" class="layoutFiltro768 alinharInputFiltro form-control navbar-collapse"   placeholder="{{ativaLabelFiltro | translate}}"  ng-model="filtro">
 
           <div  id="menuCardapio" class="AlinhaMenu tamanhoMenuCardapio collapse"  >
             <ul class="nav navbar-nav">
@@ -50,7 +49,7 @@
                   <input class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10" value="{{item.valor | currency: 'R$ '}}">
                 </div>
                 <div class="observacaoCardapio">
-                  <b>SERVE 3 PESSOAS</b>
+                  <b>{{item.observacao}}</b>
                 </div>
               </div>
               <div class="noBorder list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">

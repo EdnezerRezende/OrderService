@@ -16,7 +16,8 @@ angular.module('fazerumpedido')
     'label.voltar': 'Come back',
     'label.enviar': 'CONFIRM',
     'Cardapio': 'Menu',
-    'Pedido': 'Order'
+    'Pedido': 'Order',
+    'label.ativaLabelFiltro': 'Enter the desired product'
 
   });
 
@@ -34,7 +35,8 @@ angular.module('fazerumpedido')
     'label.voltar': 'Voltar',
     'label.enviar': 'CONFIRMAR',
     'Cardapio': 'Cardápio',
-    'Pedido': 'Pedido'
+    'Pedido': 'Pedido',
+    'label.ativaLabelFiltro': 'Digite o produto desejado'
   });
 
   $translateProvider.translations('es', {
@@ -51,7 +53,8 @@ angular.module('fazerumpedido')
     'label.voltar': 'Volver',
     'label.enviar': 'CONFIRMAR',
     'Cardapio': 'Menú',
-    'Pedido': 'Solicitud'
+    'Pedido': 'Solicitud',
+    'label.ativaLabelFiltro': 'Introduzca el producto deseado'
 
   });
 

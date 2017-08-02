@@ -3,9 +3,13 @@
   <!-- Filtro e MENU -->
   <div class="content-center col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
     <nav class="navbar navbar-default">
-      <div class="container">
-
-        <div id="tituloView" class="textUpper tituloViewPedido col-xs-2 col-sm-2 col-md-2 col-lg-2" >
+      <div class="container ajustarBarraSuperiorPedidos">
+        <div class="">
+          <a href="#" ng-click="goBack()" class="regularBtnVoltarPedido">
+            <span class="glyphicon glyphicon-menu-left" ></span>
+          </a>
+        </div>
+        <div id="tituloView" class="textUpper layoutFiltro768 tituloViewPedido col-xs-2 col-sm-2 col-md-2 col-lg-2" >
             <label >{{tituloPagina | translate}}</label>
         </div>
 
@@ -16,11 +20,54 @@
 
 
 <div class="marginTopForm">
+  <form name="formulario" class="row  painel-animado gridCardapio "  ng-submit="submeter()">
+    <div class="definirTamanhoPedido alinharSeta  provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+          <div class="descricaoMargin itemGridFormulario2 thumbnail  container-fluid painel-animado " ng-disabled="true" ng-model="detalharCardapio.descricao">
+              <div class="regularAlturaImagemPedido form-group">
+                <img class=" imgCardapio"
+                  id="zoom_04" data-zoom-image="{{detalharCardapio.url}}"
+                  src="{{detalharCardapio.url}}"/>
+                <div class="paddingValorCardapio">
+                  <input class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10" value="{{detalharCardapio.valor | currency: 'R$ '}}">
+                </div>
+                <div class="observacaoCardapio">
+                  <b>{{detalharCardapio.observacao}}</b>
+                </div>
+              </div>
+              <div class="definicaoTituloViewPedido noBorder list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="layoutTituDescForm form-group" >
+                  <p class="textUpperTitulo">{{detalharCardapio.titulo}}</p>
+                </div>
+                <div class="form-group descricaoCardapio">
+                  <p>{{detalharCardapio.descricao}}.</p>
+                </div>
+                <div class="alinharQuantidadePedido">
+                  <a href="#" ng-click="btnDiminuir()" >
+                    <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+                  </a>
+                  <input class="bordaPedido " type="text" ng-model="pedido.quantidade" maxlength="2" size="2" value="{{pedido.quantidade}}">
+                  <a href="#" ng-click="btnAumentar()" >
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+               <button ui-sref="acompanhamento" type="submit" class="btn btn-primary" >
+                {{'label.enviar' | translate}}
+               </button>
+            </div>
+    </div>
+  </form>
+
+
+<!--
   <form name="formulario" class="row  painel-animado gridCardapio configuracoesDetalhePedido " ng-submit="submeter()">
     <div class="alinharSeta2  provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
           <div class="descricaoMargin itemGridFormulario thumbnail  container-fluid painel-animado " ng-disabled="true" ng-model="detalharCardapio.descricao">
               <div class="form-group">
-                <img class=" imgCardapio tratarImgDetalhe"    src="{{detalharCardapio.url}}"><!-- img-responsive-->
+                <img class=" imgCardapio tratarImgDetalhe"    src="{{detalharCardapio.url}}">
               </div>
               <div class=" layoutTituDescForm list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="form-group" >
@@ -39,14 +86,11 @@
               </div>
           </div>
           <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <a href="#" ng-click="goBack()" class="btn btn-primary">{{'label.voltar' | translate}}</a>
-            <button ui-sref="acompanhamento" type="submit" class="btn btn-primary" >
+             <a href="#" ng-click="goBack()" class="btn btn-primary">{{'label.voltar' | translate}}</a> -->
+            <!-- <button ui-sref="acompanhamento" type="submit" class="btn btn-primary" >
               {{'label.enviar' | translate}}
             </button>
           </div>
-    </div>
-  </form>
+    </div> -->
+  <!-- </form>-->
 </div>
-
-
-<!-- </div> -->

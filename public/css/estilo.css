@@ -686,6 +686,20 @@ footer{
 	/*margin-left: -16px !important;
 padding-right: 60px !important;*/
 }
+.itemGridFormulario2{
+	display: inline-flex !important;
+	/*align-items: flex-end;*/
+	align-content: space-between;
+	width: 100%;
+	height: 100%;
+	/*margin-left: -16px !important;
+padding-right: 60px !important;*/
+}
+.alinharQuantidadePedido{
+	margin-top: 14%;
+	margin-left: -37%
+}
+
 .list-group{
 	position: inherit !important;
 
@@ -709,6 +723,7 @@ padding-right: 60px !important;*/
 	font-size: 10px;
 	padding-bottom: 15px;
 	margin-top: -12px;
+	text-transform: uppercase;
 	color: red;
 }
 .descricaoMargin{
@@ -782,8 +797,8 @@ color: #888;
 	margin-left: 33%;
 }
 .tituloViewPedido{
-	margin-top: 1em ;
-	margin-left: 40%;
+	margin-top: 0em ;
+	margin-left: 36%;
 }
 .alinharInputFiltro{
 	border: 0px !important;
@@ -805,5 +820,33 @@ color: #888;
 }
 .limiteUrlDescricao{
 	margin-bottom: 1em;
+}
+.ajustarBarraSuperiorPedidos{
+	display: flex;
+  align-items: center;
+	margin-bottom: -2% !important;
+}
+.regularBtnVoltarPedido{
+	margin-left: -0.7em;
+	font-size: -webkit-xxx-large;
+  color: black;
+}
+.definirTamanhoPedido{
+	 margin-left: -0.4% !important;
+	 width: 113% !important;
+}
+.definicaoTituloViewPedido{
+	/*margin-bottom: 11.9em !important;*/
+	    align-items: none;
+}
+.definirQuantidadePedido{
+	display: flex;
+	align-items: center;
+	margin-left: -36em;
+	margin-right: 27em;
+	margin-bottom: 4em;
+}
+.regularAlturaImagemPedido{
+	    margin-bottom: auto !important;
 }
 }

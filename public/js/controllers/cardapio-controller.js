@@ -28,10 +28,17 @@ angular.module('fazerumpedido').controller('CardapioController', function($scope
            javascript:void(0);
        });
     };
+
+    $scope.ativaLabelFiltro = "label.filtroPlaced";
     $scope.ativaFiltro = function (){
-      console.log("aqui");
-        $("#campoFiltroAtivo").focus;
-        
+      if(!($scope.ativaLabelFiltro === 'label.filtroPlaced')){
+        $scope.ativaLabelFiltro = "label.filtroPlaced";
+        document.getElementById('campoFiltroAtivo').blur();
+      }else{
+        $scope.ativaLabelFiltro = "label.ativaLabelFiltro";
+        document.getElementById('campoFiltroAtivo').focus();
+      }
+
     };
 
 
