@@ -22,18 +22,6 @@ angular.module('fazerumpedido').controller('FazerPedidoController', function($sc
     }
   };
 
-  $('.img-responsive').on( "click", function() {
-    $(this).animate({
-    width:'100%',
-    height:'100%'
-    });
-    });
-
-$('.img-responsive').mouseout(function() {
-    $(this).animate({
-    width:'50%',
-    height:'50%'
-    });
-    });
+  
 
 });

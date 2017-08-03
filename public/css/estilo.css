@@ -696,7 +696,8 @@ padding-right: 60px !important;*/
 padding-right: 60px !important;*/
 }
 .alinharQuantidadePedido{
-	margin-top: 14%;
+	display: inline-flex;
+	margin-top: 8%;
 	margin-left: -37%
 }
 
@@ -836,7 +837,7 @@ color: #888;
 	 width: 113% !important;
 }
 .definicaoTituloViewPedido{
-	/*margin-bottom: 11.9em !important;*/
+	margin-bottom: 4.9em !important;
 	    align-items: none;
 }
 .definirQuantidadePedido{
@@ -848,5 +849,15 @@ color: #888;
 }
 .regularAlturaImagemPedido{
 	    margin-bottom: auto !important;
+}
+.tamanhoCampoPedido{
+	width: 50%;
+	/*height: 100%;*/
+}
+.glyphicon-minus-sign{
+	font-size: 23px;
+}
+.glyphicon-plus-sign{
+	font-size: 23px;
 }
 }

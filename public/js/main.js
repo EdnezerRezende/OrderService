@@ -51,9 +51,9 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate'])
 .run(['$rootScope', '$window',
 function ($rootScope, $window) {
   $rootScope.tituloPagina = "";
-
+   $rootScope.$window = $window;
   $rootScope.goBack = function(){
-   $window.history.back();
+    $window.history.back();
   };
 
    $rootScope.detalharCardapio=[];
