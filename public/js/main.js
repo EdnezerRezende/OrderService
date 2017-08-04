@@ -51,8 +51,12 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate'])
 .run(['$rootScope', '$window',
 function ($rootScope, $window) {
   $rootScope.tituloPagina = "";
+  $rootScope.tituloPagina2 = "";
    $rootScope.$window = $window;
   $rootScope.goBack = function(){
+    $rootScope.pedido.observacao= "";
+    $rootScope.pedido.quantidade = 1;
+    $rootScope.pedido.restricao = "";
     $window.history.back();
   };
 

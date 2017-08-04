@@ -860,4 +860,7 @@ color: #888;
 .glyphicon-plus-sign{
 	font-size: 23px;
 }
+.alinharDisplayPedido{
+	display: table;
+}
 }
