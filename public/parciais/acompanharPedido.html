@@ -20,45 +20,47 @@
 
 
 <div class="marginTopForm">
-  <form name="formulario" class="row  painel-animado gridCardapio "  ng-submit="submeter()">
+  <form name="formulario" class="row  painel-animado gridCardapio "  ng-repeat="item in acompanhamentos | orderBy: 'statusCod' " ng-init="calculaBarra(item)">
     <div class="definirTamanhoPedido alinharSeta  provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
           <div class="descricaoMargin itemGridFormulario2 thumbnail  container-fluid painel-animado " ng-disabled="true" >
               <div class="regularAlturaImagemPedido form-group">
                 <!-- <a href="images/image-1.jpg" data-lightbox="image-1" data-title="My caption">Image #1</a> -->
-                <a target="_blank" href="{{pedido.url}}" title="{{pedido.titulo}}" rel="shadowbox">
-                  <img class=" imgCardapio" src="{{pedido.url}}"/>
+                <a target="_blank" href="{{item.url}}" title="{{item.titulo}}" rel="shadowbox">
+                  <img class=" imgCardapio" src="{{item.url}}"/>
                 </a>
-                <div class="paddingValorCardapio">
+                <!-- <div class="paddingValorCardapio">
                   <input class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10" ng-disabled="true" value="{{detalharCardapio.valor | currency: 'R$ '}}">
                 </div>
                 <div class="observacaoCardapio">
                   <b>{{pedido.observacao}}</b>
-                </div>
+                </div> -->
               </div>
               <div class="definicaoTituloViewPedido noBorder list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="layoutTituDescForm form-group" >
-                  <p class="textUpperTitulo">{{pedido.titulo}}</p>
+                  <p class="textUpperTitulo">{{item.titulo}}</p>
                 </div>
-                <div class="form-group descricaoCardapio">
+                <!-- <div class="form-group descricaoCardapio">
                   <p>{{pedido.descricao}}.</p>
-                </div>
-                <div class="form-group alinharDisplayPedido">
+                </div> -->
+                <!-- <div class="form-group alinharDisplayPedido">
                   <textarea type="text" ng-disabled="true" maxlength="100" class="tamanhoCampoPedido bordaPedido campoBlue" size="30" >{{pedido.observacao}}</textarea>
-                </div>
+                </div> -->
                 <div>
                   <div>
-                    <p>{{pedido.status}}</p>
+                    <p>{{item.status}}</p>
                   </div>
-                  <div class="progress">
+                  <div class="progress" >
 
-                      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                      <div class="progress-bar progress-bar-striped active" role="progressbar"
+                                aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+                                style="width: {{item.evolucao}}%" >
                       <span class="sr-only">45% Complete</span>
                     </div>
                   </div>
                 </div>
-                <div class="alinharQuantidadePedido">
+                <!-- <div class="alinharQuantidadePedido">
                   <input class="bordaPedido campoBlue" ng-disabled="true" type="text" ng-model="pedido.quantidade" maxlength="2" size="2" value="{{pedido.quantidade}}">
-                </div>
+                </div> -->
               </div>
             </div>
     </div>

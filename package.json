@@ -1,18 +1,23 @@
 {
-  "name": "selfservice",
+  "name": "fazerumpedido",
   "version": "1.0.0",
-  "description": "",
+  "description": "Fazer Um Pedido é um programa para solicitações do cardápio pelo próprio Cliente",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Ednezer de Godoi Rezende",
   "license": "ISC",
   "dependencies": {
     "angular-ui-router": "^1.0.3",
     "body-parser": "^1.12.3",
     "express": "^4.12.3",
     "nedb": "^1.1.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "origin2"
   }
 }

@@ -53,15 +53,60 @@ function ($rootScope, $window) {
   $rootScope.tituloPagina = "";
   $rootScope.tituloPagina2 = "";
    $rootScope.$window = $window;
+
   $rootScope.goBack = function(){
-    $rootScope.pedido.observacao= "";
-    $rootScope.pedido.quantidade = 1;
-    $rootScope.pedido.restricao = "";
+    $rootScope.detalharCardapio.observacao= "";
+    $rootScope.detalharCardapio.quantidade = 1;
+    $rootScope.detalharCardapio.restricao = "";
     $window.history.back();
   };
 
    $rootScope.detalharCardapio=[];
-   $rootScope.pedido=[];
+   $rootScope.pedidos = [];
+   $rootScope.acompanhamentos = [
+     {
+       id: 1,
+       categoria: "Sobremesas",
+       titulo: "Found de Chocolote",
+       url: "img/found.jpg",
+       descricao: "Found de Chocolate com guarnições de Banana, morango e abacaxi",
+       restricao: "Muito morango",
+       observacao: "Serve 3 Pessoas",
+       quantidade: "1",
+       status: "Em Preparo",
+       statusCod: 2,
+       evolucao: 0,
+       valor: 35.00
+     },
+     {
+       id:3,
+       categoria: "Petiscos",
+       titulo: "Pão recheado",
+       url: "img/pao_carne.jpg",
+       descricao: "Contém uma porção de 12 unidades de pão recheado com carne",
+       restricao: "sem cebola",
+       observacao: "Serve 3 Pessoas",
+       quantidade: "1",
+       status: "Pronto",
+       statusCod: 3,
+       evolucao: 0,
+       valor: 15.00
+     },
+     {
+       id:3,
+       categoria: "Petiscos",
+       titulo: "Pão recheado",
+       url: "img/pao_carne.jpg",
+       descricao: "Contém uma porção de 12 unidades de pão recheado com carne",
+       restricao: "sem cebola",
+       observacao: "Serve 3 Pessoas",
+       quantidade: "1",
+       status: "Entregue",
+       statusCod: 4,
+       evolucao: 0,
+       valor: 15.00
+     },
+   ];
 
    $rootScope.categorias = [
      {

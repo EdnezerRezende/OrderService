@@ -22,10 +22,10 @@ angular.module('fazerumpedido').controller('FazerPedidoController', function($sc
   };
 
   $scope.submeter =  function(){
-    $rootScope.pedido = $rootScope.detalharCardapio;
-    // $rootScope.pedido.valor=$rootScope.detalharCardapio.valor;
-    // $rootScope.pedido.quantidade=$rootScope.detalharCardapio.quantidade;
-    $rootScope.pedido.status = "Solicitado";
+    $rootScope.detalharCardapio.status = "Solicitado";
+    $rootScope.detalharCardapio.statusCod = 1;
+    $rootScope.acompanhamentos.push($rootScope.detalharCardapio);
+
   };
 
 });

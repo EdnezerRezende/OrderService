@@ -863,4 +863,7 @@ color: #888;
 .alinharDisplayPedido{
 	display: table;
 }
+.progress {
+    margin-left: 15px;
+	}
 }
