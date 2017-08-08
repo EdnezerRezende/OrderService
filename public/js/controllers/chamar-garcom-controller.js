@@ -1,10 +1,8 @@
-angular.module('fazerumpedido').controller('ChamarGarcomController', function($scope) {
+angular.module('fazerumpedido').controller('ChamarGarcomController', function($scope, $stateParams, $rootScope) {
 
-  $scope.alerta = function(){
-      var config = {};
-      growl.success("<b>Mensagem de Sucesso</b>", config);
-      growl.info("Mensagem Info", config);
-      growl.warning("Mensagem Alerta", config);
-      growl.error("Mensagem Erro :(", config);
-   }
+  $rootScope.tituloPagina4 = "garcons";
+
+  $scope.chamar = function(nome){
+    alert("O Garçon " + nome + " está vindo para lhe atender, aguarde que em breve ele chegará ai!");
+  }
 });

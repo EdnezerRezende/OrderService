@@ -695,6 +695,30 @@ padding-right: 60px !important;*/
 	/*margin-left: -16px !important;
 padding-right: 60px !important;*/
 }
+.itemGridGarcon{
+	display: inline-flex !important;
+	/*align-items: flex-end;*/
+	align-content: space-between;
+	width: 100%;
+	height: 100%;
+	/*margin-left: -16px !important;
+padding-right: 60px !important;*/
+}
+.imgGarcon{
+	width: 100%;
+  height: 100%;
+  display: flex;
+}
+.tamanhoApresentacaoGarcon{
+	width: 250%;
+}
+.regularBtnGarcon{
+	 margin-top: 4em !important;
+}
+.escondeImgGarcaon{
+	position: initial !important;
+}
+
 .alinharQuantidadePedido{
 	display: inline-flex;
 	margin-top: 8%;
@@ -865,5 +889,13 @@ color: #888;
 }
 .progress {
     margin-left: 15px;
+	}
+	.btnFecharConta {
+		position: initial !important;
+		margin-left: 43%;
+		margin-bottom: 10% !important;
+	}
+	.alinharTabelaFecharConta{
+		margin-left: 0em !important;
 	}
 }

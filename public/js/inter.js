@@ -17,6 +17,10 @@ angular.module('fazerumpedido')
     'label.enviar': 'CONFIRM',
     'Cardapio': 'Menu',
     'Pedido': 'Order',
+    'label.fecharConta': 'Close  account',
+    'label.tituloFecharConta': 'Close  account',
+    'garcons': 'Garçons',
+    'label.chamarGarcom': 'Call',
     'label.ativaLabelFiltro': 'Enter the desired product'
 
   });
@@ -36,6 +40,10 @@ angular.module('fazerumpedido')
     'label.enviar': 'CONFIRMAR',
     'Cardapio': 'Cardápio',
     'Pedido': 'Pedido',
+    'label.fecharConta': 'Fechar Conta',
+    'label.tituloFecharConta': 'Fechar Conta',
+    'garcons': 'Garçons',
+    'label.chamarGarcom': 'Chamar Garçom',
     'label.ativaLabelFiltro': 'Digite o produto desejado'
   });
 
@@ -54,6 +62,10 @@ angular.module('fazerumpedido')
     'label.enviar': 'CONFIRMAR',
     'Cardapio': 'Menú',
     'Pedido': 'Solicitud',
+    'label.fecharConta': 'Cerrar cuenta',
+    'label.tituloFecharConta': 'Cerrar cuenta',
+    'garcons': 'Garçons',
+    'label.chamarGarcom': 'Call',
     'label.ativaLabelFiltro': 'Introduzca el producto deseado'
 
   });

@@ -52,6 +52,9 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate'])
 function ($rootScope, $window) {
   $rootScope.tituloPagina = "";
   $rootScope.tituloPagina2 = "";
+  $rootScope.tituloPagina3 = "";
+  $rootScope.tituloPagina4 = "";
+  
    $rootScope.$window = $window;
 
   $rootScope.goBack = function(){
@@ -86,7 +89,7 @@ function ($rootScope, $window) {
        descricao: "Contém uma porção de 12 unidades de pão recheado com carne",
        restricao: "sem cebola",
        observacao: "Serve 3 Pessoas",
-       quantidade: "1",
+       quantidade: "3",
        status: "Pronto",
        statusCod: 3,
        evolucao: 0,
@@ -193,5 +196,31 @@ function ($rootScope, $window) {
      }
    ];
 
+   $rootScope.garcons = [
+     {
+       id: 1,
+       foto: "img/garcons/garcon1.jpg",
+       nome: "Narigodon",
+       apresentacao: "Simpático e animado, sempre disposto a atender com alegria.",
+    },
+    {
+      id: 2,
+      foto: "img/garcons/garcon2.jpg",
+      nome: "Zoinho",
+      apresentacao: "Alegria em pessoa. Nunca deixa de satisfazer o cliente.",
+   },
+   {
+     id: 3,
+     foto: "img/garcons/garcon3.jpg",
+     nome: "Honestino",
+     apresentacao: "Pessoa honesta, muito tímido porém com grandes sugestões e dicas para suas solicitações.",
+   },
+   {
+     id: 4,
+     foto: "img/garcons/garcon4.jpg",
+     nome: "Simpatilda",
+     apresentacao: "Alegre e animada. Rápida nos pedidos e sempre atenciosa.",
+   }
+   ];
 }]);
 ;
