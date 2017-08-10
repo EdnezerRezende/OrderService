@@ -19,6 +19,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate'])
     controller: 'CardapioController'
     // controllerAs: 'PrincipalController'
   })
+
   // Página ativada quando Acompanhar o Pedido.
   .state('pedido', {
     url: "/pedido/:id",
@@ -54,8 +55,24 @@ function ($rootScope, $window) {
   $rootScope.tituloPagina2 = "";
   $rootScope.tituloPagina3 = "";
   $rootScope.tituloPagina4 = "";
-  
-   $rootScope.$window = $window;
+
+  $rootScope.enviarItem = function (item){
+    var i = 0;
+    var a = false;
+    var id = item.id;
+    while(i < $rootScope.cardapio.length && a === false){
+      if($rootScope.cardapio[i].id === id){
+        a= true;
+        $rootScope.detalharCardapio = $rootScope.cardapio[i];
+        var id = $rootScope.detalharCardapio.id;
+        $window.location.href = 'cardapio#'+id;
+
+      }else {
+        i++;
+      }
+    }
+
+  };
 
   $rootScope.goBack = function(){
     $rootScope.detalharCardapio.observacao= "";
@@ -223,4 +240,3 @@ function ($rootScope, $window) {
    }
    ];
 }]);
-;

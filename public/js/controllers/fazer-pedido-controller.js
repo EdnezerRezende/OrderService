@@ -1,4 +1,4 @@
-angular.module('fazerumpedido').controller('FazerPedidoController', function($scope, $stateParams, $rootScope){
+angular.module('fazerumpedido').controller('FazerPedidoController', function($scope, $stateParams, $rootScope, $window){
   $rootScope.tituloPagina = "Pedido";
   $rootScope.detalharCardapio.quantidade = 1;
   // $rootScope.pedido.valor = $rootScope.detalharCardapio.valor;
