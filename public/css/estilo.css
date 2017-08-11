@@ -721,10 +721,12 @@ padding-right: 60px !important;*/
 
 .alinharQuantidadePedido{
 	display: inline-flex;
-	margin-top: 8%;
-	margin-left: -37%
-}
 
+}
+.ajustarRestricoes{
+  margin-top: 17em;
+  margin-left: -33em;
+}
 .list-group{
 	position: inherit !important;
 
@@ -875,8 +877,9 @@ color: #888;
 	    margin-bottom: auto !important;
 }
 .tamanhoCampoPedido{
-	width: 50%;
-	/*height: 100%;*/
+	width: 95%;
+	height: 100%;
+	font-size: x-large;
 }
 .glyphicon-minus-sign{
 	font-size: 23px;
@@ -898,4 +901,13 @@ color: #888;
 	.alinharTabelaFecharConta{
 		margin-left: 0em !important;
 	}
+.tamanhoRestricao{
+	font-size: 30px;
+}
+.glyphicon-minus-sign{
+	font-size: 50px;
+}
+.glyphicon-plus-sign{
+	font-size: 50px;
+}
 }

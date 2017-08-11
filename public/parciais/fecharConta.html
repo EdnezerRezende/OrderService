@@ -47,29 +47,35 @@
 	      <thead>
 	        <tr>
 	          <th>Produto</th>
-	          <th>Valor Unit.</th>
+	          <!-- <th>Valor Unit.</th> -->
             <th>Quantidade</th>
-            <th>Status</th>
+            <!-- <th>Status</th> -->
 	        </tr>
 	      </thead>
 	      <tbody>
-	        <tr ng-if="item.statusCod === 4 " ng-repeat="item in acompanhamentos | orderBy: 'statusCod'" ng-init="somaTotal(item.valor, item.quantidade)">
+	        <tr  ng-repeat="item in acompanhamentos | orderBy: 'statusCod'">
 	          <td><strong>{{ item.titulo }}</strong></td>
-	          <td>{{ item.valor }}</td>
+	          <!-- <td>{{ item.valor }}</td> -->
 	          <td>{{ item.quantidade }}</td>
-	          <td>{{ item.status }}</td>
+	          <!-- <td>{{ item.status }}</td> -->
 	        </tr>
 	      </tbody>
 	    </table>
   </div>
 
-
-  <div>
+  <div class="">
+    <label>Caso queira, coloque suas observações:</label>
+    <textarea type="text" maxlength="100" class="tamanhoCampoPedido bordaPedido campoBlue" size="30"
+              ng-model="item.restricao" ></textarea>
+  </div>
+  <!-- <div>
     <label>Valor Total Estimado: </label>
     <input class="bordaPedido campoBlue" type="text" name="" maxlength="2" size="10"  value="{{somaVlrTotal | currency: 'R$ '}}">
   </br>
     <p>* Este valor é apenas uma prévia, pois existem cálculos e impostos ainda não adicionados a conta.</p>
-  </div>
+  </div> -->
+</br>
+</br>
   <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 btnFecharConta">
      <button ui-sref="home" type="submit" class="btn btn-primary" ng-click="fecharConta()">
       {{'label.fecharConta' | translate}}

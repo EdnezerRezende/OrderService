@@ -29,7 +29,7 @@ angular.module('fazerumpedido')
     'label.filtroPlaced': 'CARDÁPIO',
     'label.tituloPagina': 'Cardápio',
     'label.tituloFecharConta': 'Fechamento de Conta',
-    'label.tituloAcompanhar': 'Acompanhamento de Pedido',
+    'label.tituloAcompanhar': 'Acompanhamento',
     'label.tituloChamarGarcom': 'Chamar Garçom',
     'label.titulo': 'Título',
     'label.descricao': 'Descrição',

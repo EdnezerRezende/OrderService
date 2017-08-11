@@ -22,7 +22,7 @@
 <div class="marginTopForm">
   <form name="formulario" class="row  painel-animado gridCardapio "  ng-submit="submeter()">
     <div class="definirTamanhoPedido alinharSeta  provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-          <div class="descricaoMargin itemGridFormulario2 thumbnail  container-fluid painel-animado " ng-disabled="true"
+          <div class="descricaoMargin itemGridFormulario2   container-fluid painel-animado " ng-disabled="true"
                     ng-model="detalharCardapio.descricao">
               <div class="regularAlturaImagemPedido form-group">
                 <!-- <a href="images/image-1.jpg" data-lightbox="image-1" data-title="My caption">Image #1</a> -->
@@ -44,16 +44,12 @@
                 <div class="form-group descricaoCardapio">
                   <p>{{detalharCardapio.descricao}}.</p>
                 </div>
-                <div class="form-group alinharDisplayPedido">
-                  <label>Caso queira, coloque suas observações:</label>
-                  <textarea type="text" maxlength="100" class="tamanhoCampoPedido bordaPedido campoBlue" size="30"
-                            ng-model="detalharCardapio.restricao" ></textarea>
-                </div>
+
                 <div class="alinharQuantidadePedido">
                   <a href="#" ng-click="btnDiminuir()" >
                     <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
                   </a>
-                  <input class="bordaPedido campoBlue" type="text" ng-model="detalharCardapio.quantidade" maxlength="2" size="2" value="{{detalharCardapio.quantidade}}">
+                  <input class="tamanhoRestricao bordaPedido campoBlue" type="text" ng-model="detalharCardapio.quantidade" maxlength="2" size="2" value="{{detalharCardapio.quantidade}}">
                   <a href="#" ng-click="btnAumentar()" >
                     <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                   </a>
@@ -61,6 +57,13 @@
               </div>
 
             </div>
+            <div class="">
+              <label>Caso queira, coloque suas observações:</label>
+              <textarea type="text" maxlength="100" class="tamanhoCampoPedido bordaPedido campoBlue" size="30"
+                        ng-model="detalharCardapio.restricao" ></textarea>
+            </div>
+          </br>
+          </br>
             <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                <button ui-sref="acompanhamento" type="submit" class="btn btn-primary" ng-click="submeter()">
                 {{'label.enviar' | translate}}
