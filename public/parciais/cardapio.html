@@ -46,14 +46,20 @@
           <div  class="descricaoMargin itemGridFormulario thumbnail  container-fluid painel-animado "
                 ng-if="categoria.tipo == item.categoria "  ng-repeat="item in cardapio | orderBy: 'titulo' | filter: filtro">
             <a   id="{{item.id}}" href="/pedido/{{item.id}}"  class="itemAlinhar" ng-click="enviarItem(item)">
-              <div class="form-group">
+              <div >
                 <img class=" imgCardapio"    src="{{item.url}}">
                 <div class="paddingValorCardapio">
                   <input class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10"
                           value="{{item.valor | currency: 'R$ '}}">
                 </div>
                 <div class="observacaoCardapio">
-                  <b>{{item.observacao}}</b>
+                  <div >
+                    <b>{{item.observacao}}</b>
+                  </div>
+                  <div>
+                  </br>
+                    <b>O tempo de preparo é de {{item.tempo}} minutos.</b>
+                  </div>
                 </div>
               </div>
               <div class="noBorder list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">

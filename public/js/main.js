@@ -96,6 +96,7 @@ function ($rootScope, $window) {
        status: "Em Preparo",
        statusCod: 2,
        evolucao: 0,
+       tempo: 25,
        valor: 35.00
      },
      {
@@ -110,6 +111,7 @@ function ($rootScope, $window) {
        status: "Pronto",
        statusCod: 3,
        evolucao: 0,
+       tempo: 20,
        valor: 15.00
      },
      {
@@ -124,6 +126,7 @@ function ($rootScope, $window) {
        status: "Entregue",
        statusCod: 4,
        evolucao: 0,
+       tempo: 20,
        valor: 15.00
      },
    ];
@@ -155,6 +158,7 @@ function ($rootScope, $window) {
        url: "img/found.jpg",
        descricao: "Found de Chocolate com guarnições de Banana, morango e abacaxi",
        observacao: "Serve 3 Pessoas",
+       tempo: 25,
        valor: 35.00
      },
      {
@@ -164,6 +168,7 @@ function ($rootScope, $window) {
        url: "img/petiscos_Variados.jpg",
        descricao: "Petisco que serve 3 pessoas. Contém linguiça (com e sem pimenta), bolinhos de queijo e molho parmesão",
        observacao: "Serve 3 Pessoas",
+       tempo: 30,
        valor: 30.00
      },
      {
@@ -173,6 +178,7 @@ function ($rootScope, $window) {
        url: "img/pao_carne.jpg",
        descricao: "Contém uma porção de 12 unidades de pão recheado com carne",
        observacao: "Serve 3 Pessoas",
+       tempo: 20,
        valor: 15.00
      },
      {
@@ -182,6 +188,7 @@ function ($rootScope, $window) {
        url: "img/pastelzinho.jpg",
        descricao: "Contém uma porção de 6 unidades de Pastel tamanho médio, sabor carne",
        observacao: "Serve 3 Pessoas",
+       tempo: 15,
        valor: 15.00
      },
      {
@@ -191,6 +198,7 @@ function ($rootScope, $window) {
        url: "img/petiscos_Variados.jpg",
        descricao: "Petisco que serve 3 pessoas. Contém linguiça (com e sem pimenta), bolinhos de queijo e molho parmesão",
        observacao: "Serve 3 Pessoas",
+       tempo: 25,
        valor: 30.00
      },
      {
@@ -199,6 +207,7 @@ function ($rootScope, $window) {
        titulo: "Coxinha de Frango",
        url: "img/coxinha.jpg",
        descricao: "Coxinha de Frango com catupiry",
+       tempo: 5,
        observacao: "Serve 1 Pessoas",
        valor: 4.50
      },
@@ -209,6 +218,7 @@ function ($rootScope, $window) {
        url: "img/coxinha.jpg",
        descricao: "Regrigerante sabor Coca-Cola",
        observacao: "600 ml",
+       tempo: 2,
        valor: 4.00
      }
    ];

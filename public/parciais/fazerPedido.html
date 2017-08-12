@@ -1,7 +1,7 @@
 <!-- <div class="provisorio "> -->
 <div class="container provisorio ">
   <!-- Filtro e MENU -->
-  <div class="content-center col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
+    <div class="content-center col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
     <nav class="navbar navbar-default">
       <div class="container ajustarBarraSuperiorPedidos">
         <div class="">
@@ -9,10 +9,16 @@
             <span class="glyphicon glyphicon-menu-left" ></span>
           </a>
         </div>
-        <div id="tituloView" class="textUpper layoutFiltro768 tituloViewPedido col-xs-2 col-sm-2 col-md-2 col-lg-2" >
-            <label >{{tituloPagina | translate}}</label>
+        <div class="containerInputTitulo">
+          <!-- <div id="tituloView" class="textUpper layoutFiltro768 " > -->
+              <!-- <input ng-disabled="true" class="layoutFiltro768 alinharInputPedidoTitulo" > -->
+              <b class="row alinharInputPedidoTitulo">{{tituloPagina | translate}}</b>
+              <!-- </input> -->
+          <!-- </div> -->
+<!--
+          <input  id="campoFiltroAtivo" class="layoutFiltro768 alinharInputFiltro form-control navbar-collapse"
+                  placeholder="{{tituloPagina | translate}}"  > -->
         </div>
-
       </div>
     </nav>
   </div>
@@ -22,20 +28,28 @@
 <div class="marginTopForm">
   <form name="formulario" class="row  painel-animado gridCardapio "  ng-submit="submeter()">
     <div class="definirTamanhoPedido alinharSeta  provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-          <div class="descricaoMargin itemGridFormulario2   container-fluid painel-animado " ng-disabled="true"
+          <div class="descricaoMarginPedido itemGridFormulario2    painel-animado " ng-disabled="true"
                     ng-model="detalharCardapio.descricao">
               <div class="regularAlturaImagemPedido form-group">
                 <!-- <a href="images/image-1.jpg" data-lightbox="image-1" data-title="My caption">Image #1</a> -->
-                <a target="_blank" href="{{detalharCardapio.url}}" title="{{detalharCardapio.titulo}}" rel="shadowbox">
-                  <img class=" imgCardapio" src="{{detalharCardapio.url}}"/>
-                </a>
+                <div class="ajusteImgPedido">
+                  <a target="_blank" href="{{detalharCardapio.url}}" title="{{detalharCardapio.titulo}}" rel="shadowbox">
+                    <img class=" imgCardapio" src="{{detalharCardapio.url}}"/>
+                  </a>
                 <div class="paddingValorCardapio">
                   <input class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10" ng-disabled="true"
                                     value="{{detalharCardapio.valor | currency: 'R$ '}}">
                 </div>
-                <div class="observacaoCardapio">
+              </div>
+              <div class="observacaoCardapio">
+                <div >
                   <b>{{detalharCardapio.observacao}}</b>
                 </div>
+                <div>
+                </br>
+                  <b>O tempo de preparo é de {{detalharCardapio.tempo}} minutos.</b>
+                </div>
+              </div>
               </div>
               <div class="definicaoTituloViewPedido noBorder list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="layoutTituDescForm form-group" >
@@ -44,15 +58,16 @@
                 <div class="form-group descricaoCardapio">
                   <p>{{detalharCardapio.descricao}}.</p>
                 </div>
-
-                <div class="alinharQuantidadePedido">
-                  <a href="#" ng-click="btnDiminuir()" >
-                    <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
-                  </a>
-                  <input class="tamanhoRestricao bordaPedido campoBlue" type="text" ng-model="detalharCardapio.quantidade" maxlength="2" size="2" value="{{detalharCardapio.quantidade}}">
-                  <a href="#" ng-click="btnAumentar()" >
-                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-                  </a>
+                <div class="container formatarTamanhoQtd ">
+                  <!-- <div class=""> -->
+                    <a href="#" ng-click="btnDiminuir()" >
+                      <span class="tamanhoBtn glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+                    </a>
+                      <input class="tamanhoCampoQTD tamanhoRestricao bordaPedido campoBlue" type="text" ng-model="detalharCardapio.quantidade" maxlength="2" size="2" value="{{detalharCardapio.quantidade}}"></input>
+                    <a href="#" ng-click="btnAumentar()" >
+                      <span class="tamanhoBtn glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                    </a>
+                  <!-- </div> -->
                 </div>
               </div>
 
@@ -64,7 +79,7 @@
             </div>
           </br>
           </br>
-            <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="alinharBtnConfirmar col-xs-12 col-sm-12 col-md-12 col-lg-12">
                <button ui-sref="acompanhamento" type="submit" class="btn btn-primary" ng-click="submeter()">
                 {{'label.enviar' | translate}}
                </button>
@@ -73,36 +88,4 @@
     </div>
   </form>
 
-
-<!--
-  <form name="formulario" class="row  painel-animado gridCardapio configuracoesDetalhePedido " ng-submit="submeter()">
-    <div class="alinharSeta2  provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-          <div class="descricaoMargin itemGridFormulario thumbnail  container-fluid painel-animado " ng-disabled="true" ng-model="detalharCardapio.descricao">
-              <div class="form-group">
-                <img class=" imgCardapio tratarImgDetalhe"    src="{{detalharCardapio.url}}">
-              </div>
-              <div class=" layoutTituDescForm list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="form-group" >
-                  <h4 class="textUpper">{{detalharCardapio.titulo}}</h4>
-                </div>
-                <div class=" form-group">
-                  <p>{{detalharCardapio.descricao}}.</p>
-                  <b>SERVE 3 PESSOAS</b>
-                </div>
-                <input class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="5" value="{{pedido.valor | currency: 'R$ '}}">
-                <a href="#" ng-click="btnDiminuir()" > <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span></a>
-                <input class="bordaPedido " type="text" ng-model="pedido.quantidade" maxlength="2" size="2" value="{{pedido.quantidade}}">
-                <a href="#" ng-click="btnAumentar()" >
-                  <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-                </a>
-              </div>
-          </div>
-          <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-             <a href="#" ng-click="goBack()" class="btn btn-primary">{{'label.voltar' | translate}}</a> -->
-            <!-- <button ui-sref="acompanhamento" type="submit" class="btn btn-primary" >
-              {{'label.enviar' | translate}}
-            </button>
-          </div>
-    </div> -->
-  <!-- </form>-->
 </div>
