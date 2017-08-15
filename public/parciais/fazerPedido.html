@@ -45,8 +45,8 @@
                 <div >
                   <b>{{detalharCardapio.observacao}}</b>
                 </div>
-                <div>
-                </br>
+                <div ng-if="detalharCardapio.tempo != 0 || detalharCardapio.tempo != '' " >
+                  </br>
                   <b>O tempo de preparo é de {{detalharCardapio.tempo}} minutos.</b>
                 </div>
               </div>

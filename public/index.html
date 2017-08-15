@@ -6,7 +6,10 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet"  href="css/styleBarraProgress.css">
+	<!--Barra de Progresso -->
 	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<!-- <link rel="stylesheet" type="text/scss" href="scss/styleBarraProgress.scss"> -->
 	<link rel="stylesheet" type="text/css" href="css/animate.css">
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
@@ -33,7 +36,7 @@
 	<script src="js/controllers/acompanhar-pedido-controller.js"></script>
 	<script src="js/controllers/chamar-garcom-controller.js"></script>
 	<script src="js/inter.js"></script>
-	
+
 
 
 	<script type="text/javascript" src="js/lib/lightbox-plus-jquery.js"></script>
@@ -41,21 +44,18 @@
 	<!-- <script src="js/lib/lightbox.js"></script> -->
 	<script type="text/javascript" src="jquery.js"></script>
 	<!-- Efeito ShadowBox -->
-<link href="css/shadowbox.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="js/lib/shadowbox.js" />
+	<link href="css/shadowbox.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="js/lib/shadowbox.js" />
+	<link href="css/shadowbox.css" rel="stylesheet" type="text/css"/>
+	<script src="js/lib/shadowbox.js" type="text/javascript"/>
+	<script type='text/javascript'>
+			Shadowbox.init({
+			handleOversize: &quot;resize&quot;,
+			modal: false,
+	});
+	</script>
+	<!-- Fim do efeito ShadowBox -->
 
-<!-- Efeito ShadowBox -->
-<link href="css/shadowbox.css" rel="stylesheet" type="text/css"/>
-<script src="js/lib/shadowbox.js" type="text/javascript"/>
-<script type='text/javascript'>
-Shadowbox.init({
-handleOversize: &quot;resize&quot;,
-modal: false,
-});
-</script>
-<!-- Fim do efeito ShadowBox -->
-
-<!-- Fim do efeito ShadowBox -->
 
 	<!-- Diretivas -->
 	<!-- <script src="js/directives/minhas-diretivas.js"></script> -->
@@ -63,6 +63,8 @@ modal: false,
 	<title>Fazer um Pedido</title>
 </head>
 <body>
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'>
+
 	<!-- <div id="tituloView" class="textUpper tituloView2 col-xs-2 col-sm-2 col-md-2 col-lg-2" >
 			<label >{{tituloPagina | translate}}</label>
 	</div> -->

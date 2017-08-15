@@ -93,9 +93,10 @@ function ($rootScope, $window) {
        restricao: "Muito morango",
        observacao: "Serve 3 Pessoas",
        quantidade: "1",
-       status: "Em Preparo",
+       status: "Confirmado",
        statusCod: 2,
        evolucao: 0,
+       horaPedido: "15:15:15",
        tempo: 25,
        valor: 35.00
      },
@@ -108,9 +109,10 @@ function ($rootScope, $window) {
        restricao: "sem cebola",
        observacao: "Serve 3 Pessoas",
        quantidade: "3",
-       status: "Pronto",
+       status: "Na Cozinha",
        statusCod: 3,
        evolucao: 0,
+       horaPedido: "14:01:15",
        tempo: 20,
        valor: 15.00
      },
@@ -123,9 +125,10 @@ function ($rootScope, $window) {
        restricao: "sem cebola",
        observacao: "Serve 3 Pessoas",
        quantidade: "1",
-       status: "Entregue",
+       status: "A Caminho",
        statusCod: 4,
        evolucao: 0,
+       horaPedido: "10:45:05",
        tempo: 20,
        valor: 15.00
      },
@@ -218,7 +221,7 @@ function ($rootScope, $window) {
        url: "img/coxinha.jpg",
        descricao: "Regrigerante sabor Coca-Cola",
        observacao: "600 ml",
-       tempo: 2,
+       tempo: 0,
        valor: 4.00
      }
    ];

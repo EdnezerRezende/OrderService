@@ -56,7 +56,7 @@
                   <div >
                     <b>{{item.observacao}}</b>
                   </div>
-                  <div>
+                  <div  ng-if="item.tempo != 0 || item.tempo != ''" >
                   </br>
                     <b>O tempo de preparo é de {{item.tempo}} minutos.</b>
                   </div>

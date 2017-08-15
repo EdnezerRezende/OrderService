@@ -9,8 +9,9 @@
             <span class="glyphicon glyphicon-menu-left" ></span>
           </a>
         </div>
-        <div id="tituloView" class="textUpper layoutFiltro768 tituloViewPedido col-xs-2 col-sm-2 col-md-2 col-lg-2" >
-            <label >{{tituloPagina4 | translate}}</label>
+
+        <div class="containerInputTitulo">
+              <b class="row alinharInputPedidoTitulo">{{tituloPagina4 | translate}}</b>
         </div>
 
       </div>
@@ -21,27 +22,33 @@
 
 <div class="marginTopForm">
   <form name="formulario" class="row  painel-animado gridCardapio"  ng-repeat="item in garcons | orderBy: 'nome' " >
-    <div class="definirTamanhoPedido alinharSeta  provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-          <div class="descricaoMargin itemGridGarcon thumbnail  container-fluid painel-animado " ng-disabled="true" >
+    <div class="definirTamanhoPedido alinharSeta  thumbnail provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+          <div class="descricaoMargin itemGridGarcon   container-fluid painel-animado " ng-disabled="true" >
               <div class=" form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 escondeImgGarcaon">
                 <a class="imgGarcon" target="_blank" href="{{item.foto}}" title="{{item.nome}}" rel="shadowbox">
-                  <img class=" " src="{{item.foto}}"/>
+                  <img class="imgCardapio " src="{{item.foto}}"/>
                 </a>
               </div>
-              <div class=" noBorder list-group col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <div class=" noBorder form-group col-xs-5 col-sm-5 col-md-5 col-lg-5">
                 <div class="layoutTituDescForm form-group" >
                   <p class="textUpperTitulo">{{item.nome}}</p>
                 </div>
                 <div class="form-group descricaoCardapio tamanhoApresentacaoGarcon">
                   <p>{{item.apresentacao}}.</p>
                 </div>
+                <div class="row container">
+
+                   <button  type="submit" class="btn btn-primary  btn-lg" ng-click="chamar(item.nome)" >
+                     <span class="glyphicon glyphicon-earphone"></span>
+                   </button>
+                </div>
               </div>
-              <div class="form-group col-xs-2 col-sm-2 col-md-2 col-lg-2 btnFecharConta">
-                 <button  type="submit" class="btn btn-primary regularBtnGarcon" ng-click="chamar(item.nome)">
-                   <span class="glyphicon glyphicon-earphone"></span>
-                 </button>
-              </div>
+
            </div>
+
     </div>
   </form>
 </div>
+
+</br >
+</br >
