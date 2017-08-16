@@ -1,60 +1,37 @@
 <!-- <div class="provisorio "> -->
 <div class="container provisorio ">
   <!-- Filtro e MENU -->
-  <div class="content-center col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
-    <nav class="navbar navbar-default">
-      <div class="container ajustarBarraSuperiorPedidos">
-        <div class="">
-          <a href="#"  ui-sref="cardapio" class="regularBtnVoltarPedido">
-            <span class="glyphicon glyphicon-menu-left" ></span>
-          </a>
+  <nav class="navbar navbar-default navbar-fixed-top " >
+    <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
+        <div class="container ajustarBarraSuperiorPedidos">
+          <div class="">
+            <a href="#"  ui-sref="cardapio" class="regularBtnVoltarPedido">
+              <span class="glyphicon glyphicon-menu-left" ></span>
+            </a>
+          </div>
+          <div class="containerInputTitulo">
+                <b class="row alinharInputPedidoTitulo">{{tituloPagina3 | translate}}</b>
+          </div>
         </div>
-        <div id="tituloView" class="textUpper layoutFiltro768 tituloViewPedido col-xs-2 col-sm-2 col-md-2 col-lg-2" >
-            <label >{{tituloPagina3 | translate}}</label>
-        </div>
-
-      </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </div>
 
 
-<div class="marginTopForm">
-  <!-- <form name="formulario" class="row  painel-animado gridCardapio "  ng-repeat="item in acompanhamentos | orderBy: 'statusCod' "
-          ng-init="somaTotal(item.valor, item.quantidade)" ng-submit="submeter()">
-    <div class="definirTamanhoPedido alinharSeta  provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-          <div class="descricaoMargin itemGridFormulario2 thumbnail  container-fluid painel-animado " ng-disabled="true" >
-
-              <div class="definicaoTituloViewPedido noBorder list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="layoutTituDescForm form-group" >
-                  <p class="textUpperTitulo">{{item.titulo}}</p>
-                </div>
-                <div class="">
-                  <input class="" type="text" name="" maxlength="2" size="10" value="{{item.valor | currency: 'R$ '}}">
-                </div>
-                <input class="" type="text" ng-model="item.quantidade"
-                        maxlength="2" size="2" value="{{item.quantidade}}">
-              </div>
-            </div>
-
-
-    </div>
-  </form> -->
-
-
+<div class="marginTopFormFechar">
   <div class="row alinharTabelaFecharConta"  >
 	    <table class="table table-striped">
 	      <thead>
 	        <tr>
-	          <th>Produto</th>
+	          <th><strong>Produto</strong></th>
 	          <!-- <th>Valor Unit.</th> -->
-            <th>Quantidade</th>
+            <th><strong>Quantidade</strong></th>
             <!-- <th>Status</th> -->
 	        </tr>
 	      </thead>
 	      <tbody>
 	        <tr  ng-repeat="item in acompanhamentos | orderBy: 'statusCod'">
-	          <td><strong>{{ item.titulo }}</strong></td>
+	          <td>{{ item.titulo }}</td>
 	          <!-- <td>{{ item.valor }}</td> -->
 	          <td>{{ item.quantidade }}</td>
 	          <!-- <td>{{ item.status }}</td> -->
@@ -62,8 +39,21 @@
 	      </tbody>
 	    </table>
   </div>
-
-  <div class="">
+  <div class="marginFecharContaObservacao">
+    <div><strong>Selecione a opção de Pagamento: </strong> <br/>
+      <label >Dinheiro
+        <input type="checkbox" ng-model="opcaoDinheiro">
+      </label>
+      <label >Débito
+        <input type="checkbox" ng-model="opcaoDebito">
+      </label>
+      <label >Crédito
+        <input type="checkbox" ng-model="opcaoCredito">
+      </label>
+    </div>
+  </div>
+  <br/>
+  <div class="marginFecharContaObservacao">
     <label>Caso queira, coloque suas observações:</label>
     <textarea type="text" maxlength="100" class="tamanhoCampoPedido bordaPedido campoBlue" size="30"
               ng-model="item.restricao" ></textarea>
@@ -74,10 +64,11 @@
   </br>
     <p>* Este valor é apenas uma prévia, pois existem cálculos e impostos ainda não adicionados a conta.</p>
   </div> -->
+
 </br>
 </br>
-  <div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 btnFecharConta">
-     <button ui-sref="home" type="submit" class="btn btn-primary" ng-click="fecharConta()">
+  <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12 btnFecharConta">
+     <button ui-sref="home" type="submit" class="btn btn-primary" ng-click="fecharConta()" ng-bootbox-alert="<strong>Recebemos sua solicitação, aguarde nosso Garçom. Muito Obrigado!</strong>">
       {{'label.fecharConta' | translate}}
      </button>
   </div>

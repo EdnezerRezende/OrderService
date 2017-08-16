@@ -930,9 +930,10 @@ padding-right: 60px !important;*/
     margin-left: 15px;
 	}
 	.btnFecharConta {
-		position: initial !important;
+		/*position: initial !important;
 		margin-left: 43%;
-		margin-bottom: 10% !important;
+		margin-bottom: 10% !important;*/
+		text-align: center;
 	}
 	.alinharTabelaFecharConta{
 		margin-left: 0em !important;
@@ -985,5 +986,12 @@ padding-right: 60px !important;*/
 	/*background: #8bc53f;*/
 	/*color: #8bc53f;*/
 	/*background: #ECECEC;*/
+}
+.marginTopFormFechar{
+	margin-top: 0%;
+}
+.marginFecharContaObservacao{
+	display: grid;
+	padding-left: 4%;
 }
 }

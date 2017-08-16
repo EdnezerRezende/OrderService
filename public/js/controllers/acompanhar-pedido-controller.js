@@ -1,54 +1,29 @@
-angular.module('fazerumpedido').controller('AcompanharPedidoController', function($scope, $rootScope, $timeout) {
+angular.module('fazerumpedido').controller('AcompanharPedidoController', function($scope, $rootScope, $window, $timeout) {
+
     $rootScope.tituloPagina2 = "label.tituloAcompanhar";
 
-
-    $scope.width=0;
-    $scope.calculaBarra = function (item){
-
-        if ( item.statusCod === 1){
-          width = "25";
-          item.evolucao=25;
-        }else if (item.statusCod === 2) {
-          width = "50";
-          item.evolucao=50;
-        }else if ( item.statusCod === 3) {
-            width = "75";
-            item.evolucao=75;
-        }else if ( item.statusCod === 4) {
-            width = "100";
-            item.evolucao=100;
-        }
+    $scope.btnCancelar = function (item){
+      var index = $scope.acompanhamentos.indexOf(item);
+      $scope.acompanhamentos.splice(index, 1);
     };
-    // controles da barra de progressão
-    $scope.barraDesabilitada = true;
-    $scope.barraCompleta = true;
-    $scope.barraActive = true;
 
-    //Tratamento de Botões Cancelar o pedido e avisar atraso no pedido
     $scope.tratarHorario = [];
+    $scope.contagens = [];
     $scope.habilitarBotaoTempo = true;
 
-    $scope.tempoPercorrido = function (tempoPedido, tempoPreparo, status, id){
-      var contagem = tempoPreparo;
-      $scope.tratarHorario.calculo = contagem;
-      $scope.tratarHorario.id = id;
-      var intervalo = window.setInterval(function() {
-        contagem--;
-        console.log(contagem + " ID: "+ id);
-        $scope.tratarHorario.calculo = contagem;
-        $scope.tratarHorario.id = id;
-
-        if( contagem == 0 ){
-          console.log("Habilitar Botão" + contagem);
-          $scope.habilitarBotaoTempo = true;
-          clearInterval(intervalo);
-        }
-        // else{
-        //   var promise = $timeout($scope.tempoPercorrido(tempoPedido, contagem, status, id), 60000);
-        // }
-
-      }, 60000);
-
+    $scope.tempoPercorrido = function (item){
+      $scope.contagens[item.id];
+      $scope.contagens.push(item.tempo);
+      // $scope.tratarHorario.id = item.id;
+      // $scope.tratarHorario.count = item.tempo;
+      // console.log($scope.tratarHorario);
+      // var horas = new Date().getHours();
+      // var minutos = new Date().getMinutes();
+      // var calcHoras = horas * 60;
+      // var calcMinutos = minutos * 60;
+      // var result = calcHoras + calcMinutos;
+      // var horasPedido = tempoPedido;
+      // console.log(horasPedido);
     };
 
 });

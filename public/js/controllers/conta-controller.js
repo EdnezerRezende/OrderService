@@ -5,8 +5,11 @@ angular.module('fazerumpedido').controller('ContaController', function($scope, $
   $scope.somaTotal = function(item, quantidade){
     $scope.somaVlrTotal = $scope.somaVlrTotal + (item*quantidade);
   };
+  $scope.opcaoDinheiro = false;
+  $scope.opcaoDebito = false;
+  $scope.opcaoCredito = false;
 
   $scope.fecharConta = function (){
-      alert("Sua conta está encerrada, passe no Caixa para realizar o pagamento. Muito Obrigado!");
+    
   };
 });

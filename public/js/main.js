@@ -1,4 +1,4 @@
-angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate'])
+angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootbox'])
 .config(function($stateProvider, $urlRouterProvider, $locationProvider){
 
   $locationProvider.html5Mode(true);

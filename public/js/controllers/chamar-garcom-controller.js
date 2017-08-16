@@ -1,8 +1,6 @@
-angular.module('fazerumpedido').controller('ChamarGarcomController', function($scope, $stateParams, $rootScope) {
+angular.module('fazerumpedido').controller('ChamarGarcomController', function($scope, $stateParams, $rootScope, $timeout) {
 
   $rootScope.tituloPagina4 = "garcons";
-  $scope.mensagemAlerta = "";
-  $scope.chamar = function(nome){
-    $scope.mensagemAlerta = "O Garçon " + nome + " está vindo para lhe atender, aguarde que em breve ele chegará ai!";
-  }
+  $scope.counter = 0;
+
 });

@@ -1,8 +1,6 @@
 <!-- <div class="provisorio "> -->
 <div class="container provisorio ">
   <!-- Filtro e MENU -->
-  <!-- <nav class="navbar navbar-default navbar-fixed-bottom  navbar-fixed-center navbar-inverse navbar-static-bottom"> -->
-
   <nav class="navbar navbar-default navbar-fixed-top " >
     <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
         <div class="container ajustarBarraSuperiorPedidos">
@@ -14,10 +12,6 @@
           <div class="containerInputTitulo">
                 <b class="row alinharInputPedidoTitulo">{{tituloPagina2 | translate}}</b>
           </div>
-          <!-- <div id="tituloView" class="textUpper layoutFiltro768 tituloViewPedido col-xs-2 col-sm-2 col-md-2 col-lg-2" >
-              <label >{{tituloPagina2 | translate}}</label>
-          </div> -->
-
         </div>
     </div>
   </nav>
@@ -25,8 +19,8 @@
 
 
 <div class="marginTopForm">
-  <form name="formulario" class="row  painel-animado gridCardapio "  ng-repeat="item in acompanhamentos | orderBy: 'statusCod' " ng-init="calculaBarra(item)">
-    <div class="definirTamanhoPedido alinharSeta  thumbnail provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+  <form name="formulario" class="row  painel-animado gridCardapio "  ng-repeat="item in acompanhamentos | orderBy: 'statusCod' ">
+    <div  class="definirTamanhoPedido alinharSeta  thumbnail provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
           <div class="descricaoMargin itemGridFormulario2   container-fluid painel-animado " ng-disabled="true" >
               <div class="">
                 <div>
@@ -40,41 +34,49 @@
                 <div class="layoutTituDescForm form-group" >
                   <p class="textUpperTitulo">{{item.titulo}}</p>
                 </div>
-
-
               </div>
-
         </div>
-        <div ng-hide="!(item.statusCod < 4)" class="btn btn-default" ng-class="{ 'btn-danger': item.statusCod === 1, 'btn-info': item.statusCod > 1 }">
-          <span ng-if="item.statusCod === 1 ">Cancelar</span>
-          <span ng-if="item.statusCod > 1 && item.statusCod < 4"
-                       >Alertar</span>
+        <div ng-hide="!(item.statusCod < 4)" class="btn btn-default"
+              ng-class="{ 'btn-danger': item.statusCod === 1, 'btn-info': item.statusCod > 1 }">
+          <span ng-if="item.statusCod === 1 " ng-click="btnCancelar(item)">Cancelar</span>
+          <span ng-if="item.statusCod > 1 && item.statusCod < 4 "
+            ng-click="btnAlertar(item)" ng-show="count = 0">Alertar</span>
+        </div>
+        <br/>
+        <br/>
+        <div class="container" >
+          <p >
+            Pedido realizado as {{item.horaPedido | date:"HH:mm:ss"}}. Tempo de Preparo é de {{item.tempo}} minutos.
+          </p>
+          <!-- <p ng-model="contagens[item.id].count = item.tempo"   > -->
+          <!-- <p ng-init="tempoPercorrido(item)"   >
+              Tempo Percorrido<strong> {{contagens[item.id].count}} </strong> minutos
+          </p> -->
         </div>
         <div class="row container ">
             <div class="bs-wizard" style="border-bottom:0;">
-
                 <div class="col-xs-3 bs-wizard-step complete"  >
                   <div class="text-center bs-wizard-stepnum " ></div>
                   <div class="progress"><div class="progress-bar progress-bar-striped"></div></div>
                   <a href="#" class="bs-wizard-dot bs-wizard-dot1"></a>
                   <div class="bs-wizard-info text-center">Recebido</div>
                 </div>
-
-                <div class="col-xs-3 bs-wizard-step "  ng-class="{'complete': item.statusCod > 2, 'active': item.statusCod === 2, 'disabled': item.statusCod < 2 }">
+                <div class="col-xs-3 bs-wizard-step "
+                  ng-class="{'complete': item.statusCod > 2, 'active': item.statusCod === 2, 'disabled': item.statusCod < 2 }">
                   <div class="text-center bs-wizard-stepnum "></div>
                   <div class="progress"><div class="progress-bar progress-bar-striped"></div></div>
                   <a href="#" class="bs-wizard-dot bs-wizard-dot2"></a>
                   <div class="bs-wizard-info text-center">Confirmado</div>
                 </div>
-
-                <div class="col-xs-3 bs-wizard-step "  ng-class="{'complete': item.statusCod > 3, 'active': item.statusCod === 3, 'disabled': item.statusCod < 3  }">
+                <div class="col-xs-3 bs-wizard-step "
+                    ng-class="{'complete': item.statusCod > 3, 'active': item.statusCod === 3, 'disabled': item.statusCod < 3  }">
                   <div class="text-center bs-wizard-stepnum "></div>
                   <div class="progress"><div class="progress-bar progress-bar-striped"></div></div>
                   <a href="#" class="bs-wizard-dot bs-wizard-dot3"></a>
-                  <div class="bs-wizard-info text-center"><strong>Na Cozinha</strong></div>
+                  <div class="bs-wizard-info text-center">Na Cozinha</div>
                 </div>
-
-                <div class="col-xs-3 bs-wizard-step "  ng-class="{'complete': item.statusCod > 4, 'active': item.statusCod === 4, 'disabled': item.statusCod < 4  }">
+                <div class="col-xs-3 bs-wizard-step "
+                    ng-class="{'complete': item.statusCod > 4, 'active': item.statusCod === 4, 'disabled': item.statusCod < 4  }">
                   <div class="text-center bs-wizard-stepnum "></div>
                   <div class="progress"><div class="progress-bar progress-bar-striped"></div></div>
                   <a href="#" class="bs-wizard-dot bs-wizard-dot4"></a>
@@ -82,11 +84,8 @@
                 </div>
             </div>
          </div>
-
     </div>
-
   </form>
-
 </div>
 </br>
 </br>

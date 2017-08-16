@@ -1,22 +1,20 @@
 <!-- <div class="provisorio "> -->
 <div class="container provisorio ">
   <!-- Filtro e MENU -->
-  <div class="content-center col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
-    <nav class="navbar navbar-default">
-      <div class="container ajustarBarraSuperiorPedidos">
-        <div class="">
-          <a href="#"  ui-sref="cardapio" class="regularBtnVoltarPedido">
-            <span class="glyphicon glyphicon-menu-left" ></span>
-          </a>
+  <nav class="navbar navbar-default navbar-fixed-top " >
+    <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
+        <div class="container ajustarBarraSuperiorPedidos">
+          <div class="">
+            <a href="#"  ui-sref="cardapio" class="regularBtnVoltarPedido">
+              <span class="glyphicon glyphicon-menu-left" ></span>
+            </a>
+          </div>
+          <div class="containerInputTitulo">
+                <b class="row alinharInputPedidoTitulo">{{tituloPagina4 | translate}}</b>
+          </div>
         </div>
-
-        <div class="containerInputTitulo">
-              <b class="row alinharInputPedidoTitulo">{{tituloPagina4 | translate}}</b>
-        </div>
-
-      </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
 </div>
 
 
@@ -36,16 +34,17 @@
                 <div class="form-group descricaoCardapio tamanhoApresentacaoGarcon">
                   <p>{{item.apresentacao}}.</p>
                 </div>
-                <div class="row container">
 
-                   <button  type="submit" class="btn btn-primary  btn-lg" ng-click="chamar(item.nome)" >
+
+                <div class="row container">
+                   <button  type="submit" class="btn btn-primary  btn-lg"
+                        ng-bootbox-alert="<strong>O Garçon {{item.nome}}  atendeu a sua chamada. O Aguarde!</strong>">
                      <span class="glyphicon glyphicon-earphone"></span>
                    </button>
+
                 </div>
               </div>
-
            </div>
-
     </div>
   </form>
 </div>

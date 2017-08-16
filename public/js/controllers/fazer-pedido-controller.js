@@ -25,7 +25,8 @@ angular.module('fazerumpedido').controller('FazerPedidoController', function($sc
     $rootScope.detalharCardapio.status = "Recebido";
     $rootScope.detalharCardapio.statusCod = 1;
     var now = new Date();
-    $rootScope.detalharCardapio.horaPedido = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() ;
+    // $rootScope.detalharCardapio.horaPedido = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() ;
+    $rootScope.detalharCardapio.horaPedido = now;
     $rootScope.acompanhamentos.push($rootScope.detalharCardapio);
     console.log($rootScope.detalharCardapio);
 
