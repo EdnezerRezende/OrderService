@@ -36,22 +36,26 @@
                 </div>
               </div>
         </div>
-        <div ng-hide="!(item.statusCod < 4)" class="btn btn-default"
-              ng-class="{ 'btn-danger': item.statusCod === 1, 'btn-info': item.statusCod > 1 }">
-          <span ng-if="item.statusCod === 1 " ng-click="btnCancelar(item)">Cancelar</span>
-          <span ng-if="item.statusCod > 1 && item.statusCod < 4 "
-            ng-click="btnAlertar(item)" ng-show="count = 0">Alertar</span>
+        <div >
+          <div ng-hide="!(item.statusCod < 4 )"  class="btn btn-default "
+                ng-class="{ 'btn-danger': item.statusCod === 1, 'btn-info': item.statusCod > 1 }">
+            <span ng-if="item.statusCod === 1 " ng-click="btnCancelar(item)">Cancelar</span>
+            <span ng-if="item.statusCod > 1 && item.statusCod < 4" ng-bootbox-alert="Avisamos a Central sobre a demora do Pedido "
+              ng-click="btnAlertar(item)"
+              >Alertar</span>
+          </div>
         </div>
         <br/>
         <br/>
-        <div class="container" >
+        <div class="container" ng-model="tempoPercorrido">
           <p >
             Pedido realizado as {{item.horaPedido | date:"HH:mm:ss"}}. Tempo de Preparo é de {{item.tempo}} minutos.
           </p>
           <!-- <p ng-model="contagens[item.id].count = item.tempo"   > -->
-          <!-- <p ng-init="tempoPercorrido(item)"   >
-              Tempo Percorrido<strong> {{contagens[item.id].count}} </strong> minutos
-          </p> -->
+          <p   ng-if="item.statusCod < 4" >
+              Tempo Percorrido<strong > {{(horaAtual - item.horaPedido ) | date:"mm" }} </strong> minutos
+          </p>
+
         </div>
         <div class="row container ">
             <div class="bs-wizard" style="border-bottom:0;">

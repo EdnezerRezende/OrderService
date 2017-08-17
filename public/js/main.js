@@ -80,7 +80,7 @@ function ($rootScope, $window) {
     $rootScope.detalharCardapio.restricao = "";
     $window.history.back();
   };
-
+  $rootScope.mensagem = "";
    $rootScope.detalharCardapio=[];
    $rootScope.pedidos = [];
    $rootScope.acompanhamentos = [
@@ -96,7 +96,7 @@ function ($rootScope, $window) {
        status: "Confirmado",
        statusCod: 2,
        evolucao: 0,
-       horaPedido: "15:15:15",
+       horaPedido: new Date("2017-08-17T00:10:30.572Z"),
        tempo: 25,
        valor: 35.00
      },
@@ -112,7 +112,7 @@ function ($rootScope, $window) {
        status: "Na Cozinha",
        statusCod: 3,
        evolucao: 0,
-       horaPedido: "14:01:15",
+       horaPedido: new Date("2017-08-17T00:30:30.572Z"),
        tempo: 20,
        valor: 15.00
      },
@@ -128,7 +128,7 @@ function ($rootScope, $window) {
        status: "A Caminho",
        statusCod: 4,
        evolucao: 0,
-       horaPedido: "10:45:05",
+       horaPedido: new Date("2017-08-17T00:00:30.572Z"),
        tempo: 20,
        valor: 15.00
      },
