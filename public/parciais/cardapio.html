@@ -12,7 +12,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button> 
+          </button>
         </div>
         <!-- <div id="tituloView" class="textUpper tituloView2 col-xs-2 col-sm-2 col-md-2 col-lg-2" >
             <label >{{tituloPagina | translate}}</label>
@@ -21,10 +21,8 @@
           <a id="atvFi" class="navbar-toggle collapsed controleLupa" target="campoFiltroAtivo"  ng-click="ativaFiltro()" >
             <p  class="glyphicon glyphicon-search" ></p>
           </a>
-
-          <input  id="campoFiltroAtivo" class="layoutFiltro768 alinharInputFiltro form-control navbar-collapse"
+          <input  id="campoFiltroAtivo" class="corPlaced layoutFiltro768 alinharInputFiltro form-control navbar-collapse"
                   placeholder="{{ativaLabelFiltro | translate}}"  ng-model="filtro">
-
           <div  id="menuCardapio" class="AlinhaMenu tamanhoMenuCardapio collapse"  >
             <ul class="nav navbar-nav">
               <li  ng-click="fecharMenu()" ng-repeat="categoria in categorias | orderBy:'tipo'">
@@ -58,7 +56,7 @@
                   </div>
                   <div  ng-if="item.tempo != 0 || item.tempo != ''" >
                   </br>
-                    <b>O tempo de preparo é de {{item.tempo}} minutos.</b>
+                    <b class="textAlto">Preparo em  {{item.tempo}} minutos</b>
                   </div>
                 </div>
               </div>

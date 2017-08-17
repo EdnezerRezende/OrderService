@@ -415,6 +415,10 @@ container .navbar-header{
 		float: right;
     margin-top: 1em;
 	}
+	.corPlaced::-webkit-input-placeholder { /* WebKit browsers */
+    color:    white !important;
+}
+
 	.tituloView2 {
     margin-top: 1em !important;
 	}
@@ -781,7 +785,8 @@ padding-right: 60px !important;*/
 	text-align: center;
 	padding: 1%;
 	text-transform: uppercase;
-	background-color: #EF4;
+	/*background-color: #EF4;*/
+	background-color: #f9e1c0;
 }
 .textUpper{
 		margin-bottom: 1em;
@@ -793,6 +798,9 @@ padding-right: 60px !important;*/
     display: flex;
     align-items: center;
     margin-left: 40%;
+}
+.textAlto{
+	text-transform: uppercase;
 }
 .textUpperTitulo{
 	font-size: 12px;
@@ -850,7 +858,7 @@ padding-right: 60px !important;*/
 }
 .alinharInputFiltro{
 	border: 0px !important;
-	background-color: transparent !important;
+	background-color: red !important;
 	margin-left: 11% !important;
 	width: 80% !important;
 	margin-top: -3em;
@@ -915,7 +923,7 @@ padding-right: 60px !important;*/
 	min-width: 10%;
 	max-width:35%;
 	height: 35%;
-	font-size: x-large;
+	font-size: xx-large;
 }
 /*.glyphicon-minus-sign{
 	font-size: 23px;
@@ -940,6 +948,7 @@ padding-right: 60px !important;*/
 	}
 	.formatarTamanhoQtd{
 		display: inline;
+		margin-left: 4% !important;
 		/*width: 50%;*/
 		align-items: center;
 		font-size: 150% ;
@@ -993,5 +1002,15 @@ padding-right: 60px !important;*/
 .marginFecharContaObservacao{
 	display: grid;
 	padding-left: 4%;
+}
+.centralizarOpcaoPagamento{
+	display: table;
+	text-align: right;
+}
+.ajusteBarraProgressoEstilo{
+	margin-top: -2em;
+}
+.tamanhoFonteHorario{
+	font-size: 10px;
 }
 }

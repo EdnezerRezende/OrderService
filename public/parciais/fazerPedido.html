@@ -41,15 +41,7 @@
                                     value="{{detalharCardapio.valor | currency: 'R$ '}}">
                 </div>
               </div>
-              <div class="observacaoCardapio">
-                <div >
-                  <b>{{detalharCardapio.observacao}}</b>
-                </div>
-                <div ng-if="detalharCardapio.tempo != 0 || detalharCardapio.tempo != '' " >
-                  </br>
-                  <b>O tempo de preparo é de {{detalharCardapio.tempo}} minutos.</b>
-                </div>
-              </div>
+
               </div>
               <div class="definicaoTituloViewPedido noBorder list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="layoutTituDescForm form-group" >
@@ -58,20 +50,33 @@
                 <div class="form-group descricaoCardapio">
                   <p>{{detalharCardapio.descricao}}.</p>
                 </div>
-                <div class="container formatarTamanhoQtd ">
-                  <!-- <div class=""> -->
-                    <a href="#" ng-click="btnDiminuir()" >
-                      <span class="tamanhoBtn glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
-                    </a>
-                      <input class="tamanhoCampoQTD tamanhoRestricao bordaPedido campoBlue" type="text" ng-model="detalharCardapio.quantidade" maxlength="2" size="2" value="{{detalharCardapio.quantidade}}"></input>
-                    <a href="#" ng-click="btnAumentar()" >
-                      <span class="tamanhoBtn glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-                    </a>
-                  <!-- </div> -->
+                <br/>
+                <div class="observacaoCardapio">
+                  <div >
+                    <b>{{detalharCardapio.observacao}}</b>
+                  </div>
+                  <div ng-if="detalharCardapio.tempo != 0 || detalharCardapio.tempo != '' " >
+                    </br>
+                    <b>O tempo de preparo é de {{detalharCardapio.tempo}} minutos.</b>
+                  </div>
                 </div>
+
               </div>
 
+
             </div>
+            <div class="container formatarTamanhoQtd col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="">
+                <a href="#" ng-click="btnDiminuir()" >
+                  <span class="tamanhoBtn glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+                </a>
+                  <input class="tamanhoCampoQTD tamanhoRestricao bordaPedido campoBlue" type="text" ng-model="detalharCardapio.quantidade" maxlength="2" size="2" value="{{detalharCardapio.quantidade}}"></input>
+                <a href="#" ng-click="btnAumentar()" >
+                  <span class="tamanhoBtn glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                </a>
+              </div>
+            </div>
+            <br/>
             <div class="">
               <label>Caso queira, coloque suas observações:</label>
               <textarea type="text" maxlength="100" class="tamanhoCampoPedido bordaPedido campoBlue" size="30"

@@ -34,30 +34,23 @@
                 <div class="layoutTituDescForm form-group" >
                   <p class="textUpperTitulo">{{item.titulo}}</p>
                 </div>
+                <div class="container textAlto tamanhoFonteHorario" ng-model="tempoPercorrido">
+                  <p class="">
+                    Pedido realizado as {{item.horaPedido | date:"HH:mm:ss"}}. Preparo em  {{item.tempo}} minutos.
+                  </p>
+                  <!-- <p ng-model="contagens[item.id].count = item.tempo"   > -->
+                  <p   ng-if="item.statusCod < 4" >
+                      Tempo Percorrido<strong > {{(horaAtual - item.horaPedido ) | date:"mm" }} </strong> minutos
+                  </p>
+
+                </div>
               </div>
         </div>
-        <div >
-          <div ng-hide="!(item.statusCod < 4 )"  class="btn btn-default "
-                ng-class="{ 'btn-danger': item.statusCod === 1, 'btn-info': item.statusCod > 1 }">
-            <span ng-if="item.statusCod === 1 " ng-click="btnCancelar(item)">Cancelar</span>
-            <span ng-if="item.statusCod > 1 && item.statusCod < 4" ng-bootbox-alert="Avisamos a Central sobre a demora do Pedido "
-              ng-click="btnAlertar(item)"
-              >Alertar</span>
-          </div>
-        </div>
-        <br/>
-        <br/>
-        <div class="container" ng-model="tempoPercorrido">
-          <p >
-            Pedido realizado as {{item.horaPedido | date:"HH:mm:ss"}}. Tempo de Preparo é de {{item.tempo}} minutos.
-          </p>
-          <!-- <p ng-model="contagens[item.id].count = item.tempo"   > -->
-          <p   ng-if="item.statusCod < 4" >
-              Tempo Percorrido<strong > {{(horaAtual - item.horaPedido ) | date:"mm" }} </strong> minutos
-          </p>
 
-        </div>
-        <div class="row container ">
+        <!-- <i-countdown set-date="2015-08-21 10:10:10" format-view="%d dias %h hrs %i min %s seg" expire-message="Acabou o tempo">
+        </i-countdown> -->
+
+        <div class="row container ajusteBarraProgressoEstilo">
             <div class="bs-wizard" style="border-bottom:0;">
                 <div class="col-xs-3 bs-wizard-step complete"  >
                   <div class="text-center bs-wizard-stepnum " ></div>
@@ -87,6 +80,16 @@
                   <div class="bs-wizard-info text-center">A Caminho</div>
                 </div>
             </div>
+         </div>
+         <br />
+         <div >
+           <div ng-hide="!(item.statusCod < 4 )"  class="btn btn-default "
+                 ng-class="{ 'btn-danger': item.statusCod === 1, 'btn-info': item.statusCod > 1 }">
+             <span ng-if="item.statusCod === 1 " ng-click="btnCancelar(item)">Cancelar</span>
+             <span ng-if="item.statusCod > 1 && item.statusCod < 4" ng-bootbox-alert="Avisamos a Central sobre a demora do Pedido "
+               ng-click="btnAlertar(item)"
+               >Alertar</span>
+           </div>
          </div>
     </div>
   </form>

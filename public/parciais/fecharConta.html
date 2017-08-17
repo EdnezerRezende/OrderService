@@ -40,16 +40,24 @@
 	    </table>
   </div>
   <div class="marginFecharContaObservacao">
-    <div><strong>Selecione a opção de Pagamento: </strong> <br/>
-      <label >Dinheiro
-        <input type="checkbox" ng-model="opcaoDinheiro">
-      </label>
-      <label >Débito
-        <input type="checkbox" ng-model="opcaoDebito">
-      </label>
-      <label >Crédito
-        <input type="checkbox" ng-model="opcaoCredito">
-      </label>
+    <div ><strong>Formas de Pagamento: </strong> <br/>
+      <div class="container-fluid centralizarOpcaoPagamento">
+        <div class="">
+          <label >Dinheiro
+              <input type="checkbox" ng-model="opcaoDinheiro">
+          </label>
+        </div>
+        <div class="">
+          <label >  Débito
+            <input type="checkbox" ng-model="opcaoDebito">
+          </label>
+        </div>
+        <div class="">
+          <label > Crédito
+            <input type="checkbox" ng-model="opcaoCredito">
+          </label>
+        </div>
+      </div>
     </div>
   </div>
   <br/>
