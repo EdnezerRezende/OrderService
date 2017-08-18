@@ -39,9 +39,9 @@ container .navbar-header{
 }
 
 #menuInferior{
+background-color: red;
 
-
-	//display: flex;
+	/*//display: flex;*/
 	align-items: center;
   justify-content: space-between;
 	width: 100%;
@@ -415,9 +415,8 @@ container .navbar-header{
 		float: right;
     margin-top: 1em;
 	}
-	.corPlaced::-webkit-input-placeholder { /* WebKit browsers */
-    color:    white !important;
-}
+
+
 
 	.tituloView2 {
     margin-top: 1em !important;
@@ -576,7 +575,7 @@ footer{
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	max-width: 90%;
+	max-width: 93%;
 	text-align: center;
 	/*margin-top: 10%;*/
 	margin-left: 7%;
@@ -705,6 +704,7 @@ footer{
 
 }
 .itemGridFormulario{
+	/*background-color: #f9e1c0;*/
 	display: inline-flex !important;
 	align-items: flex-end;
 	align-content: space-between;
@@ -836,17 +836,36 @@ padding-right: 60px !important;*/
 	padding-bottom: 18px;
 }
 .alinharMenuCardapio{
-	border-color: transparent !important;
+	/*border-color: transparent !important;*/
 	float: left !important;
+}
+.corfontIcone{
+	font-size: 27px;
+	color: white;
+}
+.corFundoMenuSuperiorFiltro{
+	background-color: red;
 }
 .controleLupa{
 	margin-right: -0.6em !important;
 	border: none !important;
 	margin-bottom: 0em !important;
-	margin-top: -2.5em !important;
-	font-size: large;
-	color: #888;
+	margin-top: -2.4em !important;
+	font-size: 24px;
+	color: white;
 	background-color: transparent !important;
+}
+.controBotoesInferior{
+	/*margin-left: -6px !important;*/
+	border: none !important;
+	margin-top: 0.7em !important;
+	/*font-size: large;*/
+	color: white;
+	background-color: transparent !important;
+}
+.alterCorFonte{
+	font-size: 27px;
+	color: white;
 }
 .tituloView2{
 	margin-top: -2em ;
@@ -861,7 +880,7 @@ padding-right: 60px !important;*/
 	background-color: red !important;
 	margin-left: 11% !important;
 	width: 80% !important;
-	margin-top: -3em;
+	margin-top: -3.5em;
 	text-align: center;
 }
 .alinharInputPedidoTitulo{
@@ -874,6 +893,7 @@ padding-right: 60px !important;*/
 	margin-right: auto;
 }
 .alinharFooter{
+	text-align: center;
 	padding-left: 0px !important;
 	padding-right: 0px !important;
 }
@@ -881,7 +901,7 @@ padding-right: 60px !important;*/
 	box-shadow: 0 0px 0px rgba(0,0,0,.075) !important;
 }
 .calibrarPosicaoFecharConta{
-	margin-left: -4% !important;
+	/*margin-left: -4% !important;*/
 }
 .limiteUrlDescricao{
 	margin-bottom: 1em;
@@ -1013,4 +1033,11 @@ padding-right: 60px !important;*/
 .tamanhoFonteHorario{
 	font-size: 10px;
 }
+.tamanhoMenuSuperior{
+	padding: 0px 0px !important;
+}
+.corPlaced::-webkit-input-placeholder  {
+	color: white;
+}
+
 }

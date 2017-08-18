@@ -1,17 +1,18 @@
 <!--Imagens do Cardapio Disponível-->
 <div class="container provisorio ">
   <!-- Filtro e MENU -->
-  <div class="content-center col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
-    <nav class="navbar navbar-default">
+  <div class="tamanhoMenuSuperior content-center  col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
+    <nav class="navbar corFundoMenuSuperiorFiltro">
       <div class="container">
         <div class="navbar-header">
           <!-- data-target="#collapse-navbar" -->
           <button type="button" class="alinharMenuCardapio navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#menuCardapio" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
+            <!-- <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> -->
+            <span class="corfontIcone glyphicon glyphicon-menu-hamburger"></span>
           </button>
         </div>
         <!-- <div id="tituloView" class="textUpper tituloView2 col-xs-2 col-sm-2 col-md-2 col-lg-2" >
@@ -36,15 +37,16 @@
 </div>
 <!-- Form contendo a categoria, título, imagem e descrição dos produtos/serviços  -->
 <!-- <div class="">Tirei marginTopForm dessa div-->
-  <form name="formulario" class="row  painel-animado gridCardapio "  ng-repeat="categoria in categorias | orderBy:'tipo'">
+  <form name="formulario" class="row   painel-animado gridCardapio "  ng-repeat="categoria in categorias | orderBy:'tipo'">
     <div  class="alinharSeta  provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
           <div  class="form-group backgroundTitulo">
               <h3 class="textUpper textCategoria" id="{{categoria.tipo}}" ng-bind="categoria.tipo" > {{categoria.tipo}} </h3>
           </div>
-          <div  class="descricaoMargin itemGridFormulario thumbnail  container-fluid painel-animado "
+          <table class="table table-striped">
+          <div  class="descricaoMargin itemGridFormulario   container-fluid painel-animado "
                 ng-if="categoria.tipo == item.categoria "  ng-repeat="item in cardapio | orderBy: 'titulo' | filter: filtro">
             <a   id="{{item.id}}" href="/pedido/{{item.id}}"  class="itemAlinhar" ng-click="enviarItem(item)">
-              <div >
+              <div class="table table-striped ">
                 <img class=" imgCardapio"    src="{{item.url}}">
                 <div class="paddingValorCardapio">
                   <input class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10"
@@ -76,8 +78,10 @@
               </div>
             </a>
           </div>
+        </table>
     </div>
   </form>
+
 <!-- </div> -->
 
 </br>
