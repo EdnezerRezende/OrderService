@@ -96,8 +96,9 @@ function ($rootScope, $window) {
        status: "Confirmado",
        statusCod: 2,
        evolucao: 0,
-       horaPedido: new Date("2017-08-17T00:10:30.572Z"),
+       horaPedido: new Date("2017-08-18T00:00:30.572Z"),
        tempo: 25,
+       tempoAtraso: 0,
        valor: 35.00
      },
      {
@@ -112,8 +113,9 @@ function ($rootScope, $window) {
        status: "Na Cozinha",
        statusCod: 3,
        evolucao: 0,
-       horaPedido: new Date("2017-08-17T00:30:30.572Z"),
+       horaPedido: new Date("2017-08-18T00:30:30.572Z"),
        tempo: 20,
+       tempoAtraso: 0,
        valor: 15.00
      },
      {
@@ -128,8 +130,9 @@ function ($rootScope, $window) {
        status: "A Caminho",
        statusCod: 4,
        evolucao: 0,
-       horaPedido: new Date("2017-08-17T00:00:30.572Z"),
+       horaPedido: new Date("2017-08-18T00:00:30.572Z"),
        tempo: 20,
+       tempoAtraso: 0,
        valor: 15.00
      },
    ];

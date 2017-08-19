@@ -1,8 +1,8 @@
 <!-- <div class="provisorio "> -->
 <div class="container provisorio ">
   <!-- Filtro e MENU -->
-  <nav class="navbar navbar-default navbar-fixed-top " >
-    <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
+  <nav class="navbar navbar-default navbar-fixed-top content-center col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+    <div class="navbar navbar-default  navbar-fixed-top"><!-- tirei o fixarFiltro -->
         <div class="container ajustarBarraSuperiorPedidos">
           <div class="">
             <a href="#"  ui-sref="cardapio" class="regularBtnVoltarPedido">
@@ -20,7 +20,7 @@
 
 <div class="marginTopFormFechar">
   <div class="row alinharTabelaFecharConta"  >
-	    <table class="table table-striped">
+	    <table class=" table table-striped">
 	      <thead>
 	        <tr>
 	          <th><strong>Produto</strong></th>
@@ -30,7 +30,7 @@
 	        </tr>
 	      </thead>
 	      <tbody>
-	        <tr  ng-repeat="item in acompanhamentos | orderBy: 'statusCod'">
+	        <tr class="zebrarLinhasForm" ng-repeat="item in acompanhamentos | orderBy: 'statusCod'">
 	          <td>{{ item.titulo }}</td>
 	          <!-- <td>{{ item.valor }}</td> -->
 	          <td>{{ item.quantidade }}</td>

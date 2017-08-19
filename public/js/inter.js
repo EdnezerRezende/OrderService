@@ -48,7 +48,7 @@ angular.module('fazerumpedido')
   });
 
   $translateProvider.translations('es', {
-    'label.filtroPlaced': 'Filtrar producto deseado',
+    'label.filtroPlaced': 'CARDÁPIO',
     'label.tituloPagina': 'Menú',
     'label.tituloFecharConta': 'Cierre de cuenta',
     'label.tituloAcompanhar': 'Seguimiento de pedidos',

@@ -582,6 +582,9 @@ footer{
 	flex-wrap: wrap;
 }
 .marginTopForm{
+	margin-top: 6%;
+}
+.marginTopFormPedido{
 	margin-top: 8%;
 }
 .alinharCardapio{
@@ -884,9 +887,10 @@ padding-right: 60px !important;*/
 	text-align: center;
 }
 .alinharInputPedidoTitulo{
+	color: white;
 	display: inline-flex;
 	text-transform: uppercase;
-	font-size: 17px;
+	font-size: 22px;
 }
 .containerInputTitulo{
 	margin-left: auto;
@@ -908,11 +912,13 @@ padding-right: 60px !important;*/
 }
 .ajustarBarraSuperiorPedidos{
 	display: flex;
+	background-color: red;
   /*align-items: center;*/
 	margin-bottom: -2% !important;
 }
 .regularBtnVoltarPedido{
-	margin-left: -0.7em;
+	color: white !important;
+	margin-left: -0.1em;
 	font-size: -webkit-xxx-large;
   color: black;
 }
@@ -923,6 +929,9 @@ padding-right: 60px !important;*/
 .definicaoTituloViewPedido{
 	margin-bottom: 4.9em !important;
 	    align-items: none;
+}
+.ajusteDireito{
+	    margin-right: 27%;
 }
 .definirQuantidadePedido{
 	display: flex;
@@ -1037,7 +1046,21 @@ padding-right: 60px !important;*/
 	padding: 0px 0px !important;
 }
 .corPlaced::-webkit-input-placeholder  {
-	color: white;
+	color: white !important;
+	font-style: bold;
+	text-transform: uppercase;
 }
+.corPlaced{
+	color: white !important;
+}
+.corFontItensMenu{
+	color:white;
+	font-size: 20px;
+}
+.zebrarLinhasForm:nth-child(even) {background: #FFF !important}
+.zebrarLinhasForm:nth-child(odd) {background: #f9e1c0 !important}
+
+.zebrarLinhasFormOutr:nth-child(odd) {background: #FFF}
+.zebrarLinhasFormOutr:nth-child(even) {background: #f9e1c0}
 
 }

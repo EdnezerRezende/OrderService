@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "angular-animate": "^1.5.7",
+    "angular-moment": "^1.0.1",
+    "angular-momentjs": "^0.2.2",
     "angular-ui-router": "^1.0.3",
     "body-parser": "^1.12.3",
     "express": "^4.12.3",

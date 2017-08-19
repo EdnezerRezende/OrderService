@@ -7,11 +7,7 @@
         <div class="navbar-header">
           <!-- data-target="#collapse-navbar" -->
           <button type="button" class="alinharMenuCardapio navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#menuCardapio" aria-expanded="false">
-            <!-- <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span> -->
+                    data-target="#menuCardapio" aria-expanded="false" aria-controls="menuCardapio atvFi" ng-click="trocaLabelFiltro()" >
             <span class="corfontIcone glyphicon glyphicon-menu-hamburger"></span>
           </button>
         </div>
@@ -24,10 +20,11 @@
           </a>
           <input  id="campoFiltroAtivo" class="corPlaced layoutFiltro768 alinharInputFiltro form-control navbar-collapse"
                   placeholder="{{ativaLabelFiltro | translate}}"  ng-model="filtro">
-          <div  id="menuCardapio" class="AlinhaMenu tamanhoMenuCardapio collapse"  >
-            <ul class="nav navbar-nav">
+
+          <div id="menuCardapio" class="AlinhaMenu tamanhoMenuCardapio collapse"  ng-click="fecharMenu()" >
+            <ul class="nav navbar-nav ">
               <li  ng-click="fecharMenu()" ng-repeat="categoria in categorias | orderBy:'tipo'">
-                <a ng-href="#{{categoria.tipo}}" >{{categoria.tipo}}</a>
+                <a class="corFontItensMenu" ng-href="#{{categoria.tipo}}" >{{categoria.tipo}}</a>
               </li>
             </ul>
           </div>
@@ -43,41 +40,41 @@
               <h3 class="textUpper textCategoria" id="{{categoria.tipo}}" ng-bind="categoria.tipo" > {{categoria.tipo}} </h3>
           </div>
           <table class="table table-striped">
-          <div  class="descricaoMargin itemGridFormulario   container-fluid painel-animado "
-                ng-if="categoria.tipo == item.categoria "  ng-repeat="item in cardapio | orderBy: 'titulo' | filter: filtro">
-            <a   id="{{item.id}}" href="/pedido/{{item.id}}"  class="itemAlinhar" ng-click="enviarItem(item)">
-              <div class="table table-striped ">
-                <img class=" imgCardapio"    src="{{item.url}}">
-                <div class="paddingValorCardapio">
-                  <input class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10"
-                          value="{{item.valor | currency: 'R$ '}}">
-                </div>
-                <div class="observacaoCardapio">
-                  <div >
-                    <b>{{item.observacao}}</b>
+            <div  class="zebrarLinhasForm descricaoMargin itemGridFormulario   container-fluid painel-animado " ng-class=""
+                  ng-if="categoria.tipo == item.categoria "  ng-repeat="item in cardapio | orderBy: 'titulo' | filter: filtro">
+              <a   id="{{item.id}}" href="/pedido/{{item.id}}"  class="itemAlinhar" ng-click="enviarItem(item)">
+                <div class="table table-striped ">
+                  <img class=" imgCardapio"    src="{{item.url}}">
+                  <div class="paddingValorCardapio">
+                    <input class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10"
+                            value="{{item.valor | currency: 'R$ '}}">
                   </div>
-                  <div  ng-if="item.tempo != 0 || item.tempo != ''" >
-                  </br>
-                    <b class="textAlto">Preparo em  {{item.tempo}} minutos</b>
+                  <div class="observacaoCardapio">
+                    <div >
+                      <b>{{item.observacao}}</b>
+                    </div>
+                    <div  ng-if="item.tempo != 0 || item.tempo != ''" >
+                    </br>
+                      <b class="textAlto">Preparo em  {{item.tempo}} minutos</b>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="noBorder list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="layoutTituDescForm form-group" >
-                  <p class="textUpperTitulo">{{item.titulo}}</p>
-                </div>
-                <div class="form-group descricaoCardapio">
-                  <p>{{item.descricao}}.</p>
-                </div>
+                <div class="noBorder list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                  <div class="layoutTituDescForm form-group" >
+                    <p class="textUpperTitulo">{{item.titulo}}</p>
+                  </div>
+                  <div class="form-group descricaoCardapio">
+                    <p>{{item.descricao}}.</p>
+                  </div>
 
-              </div>
-              <div >
-                  <!-- <div class="alinharContainerSeta">
-                      <span class="glyphicon glyphicon-menu-right setaContainer" ></span>
-                  </div> -->
-              </div>
-            </a>
-          </div>
+                </div>
+                <div >
+                    <!-- <div class="alinharContainerSeta">
+                        <span class="glyphicon glyphicon-menu-right setaContainer" ></span>
+                    </div> -->
+                </div>
+              </a>
+            </div>
         </table>
     </div>
   </form>

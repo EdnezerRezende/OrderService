@@ -1,8 +1,8 @@
 <!-- <div class="provisorio "> -->
 <div class="container provisorio ">
   <!-- Filtro e MENU -->
-    <div class="content-center col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
-    <nav class="navbar navbar-default">
+    <div class="navbar navbar-default navbar-fixed-top content-center col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
+    <nav class="navbar navbar-default  navbar-fixed-top">
       <div class="container ajustarBarraSuperiorPedidos">
         <div class="">
           <a href="#" ng-click="goBack()" class="regularBtnVoltarPedido">
@@ -25,7 +25,7 @@
 </div>
 
 
-<div class="marginTopForm">
+<div class="marginTopFormPedido">
   <form name="formulario" class="row  painel-animado gridCardapio "  ng-submit="submeter()">
     <div class="definirTamanhoPedido alinharSeta  provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
           <div class="descricaoMarginPedido itemGridFormulario2    painel-animado " ng-disabled="true"
@@ -57,7 +57,7 @@
                   </div>
                   <div ng-if="detalharCardapio.tempo != 0 || detalharCardapio.tempo != '' " >
                     </br>
-                    <b>O tempo de preparo é de {{detalharCardapio.tempo}} minutos.</b>
+                    <b>Preparo em {{detalharCardapio.tempo}} minutos.</b>
                   </div>
                 </div>
 

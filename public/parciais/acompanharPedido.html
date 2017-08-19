@@ -1,27 +1,29 @@
 <!-- <div class="provisorio "> -->
 <div class="container provisorio ">
   <!-- Filtro e MENU -->
-  <nav class="navbar navbar-default navbar-fixed-top " >
-    <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
-        <div class="container ajustarBarraSuperiorPedidos">
-          <div class="">
-            <a href="#"  ui-sref="cardapio" class="regularBtnVoltarPedido">
-              <span class="glyphicon glyphicon-menu-left" ></span>
-            </a>
+  <div class="navbar navbar-default navbar-fixed-top content-center col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
+    <nav class="navbar navbar-default navbar-fixed-top" >
+          <div class="container ajustarBarraSuperiorPedidos">
+            <div class="">
+              <a href="#"  ui-sref="cardapio" class="regularBtnVoltarPedido">
+                <span class="glyphicon glyphicon-menu-left" ></span>
+              </a>
+            </div>
+            <div class="containerInputTitulo">
+                  <b class="row alinharInputPedidoTitulo">{{tituloPagina2 | translate}}</b>
+            </div>
           </div>
-          <div class="containerInputTitulo">
-                <b class="row alinharInputPedidoTitulo">{{tituloPagina2 | translate}}</b>
-          </div>
-        </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </div>
 
 
 <div class="">
-  <form name="formulario" class="row  painel-animado gridCardapio "  ng-repeat="item in acompanhamentos | orderBy: 'statusCod' ">
-    <div  class="definirTamanhoPedido alinharSeta  thumbnail provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-          <div class="descricaoMargin itemGridFormulario2   container-fluid painel-animado " ng-disabled="true" >
+  <form name="formulario" class="row  painel-animado gridCardapio " >
+    <div  class="zebrarLinhasFormOutr definirTamanhoPedido alinharSeta  thumbnail provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    ng-repeat="item in acompanhamentos | orderBy: 'statusCod' ">
+          <div class=" descricaoMargin itemGridFormulario2   container-fluid painel-animado "
+                ng-disabled="true" >
               <div class="">
                 <div>
                   <a target="_blank" href="{{item.url}}" title="{{item.titulo}}" rel="shadowbox">
@@ -30,19 +32,20 @@
                 </div>
 
               </div>
-              <div class="definicaoTituloViewPedido noBorder list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="definicaoTituloViewPedido noBorder form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="layoutTituDescForm form-group" >
                   <p class="textUpperTitulo">{{item.titulo}}</p>
                 </div>
-                <div class="container textAlto tamanhoFonteHorario" ng-model="tempoPercorrido">
+                <div class="container textAlto tamanhoFonteHorario"  ng-init="calcularTempoPedido(item)">
                   <p class="">
-                    Pedido realizado as {{item.horaPedido | date:"HH:mm:ss"}}. Preparo em  {{item.tempo}} minutos.
+                    Pedido as {{item.horaPedido | date:"HH:mm:ss"}}.
                   </p>
-                  <!-- <p ng-model="contagens[item.id].count = item.tempo"   > -->
-                  <p   ng-if="item.statusCod < 4" >
-                      Tempo Percorrido<strong > {{(horaAtual - item.horaPedido ) | date:"mm" }} </strong> minutos
+                  <p   ng-if="item.statusCod < 4 && (item.tempoAtraso | date:'mm' )=== '00' ">
+                      Previsão de Entrega  {{item.contagem | date:"HH:mm"}}  minutos.
                   </p>
-
+                  <p  ng-if="item.statusCod < 4 && (item.tempoAtraso | date:'mm' ) != '00'  " >
+                      Atrasado  {{item.tempoAtraso | date:"mm"}}  minutos.
+                  </p>
                 </div>
               </div>
         </div>
@@ -95,4 +98,4 @@
   </form>
 </div>
 </br>
-</br>
+<br/>

@@ -20,10 +20,19 @@ angular.module('fazerumpedido').controller('CardapioController', function($scope
     $scope.ativaFiltro = function (){
       if(!($scope.ativaLabelFiltro === 'label.filtroPlaced')){
         $scope.ativaLabelFiltro = "label.filtroPlaced";
+        $scope.filtro = ''
         document.getElementById('campoFiltroAtivo').blur();
       }else{
         $scope.ativaLabelFiltro = "label.ativaLabelFiltro";
         document.getElementById('campoFiltroAtivo').focus();
+      }
+
+      $scope.trocaLabelFiltro = function (){
+        if(!($scope.ativaLabelFiltro === 'label.filtroPlaced')){
+          $scope.filtro = ''
+          $scope.ativaLabelFiltro = "label.filtroPlaced";
+          document.getElementById('campoFiltroAtivo').blur();
+        }
       }
 
     };
