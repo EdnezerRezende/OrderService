@@ -97,7 +97,7 @@ function ($rootScope, $window) {
        statusCod: 2,
        evolucao: 0,
        horaPedido: new Date("2017-08-18T00:00:30.572Z"),
-       tempo: 25,
+       tempo: 1,
        tempoAtraso: 0,
        valor: 35.00
      },
