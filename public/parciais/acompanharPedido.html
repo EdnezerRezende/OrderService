@@ -20,9 +20,9 @@
 
 <div class="">
   <form name="formulario" class="row  painel-animado gridCardapio " >
-    <div  class="zebrarLinhasFormOutr definirTamanhoPedido alinharSeta  thumbnail provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    <div  class="painel-animado zebrarLinhasFormOutr definirTamanhoPedido alinharSeta  thumbnail provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12"
     ng-repeat="item in acompanhamentos | orderBy: 'statusCod' "  ng-init="calcularTempoPedido(item)">
-          <div class=" descricaoMargin itemGridFormulario2   container-fluid painel-animado "
+          <div class=" descricaoMargin itemGridFormulario2   container-fluid  "
                 ng-disabled="true" >
               <div class="">
                 <div>
@@ -88,7 +88,7 @@
          <div >
            <div ng-hide="!(item.statusCod < 4 )"  class="btn btn-default painel-animado"
                  ng-class="{ 'btn-danger': item.statusCod === 1, 'btn-info': item.statusCod > 1 }">
-             <span ng-if="item.statusCod === 1 || (item.tempoAtraso | date:'mm' ) === '00' " ng-click="btnCancelar(item)">Cancelar</span>
+             <span ng-if="item.statusCod === 1 || (item.tempoAtraso | date:'mm' ) === '00' " ng-class="painel-animado " ng-click="btnCancelar(item)">Cancelar</span>
              <span ng-if="item.statusCod > 1 && item.statusCod < 4 && (item.tempoAtraso | date:'mm' ) != '00'  "
                     ng-bootbox-alert="{{mensagemAcompanhamento}}"
                     ng-click="btnAlertar(item)"

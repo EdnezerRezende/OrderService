@@ -40,8 +40,9 @@
               <h3 class="textUpper textCategoria" id="{{categoria.tipo}}" ng-bind="categoria.tipo" > {{categoria.tipo}} </h3>
           </div>
           <table class="table table-striped">
-            <div  class="zebrarLinhasForm descricaoMargin itemGridFormulario   container-fluid painel-animado " ng-class=""
+            <div  class=" zebrarLinhasForm descricaoMargin itemGridFormulario   container-fluid painel-animado " ng-class=""
                   ng-if="categoria.tipo == item.categoria "  ng-repeat="item in cardapio | orderBy: 'titulo' | filter: filtro">
+            <div>
               <a   id="{{item.id}}" href="/pedido/{{item.id}}"  class="itemAlinhar" ng-click="enviarItem(item)">
                 <div class="table table-striped ">
                   <img class=" imgCardapio"    src="{{item.url}}">
@@ -74,6 +75,7 @@
                     </div> -->
                 </div>
               </a>
+            </div>
             </div>
         </table>
     </div>
