@@ -1,7 +1,8 @@
-var http = require('http')
-    ,app = require('./config/express')
-    db = require('./config/database');
+ var app = require('./config/express')();
+ var http = require('http').Server(app);
+ 
 
-http.createServer(app).listen(3000, function() {
-    console.log('Servidor escutando na porta: ' + this.address().port);
-});
+
+app.listen(3000, function() {
+    console.log("Aplicação Rodando" );
+})

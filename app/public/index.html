@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html  lang="pt-br" ng-app="fazerumpedido">
+<head>
+	<base href="/">
+	<meta http-equiv="Content-Language" content="pt-br, en, es">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<!--Barra de Progresso -->
+	<link rel="stylesheet"  href="css/styleBarraProgress.css">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+	<!-- Import´s do angular -->
+	<script src="js/lib/angular.min.js"></script>
+	<!-- Angular UI Router -->
+	<script src="js/lib/angular-ui-router.min.js"></script>
+	<script src="js/lib/angular-animate.js"></script>
+	<!-- <script src="js/lib/angular-route.min.js"></script> -->
+	<script src="js/lib/angular-translate.min.js"></script>
+<!-- 	<script src="js/lib/qrcode.js"></script>
+	<script src="js/lib/qrcode_UTF8.js"></script>
+	<script src="js/lib/angular-qrcode.js"></script> -->
+<!-- 	<script src="js/lib/qr-scanner.js"></script>
+	<script src="js/lib/jsqrcode-combined.min.js"></script> -->
+
+	<!-- Seção para o QRCode -->
+    <script src="js/lib/webcam.js"></script>
+    <script src="js/lib/bc-qr-reader.js"></script>
+
+	<script src="js/main.js"></script>
+
+	<script src="js/lib/ng-pinch-zoom.min.js"></script>
+	<script src="js/lib/ng-pinch-zoom.js"></script>
+
+
+	<!-- Controllers -->
+	<script src="js/controllers/principal-controller.js"></script>
+	<script src="js/controllers/cardapio-controller.js"></script>
+	<script src="js/controllers/fazer-pedido-controller.js"></script>
+	<script src="js/controllers/conta-controller.js"></script>
+	<script src="js/controllers/acompanhar-pedido-controller.js"></script>
+	<script src="js/controllers/chamar-garcom-controller.js"></script>
+	<script src="js/controllers/login-controller.js"></script>
+	<script src="js/inter.js"></script>
+	<script type="text/javascript" src="js/lib/lightbox-plus-jquery.js"></script>
+	<!-- <script type="text/javascript" src="jquery.js"></script> -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script src="js/lib/bootbox.min.js"></script>
+  	<script src="js/lib/ngBootbox.min.js"></script>
+	<script type="text/javascript" src="js/lib/bootstrap.min.js"></script>
+
+	<!-- Efeito ShadowBox -->
+	<link href="css/shadowbox.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="js/lib/shadowbox.js" />
+	<link href="css/shadowbox.css" rel="stylesheet" type="text/css"/>
+	<script src="js/lib/shadowbox.js" type="text/javascript"/>
+	<script type='text/javascript'>
+			Shadowbox.init({
+			handleOversize: &quot;resize&quot;,
+			modal: false,
+	});
+	</script>
+	<!-- Fim do efeito ShadowBox -->
+
+	<!-- Diretivas -->
+	<!-- <script src="js/directives/minhas-diretivas.js"></script> -->
+
+	<script src="js/lib/token-interceptor.js"></script>
+
+
+	<title>Fazer um Pedido</title>
+</head>
+<body>
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700' rel='stylesheet' type='text/css'>
+
+	<!-- <div id="tituloView" class="textUpper tituloView2 col-xs-2 col-sm-2 col-md-2 col-lg-2" >
+			<label >{{tituloPagina | translate}}</label>
+	</div> -->
+	<!-- <section class="container "  > -->
+<!--
+	<div id="menuSuperior" class="container">
+		<header class="navbar-header ">
+			<nav  class="navbar navbar-default navbar-fixed-top navbar-inverse navbar-static-top">
+				<div class="container " >
+					<div id="btnVoltar" class="col-xs-6 col-sm-3 col-md-5 col-lg-6" >
+						<a ui-sref="home" ng-click="esconderBtnVoltar = true">
+							<button  type="button" class="btn btn-default btn-lg" ng-hide="esconderBtnVoltar" >
+								<span class="glyphicon glyphicon-chevron-left" ></span>
+							</button>
+						</a>
+					</div>-->
+					<!-- <div id="tituloView" class="textUpper tituloView2 col-xs-2 col-sm-2 col-md-2 col-lg-2" >
+	            <label >{{tituloPagina | translate}}</label>
+	        </div> -->
+
+					<!--<div class="list-inline alinharTraducao col-xs-1 col-sm-1 col-md-1 col-lg-1 ">
+						 <div> -->
+<!--						<button type="button" class=" ajusteButtonTraducao btn btn-default  btn-lg ">
+								<a ng-click="changeLanguage('en')"  class="  " >
+									<img src="img/internalizacao/English_thumb.png">
+								</a>
+						</button>
+						</div> -->
+<!--					</div>
+
+					<div  class="list-inline alinharTraducao col-xs-1 col-sm-1 col-md-1 col-lg-1 ">
+						 <div> -->
+<!--						<button type="button" class=" ajusteButtonTraducao btn btn-default btn-lg">
+								<a ng-click="changeLanguage('pt')" class=" " >
+									<img src="img/internalizacao/Portuguese_thumb.png">
+								</a>
+							</button>
+					</div> -->
+<!--					</div>
+					<div  class="list-inline alinharTraducao col-xs-1 col-sm-1 col-md-1 col-lg-1 ">
+						 <div> -->
+<!--						<button type="button" class="ajusteButtonTraducao btn btn-default btn-lg">
+								<a ng-click="changeLanguage('es')" class=" " >
+									<img src="img/internalizacao/Spain_thumb.png">
+								</a>
+						</button>
+						 </div> -->
+<!--					</div>
+					</div> -->
+<!--				</div>
+			</nav>
+		</header>
+	</div> -->
+
+		<section class="container" ng-hide="!esconderBtnVoltar" >
+			<div class="container-fluid">
+				<div >
+					<img id="imgLogo" class="navbar-fixed-center opacity" >
+				</div>
+			</div>
+		</section>
+
+			<!-- Chama paginas dentro da pasta Parciais -->
+		<div class=""><!--view-animate-container -->
+		</br>
+		</br>
+		</br>
+			<ui-view></ui-view>
+		</div>
+		<!-- Menu Inferior (Botões de Cardápio, Fechar Conta, Descrição/Gastos e Chamar Garçon) -->
+		  <footer class="panel-footer">
+		    <nav id="menuInferior" class="navbar  navbar-fixed-bottom   ">
+		      <div class=" alinharFooter" >
+		        <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		          <div class="  controBotoesInferior   col-xs-3 col-sm-3 col-md-3 col-lg-3" >
+								<a ui-sref="cardapio" class="alterCorFonte" ng-click="esconderBtnVoltar = false" >
+									<!-- <button type="button" class=" btn-lg" > -->
+								 		<p class="glyphicon glyphicon-cutlery" ></p>
+		            	<!-- </button> -->
+								</a>
+		          </div>
+							<div class="  controBotoesInferior   col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<a ui-sref="acompanhamento" class="alterCorFonte" ng-click="esconderBtnVoltar = false" >
+			            <!-- <button type="button" class="btn btn-default btn-lg" > -->
+			              <p class="glyphicon glyphicon-dashboard" ></p>
+			            <!-- </button> -->
+								</a>
+		          </div>
+		          <div class="  controBotoesInferior  col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<a ui-sref="chamar" class="alterCorFonte" ng-click="esconderBtnVoltar = false" >
+									<!-- <div growl></div> -->
+			            <!-- <button type="button" class="btn btn-default btn-lg" ng-click="alerta()" > -->
+			              <p class="glyphicon glyphicon-earphone" ></p>
+			            <!-- </button> -->
+								</a>
+		          </div>
+							<div class="  controBotoesInferior calibrarPosicaoFecharConta  col-xs-3 col-sm-3 col-md-3 col-lg-3">
+								<a ui-sref="conta" class="alterCorFonte" ng-click="esconderBtnVoltar = false" >
+									<!-- <button type="button" class="btn btn-default btn-lg" > -->
+										<p class="glyphicon glyphicon-credit-card" ></p>
+									<!-- </button> -->
+								</a>
+							</div>
+		        </div>
+		      </div>
+		    </nav>
+		  </footer>
+		<!-- </section> -->
+
+		<!-- <script src="js/calculos.js"></script> -->
+		<!--<script src="js/parcialConta.js"></script>-->
+		<!-- <script type="text/javascript" src="js/jquery.js"></script> -->
+		<!-- <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script> -->
+		<!--Location para posicionar no item selecionado-->
+		<!-- <script>
+				window.location.href='#7';
+		</script> -->
+
+
+</body>
+</html>

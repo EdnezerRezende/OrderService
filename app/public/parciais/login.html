@@ -1,0 +1,59 @@
+<div class="container provisorio ">
+  <!-- Filtro e MENU -->
+  <nav class="navbar navbar-default navbar-fixed-top content-center col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+    <div class="navbar navbar-default  navbar-fixed-top"><!-- tirei o fixarFiltro -->
+        <div class="container ajustarBarraSuperiorPedidos">
+          <div class="">
+            <a href="#"  ui-sref="cardapio" class="regularBtnVoltarPedido">
+              <span class="glyphicon glyphicon-menu-left" ></span>
+            </a>
+          </div>
+          <div class="containerInputTitulo">
+                <b class="row alinharInputPedidoTitulo">{{tituloPaginaLogin | translate}}</b>
+          </div>
+        </div>
+    </div>
+  </nav>
+</div>
+</br>
+	<div class="container text-center">
+		<p><strong> Por favor, insira sua identificação/QRCode: </strong> </p>
+				<div>
+	      <bc-qr-reader active="cameraRequested" on-result="processURLfromQR" on-error="onError" camera-status="cameraIsOn" width="100px" height="100px"></bc-qr-reader>
+	    </div>
+	</div>
+
+	<div class="container mx-auto" style="width: 200px;">
+ 
+		<span ng-bootbox-alert="{{mensagem}}"></span>
+		<!--<p class="alert-danger">{{mensagem}}</p>-->
+		<form ng-submit="autenticar()" >
+
+
+
+	
+		</br>
+
+	    <div ng-show="ativaLoginManual">
+		    <div class="form-group">
+		        <label>Login</label>
+		        <input type="text" ng-model="usuario.login" class="form-control">
+		    </div>
+		    <div class="form-group">
+		        <label>Senha</label>
+		        <input type="password" ng-model="usuario.senha" class="form-control">
+		    </div>
+		</div>
+		<div class="list-group text-center">
+		    <button ng-show="ativaLoginManual" type="submit"  class="btn btn-default btn-primary" > Entrar  </button> 
+		    <!-- <span ng-bootbox-alert="{{mensagem}}"></span> -->
+		    </br>
+		    <button type="button" class="btn btn-default btn-danger" ng-click="cancelar()"> Cancelar </button>   
+		</div>
+	</div>
+</form>
+    </br>
+    </br>
+    </br>
+    </br>
+    

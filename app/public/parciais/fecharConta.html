@@ -1,0 +1,78 @@
+<!-- <div class="provisorio "> --> 
+<div class="container provisorio ">
+  <!-- Filtro e MENU -->
+  <nav class="navbar navbar-default navbar-fixed-top content-center col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+    <div class="navbar navbar-default  navbar-fixed-top"><!-- tirei o fixarFiltro -->
+        <div class="container ajustarBarraSuperiorPedidos">
+          <div class="">
+            <a href="#"  ui-sref="cardapio" class="regularBtnVoltarPedido">
+              <span class="glyphicon glyphicon-menu-left" ></span>
+            </a>
+          </div>
+          <div class="containerInputTitulo">
+                <b class="row alinharInputPedidoTitulo">{{tituloPagina3 | translate}}</b>
+          </div>
+        </div>
+    </div>
+  </nav>
+</div>
+
+
+<div class=" marginTopFormFechar">
+  <div class=" row alinharTabelaFecharConta"  >
+	    <table class=" table table-striped">
+	      <thead>
+	        <tr>
+	          <th class="corGeral"><strong>Produto</strong></th>
+            <th><strong>Quantidade</strong></th>
+	        </tr> 
+	      </thead>
+	      <tbody>
+	        <tr class="zebrarLinhasForm" ng-repeat="item in acompanhamentos | orderBy: 'statusCod'">
+	          <td>{{ item.titulo }}</td>
+	          <td>{{ item.quantidade }}</td>
+	        </tr>
+	      </tbody>
+	    </table>
+  </div>
+  <div class="corGeral marginFecharContaObservacao">
+    <div ><strong>Formas de Pagamento: </strong> <br/>
+      <div class="container-fluid centralizarOpcaoPagamento">
+        <div class="">
+          <label >Dinheiro
+              <input type="checkbox" ng-model="solicitarFecharConta.opcaoDinheiro">
+          </label>
+        </div>
+        <div class="">
+          <label >  Débito
+            <input type="checkbox" ng-model="solicitarFecharConta.opcaoDebito">
+          </label>
+        </div>
+        <div class="">
+          <label > Crédito
+            <input type="checkbox" ng-model="solicitarFecharConta.opcaoCredito">
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br/>
+  <div class="marginFecharContaObservacao">
+    <label>Caso queira, coloque suas observações:</label>
+    <textarea type="text" maxlength="100" class="tamanhoCampoPedido bordaPedido campoBlue" size="30"
+              ng-model="solicitarFecharConta.restricao" ></textarea>
+  </div>
+
+</br>
+</br>
+  <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12 btnFecharConta">
+     <button ui-sref="home" type="submit" class="btn btn-primary" ng-click="fecharConta()" >
+      {{'label.fecharConta' | translate}}
+     </button>
+  </div>
+</div>
+</br>
+</br>
+</br>
+</br>
+</br>

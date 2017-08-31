@@ -1,0 +1,105 @@
+<!-- <div class="provisorio "> -->
+<div class="container provisorio ">
+  <!-- Filtro e MENU -->
+  <div class="navbar navbar-default navbar-fixed-top content-center col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
+    <nav class="navbar navbar-default navbar-fixed-top" >
+          <div class="container ajustarBarraSuperiorPedidos">
+            <div class="">
+              <a href="#"  ui-sref="cardapio" class="regularBtnVoltarPedido">
+                <span class="glyphicon glyphicon-menu-left" ></span>
+              </a> 
+            </div>
+            <div class="containerInputTitulo">
+                  <b class="row alinharInputPedidoTitulo">{{tituloPagina2 | translate}}</b>
+            </div>
+          </div>
+    </nav>
+  </div> 
+</div>
+
+
+<div class="">
+  <form name="formulario" class="row  painel-animado gridCardapio " >
+    <div  ng-model="item.tempoAtraso" class="painel-animado zebrarLinhasFormOutr definirTamanhoPedido alinharSeta  thumbnail provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    ng-repeat="item in acompanhamentos | orderBy: 'statusImpressao' "  ng-init="calcularTempoPedido(item)">
+          <div class=" descricaoMargin itemGridFormulario2   container-fluid  "
+                ng-disabled="true" >
+              <div class="">  
+                <div>
+                  <a target="_blank" href="{{item.foto}}" title="{{item.titulo}}" rel="shadowbox">
+                    <img class=" imgCardapio" src="{{item.foto}}"/>
+                  </a>
+                </div>
+
+              </div>
+              <div class="definicaoTituloViewPedido noBorder form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="layoutTituDescForm form-group" >
+                  <p class="textUpperTitulo">{{item.titulo}}</p>
+                </div>
+                <div class=" container textAlto tamanhoFonteHorario" >
+                  <p class="">
+                    Pedido as {{item.dataHoraStatusAcompanhamentoPedido | date:"HH:mm:ss"}}.
+                  </p>
+                  <p   ng-if="item.statusImpressao < 4 &&  (item.tempoAtraso | date: 'mm' ) <= 00 " >
+                      Previsão de Entrega  {{item.dataHoraPrevisaoEntrega | date:"HH:mm"}}  minutos.
+                  </p>
+                  <p  ng-if="item.statusImpressao < 4 && (item.tempoAtraso | date: 'mm' ) > 00" >
+                      Atrasado  {{item.tempoAtraso  | date:"mm"}}  minutos.
+                  </p>
+
+                </div>
+              </div>
+        </div>
+
+        <!-- <i-countdown set-date="2015-08-21 10:10:10" format-view="%d dias %h hrs %i min %s seg" expire-message="Acabou o tempo">
+        </i-countdown> -->
+
+        <div class="row container ajusteBarraProgressoEstilo">
+            <div class="bs-wizard" style="border-bottom:0;">
+                <div class="col-xs-3 bs-wizard-step complete"  >
+                  <div class="text-center bs-wizard-stepnum " ></div>
+                  <div class="progress"><div class="progress-bar progress-bar-striped"></div></div>
+                  <a href="#" class="bs-wizard-dot bs-wizard-dot1"></a>
+                  <div class="bs-wizard-info text-center">Recebido</div>
+                </div>
+                <div class="col-xs-3 bs-wizard-step "
+                  ng-class="{'complete': item.statusImpressao > '1', 'active': item.statusImpressao === '2', 'disabled': item.statusImpressao < '2' }">
+                  <div class="text-center bs-wizard-stepnum "></div>
+                  <div class="progress"><div class="progress-bar progress-bar-striped"></div></div>
+                  <a href="#" class="bs-wizard-dot bs-wizard-dot2"></a>
+                  <div class="bs-wizard-info text-center">Confirmado</div>
+                </div>
+                <div class="col-xs-3 bs-wizard-step "
+                    ng-class="{'complete': item.statusImpressao > '2', 'active': item.statusImpressao === '3', 'disabled': item.statusImpressao < '3'  }">
+                  <div class="text-center bs-wizard-stepnum "></div>
+                  <div class="progress"><div class="progress-bar progress-bar-striped"></div></div>
+                  <a href="#" class="bs-wizard-dot bs-wizard-dot3"></a>
+                  <div class="bs-wizard-info text-center">Na Cozinha</div>
+                </div>
+                <div class="col-xs-3 bs-wizard-step "
+                    ng-class="{'complete': item.statusImpressao > '3', 'active': item.statusImpressao === '4', 'disabled': item.statusImpressao < '4'  }">
+                  <div class="text-center bs-wizard-stepnum "></div>
+                  <div class="progress"><div class="progress-bar progress-bar-striped"></div></div>
+                  <a href="#" class="bs-wizard-dot bs-wizard-dot4"></a>
+                  <div class="bs-wizard-info text-center">A Caminho</div>
+                </div>
+            </div>
+         </div>
+         <br />
+         <div >
+           <div  ng-hide="!(item.statusImpressao < '4' )"  class="btn btn-default painel-animado"
+                 ng-class="{ 'btn-danger': item.statusImpressao === '1', 'btn-info': item.statusImpressao > '1' }">
+             
+             <span ng-if="item.statusImpressao === '1' || (item.tempoAtraso | date: 'mm' ) < 00 " ng-class="painel-animado " ng-click="btnCancelar(item.idPedido)">Cancelar</span>
+           
+                    <!-- ng-bootbox-alert="{{mensagemAcompanhamento}}" -->
+             <span  ng-if="item.statusImpressao > '1' && item.statusImpressao < '4' && (item.tempoAtraso | date: 'mm' ) > 00 "
+                    ng-click="btnAlertar(item)"
+               >Alertar</span>
+           </div>
+         </div>
+    </div>
+  </form>
+</div>
+</br>
+<br/>
