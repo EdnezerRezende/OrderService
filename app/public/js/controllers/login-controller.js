@@ -6,7 +6,7 @@ angular.module('fazerumpedido').controller('LoginController', function($window, 
     $scope.mensagem = '';
     $scope.qtdTentativas = 0;
     $scope.ativaLoginManual = false;
-
+    $scope.labelButtonAtivarLogin = 'Ativa Login Manual';
     $scope.cameraRequested = true;
     $scope.cameraIsOn = true;
 
@@ -42,6 +42,8 @@ angular.module('fazerumpedido').controller('LoginController', function($window, 
     $scope.autenticar = function() {
 
         var usuario = $scope.usuario;
+        
+      if (!( usuario.senha.substr(usuario.senha.indexOf('=')) === '=' )  ){
         
         if(usuario.login.length && usuario.senha.length){
 
@@ -91,8 +93,25 @@ angular.module('fazerumpedido').controller('LoginController', function($window, 
             });
             //$scope.mensagem = 'Digite um login/Senha ou Utilize o QRCode';
         }
+      }else{
+             $ngBootbox.alert({message: "A Senha digitada é inválida, tente novamente!", title: "Ops!"})
+           .then(function() {
+              $scope.mensagem = "";
+              $scope.titleMensagem = "";
+            });
+      }
     };
 
+    $scope.ativarDesativarLoginManual = function(){
+      if ($scope.labelButtonAtivarLogin === 'Ativa Login Manual'){
+          $scope.ativaLoginManual = true;
+          $scope.labelButtonAtivarLogin = 'Desativar Login Manual';
+      }else{
+          $scope.ativaLoginManual = false;
+          $scope.labelButtonAtivarLogin = 'Ativa Login Manual';
+      }
+
+    }
     $scope.cancelar = function(){
       $scope.cameraRequested = false;
       $scope.cameraIsOn = false;

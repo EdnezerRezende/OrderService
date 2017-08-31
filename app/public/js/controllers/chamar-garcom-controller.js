@@ -1,9 +1,9 @@
-angular.module('fazerumpedido').controller('ChamarGarcomController', function($scope, $stateParams, $rootScope, $http) {
+angular.module('fazerumpedido').controller('ChamarGarcomController', function($scope, $stateParams, $rootScope, $http, $ngBootbox) {
 
   $rootScope.tituloPagina4 = "garcons";
   $scope.counter = 0;
 
-
+ 
   $http({
       method: 'GET',
       url: '/garcon'
@@ -14,4 +14,12 @@ angular.module('fazerumpedido').controller('ChamarGarcomController', function($s
       $log.error(err);
     });
 
+    $scope.alertarGarcom = function(nome){
+      $ngBootbox.alert({message: "O Garçon " + nome + "  atendeu a sua chamada. O Aguarde!", title: "Sucesso!"})
+       .then(function() {
+          $scope.mensagem = "";
+          $scope.titleMensagem = "";
+        });
+
+    }
 });
