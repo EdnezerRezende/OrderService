@@ -3,7 +3,8 @@ function CategoriaDAO(connection) {
 }
 
 CategoriaDAO.prototype.lista = function(callback) {
-    this._connection.query('select * from categoria', callback);
+	var sql = 'select * from categoria';
+    this._connection.query(sql, callback);
 }
 
 module.exports = function(){

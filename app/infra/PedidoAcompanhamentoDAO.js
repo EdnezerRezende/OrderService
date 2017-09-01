@@ -6,30 +6,36 @@ var moment = require('moment');
 
 PedidoAcompanhamentoDAO.prototype.lista = function(usuario, callback) {
 
+    var sql = 'select * from pedido_acompanhamento join produto_servico ';
+    sql += ' on  pedido_acompanhamento.idProdutoServico = produto_servico.idProdutoServico ';
+    sql += 'where pedido_acompanhamento.idCliente = ? ';
+    sql += 'and pedido_acompanhamento.statusImpressao != 5 ';
+
+    /*
     var sql = 'select * from pedido_acompanhamento, produto_servico ';
     sql += 'where pedido_acompanhamento.idCliente = ? ';
     sql += 'and pedido_acompanhamento.statusImpressao != 5 ';
-    sql += 'and pedido_acompanhamento.idProdutoServico = produto_servico.idProdutoServico';
+    */sql += 'and pedido_acompanhamento.idProdutoServico = produto_servico.idProdutoServico';
     
     this._connection.query(sql, usuario, callback);
 }
 
 PedidoAcompanhamentoDAO.prototype.atualiza = function(idItemPedido, callback) {
 
-    var sql = 'update pedido_acompanhamento, produto_servico ';
+     var sql = 'update pedido_acompanhamento join produto_servico ';
+    sql += ' on pedido_acompanhamento.idProdutoServico = produto_servico.idProdutoServico ';
     sql += ' set pedido_acompanhamento.pedidoAtrasado = true ';
     sql += ' where pedido_acompanhamento.idPedido = ? ';
-    sql += 'and pedido_acompanhamento.idProdutoServico = produto_servico.idProdutoServico';
-    
+
     this._connection.query(sql, idItemPedido, callback);
 }
 
 PedidoAcompanhamentoDAO.prototype.atualizaItens = function(idCliente, callback) {
 
-    var sql = 'update pedido_acompanhamento, produto_servico ';
+    var sql = 'update pedido_acompanhamento join produto_servico ';
+    sql += ' on pedido_acompanhamento.idProdutoServico = produto_servico.idProdutoServico ';
     sql += ' set pedido_acompanhamento.statusImpressao = 5 ';
     sql += ' where pedido_acompanhamento.idCliente = ? ';
-    sql += 'and pedido_acompanhamento.idProdutoServico = produto_servico.idProdutoServico';
     
     this._connection.query(sql, idCliente, callback);
 }

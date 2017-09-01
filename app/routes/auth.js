@@ -5,11 +5,7 @@ module.exports = function(app) {
     app.post('/autenticar', function(req,res) {
 
     	var usuario = req.body;
-       /* if (usuario.senha.indexOf('=') ){
-            console.log('Padrão de Senha inválido');
-            res.sendStatus(401);
-            res.end(); 
-        }else{*/
+
         	var connection = app.infra.connectionFactory();
 
         	var loginDAO = new app.infra.LoginDAO(connection);
@@ -38,11 +34,9 @@ module.exports = function(app) {
                 
             });
             connection.end();
-        //};
     });
 
     //Rotas que serão verificadas o Login
-
     app.use('/pedido_acompanhamento', function(req,res, next) {
     	
          var token = req.headers['x-access-token'];

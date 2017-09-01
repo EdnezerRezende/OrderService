@@ -3,7 +3,9 @@ function GarconDAO(connection) {
 }
 
 GarconDAO.prototype.lista = function(callback) {
-    this._connection.query('select * from garcon', callback);
+
+	var sql = 'select * from garcon';
+    this._connection.query(sql, callback);
 }
 
 module.exports = function(){

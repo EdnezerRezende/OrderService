@@ -3,10 +3,13 @@ function ProdutosDAO(connection) {
 }
 
 ProdutosDAO.prototype.lista = function(callback) {
-    this._connection.query('select * from produto_servico', callback);
+	
+	var sql = 'select * from produto_servico';
+    this._connection.query(sql, callback);
 }
 
 ProdutosDAO.prototype.buscaId = function(idProdutoServico, callback) {
+
 	var sql = 'select * from produto_servico where idProdutoServico = ' + idProdutoServico;
     this._connection.query(sql, callback);
 }
