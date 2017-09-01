@@ -5,7 +5,7 @@ module.exports = function(app) {
         var usuario = req.params.idCliente;
         var connection = app.infra.connectionFactory();
         var pedidoAcompanhamentoDAO = new app.infra.PedidoAcompanhamentoDAO(connection);
-
+  
         pedidoAcompanhamentoDAO.lista(usuario, function(err, results) {
             if(err) throw err;
             res.json(results);

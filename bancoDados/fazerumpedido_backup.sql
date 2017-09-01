@@ -23,9 +23,9 @@ DROP TABLE IF EXISTS `categoria`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `categoria` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `idCategoria` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `tipo` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`idCategoria`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='categorias do cardapio';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -60,7 +60,7 @@ CREATE TABLE `fechar_conta` (
   PRIMARY KEY (`idFecharConta`),
   KEY `FK_identificacaoCliente` (`idCliente`),
   CONSTRAINT `FK_identificacaoCliente` FOREIGN KEY (`idCliente`) REFERENCES `usuario` (`idCliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `fechar_conta` (
 
 LOCK TABLES `fechar_conta` WRITE;
 /*!40000 ALTER TABLE `fechar_conta` DISABLE KEYS */;
-INSERT INTO `fechar_conta` VALUES (7,NULL,'2017-08-30 16:58:04',NULL,'1','1','1','0','Teste',1),(8,NULL,'2017-08-30 16:59:02',NULL,'1','0','1','0','Outra',1),(9,NULL,'2017-08-30 16:59:38',NULL,'1','0','0','0','Sem location.',1),(10,NULL,'2017-08-30 17:31:42',NULL,'1','0','1','0','Fechar Tudo!',1),(11,NULL,'2017-08-30 17:40:58',NULL,'0','0','0','0',NULL,1),(12,NULL,'2017-08-30 17:41:59',NULL,'0','0','0','0',NULL,1),(13,NULL,'2017-08-30 20:09:34',NULL,'0','0','0','0',NULL,1),(14,NULL,'2017-08-30 20:13:30',NULL,'0','0','0','0',NULL,1),(15,NULL,'2017-08-30 20:14:58',NULL,'1','0','1','0','fechando',1),(16,NULL,'2017-08-30 22:21:32',NULL,'0','0','0','0',NULL,1);
+INSERT INTO `fechar_conta` VALUES (7,NULL,'2017-08-30 16:58:04',NULL,'1','1','1','0','Teste',1),(8,NULL,'2017-08-30 16:59:02',NULL,'1','0','1','0','Outra',1),(9,NULL,'2017-08-30 16:59:38',NULL,'1','0','0','0','Sem location.',1),(10,NULL,'2017-08-30 17:31:42',NULL,'1','0','1','0','Fechar Tudo!',1),(11,NULL,'2017-08-30 17:40:58',NULL,'0','0','0','0',NULL,1),(12,NULL,'2017-08-30 17:41:59',NULL,'0','0','0','0',NULL,1),(13,NULL,'2017-08-30 20:09:34',NULL,'0','0','0','0',NULL,1),(14,NULL,'2017-08-30 20:13:30',NULL,'0','0','0','0',NULL,1),(15,NULL,'2017-08-30 20:14:58',NULL,'1','0','1','0','fechando',1),(16,NULL,'2017-08-30 22:21:32',NULL,'0','0','0','0',NULL,1),(17,NULL,'2017-08-31 17:22:55',NULL,'0','0','0','0',NULL,1),(18,NULL,'2017-08-31 17:29:00',NULL,'0','0','0','0',NULL,1),(19,NULL,'2017-08-31 21:12:27',NULL,'1','0','0','0','Testes',1),(20,NULL,'2017-08-31 21:15:25',NULL,'1','0','1','0',NULL,1),(21,NULL,'2017-08-31 21:17:29',NULL,'0','0','0','0',NULL,1);
 /*!40000 ALTER TABLE `fechar_conta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,13 +109,15 @@ DROP TABLE IF EXISTS `garcon_chamado`;
 CREATE TABLE `garcon_chamado` (
   `idGarconChamado` int(11) NOT NULL AUTO_INCREMENT,
   `idPrincipal` varchar(100) DEFAULT NULL,
-  `idProdutoServico` int(11) DEFAULT NULL,
   `dataHoraChamadoMesa` datetime DEFAULT NULL,
   `dataHoraRespostaMesa` datetime DEFAULT NULL,
   `dataHoraChamadoBalcao` datetime DEFAULT NULL,
   `dataHoraRespostaBalcao` datetime DEFAULT NULL,
-  PRIMARY KEY (`idGarconChamado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `idGarcon` int(11) NOT NULL,
+  PRIMARY KEY (`idGarconChamado`),
+  KEY `FK_garcon_chamado` (`idGarcon`),
+  CONSTRAINT `FK_garcon_chamado` FOREIGN KEY (`idGarcon`) REFERENCES `garcon` (`idGarcon`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,6 +126,7 @@ CREATE TABLE `garcon_chamado` (
 
 LOCK TABLES `garcon_chamado` WRITE;
 /*!40000 ALTER TABLE `garcon_chamado` DISABLE KEYS */;
+INSERT INTO `garcon_chamado` VALUES (1,NULL,'2017-08-31 21:02:21',NULL,NULL,NULL,1),(2,NULL,'2017-08-31 21:02:26',NULL,NULL,NULL,1),(3,NULL,'2017-08-31 21:02:28',NULL,NULL,NULL,4),(4,NULL,'2017-08-31 21:02:31',NULL,NULL,NULL,3);
 /*!40000 ALTER TABLE `garcon_chamado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -155,7 +158,7 @@ CREATE TABLE `pedido_acompanhamento` (
   KEY `FK_Cliente` (`idCliente`),
   CONSTRAINT `FK_Cliente` FOREIGN KEY (`idCliente`) REFERENCES `usuario` (`idCliente`),
   CONSTRAINT `FK_produtoServico` FOREIGN KEY (`idProdutoServico`) REFERENCES `produto_servico` (`idProdutoServico`)
-) ENGINE=InnoDB AUTO_INCREMENT=162 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=169 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -164,7 +167,7 @@ CREATE TABLE `pedido_acompanhamento` (
 
 LOCK TABLES `pedido_acompanhamento` WRITE;
 /*!40000 ALTER TABLE `pedido_acompanhamento` DISABLE KEYS */;
-INSERT INTO `pedido_acompanhamento` VALUES (132,NULL,1,1,'2017-08-30 11:40:29',NULL,NULL,NULL,NULL,'1',NULL,2,'Recebido',NULL,NULL),(153,NULL,5,1,'2017-08-30 13:04:25',NULL,NULL,NULL,NULL,'5',NULL,1,'Cozinha','2017-08-30 13:29:25',1),(156,NULL,7,1,'2017-08-30 15:03:12',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-30 15:03:12',NULL),(157,NULL,7,1,'2017-08-30 17:39:36',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-30 17:39:36',NULL),(158,NULL,7,1,'2017-08-30 20:09:28',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-30 20:09:28',NULL),(159,NULL,7,1,'2017-08-30 20:14:45',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-30 20:14:45',NULL),(160,NULL,7,1,'2017-08-30 22:21:21',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-30 22:21:21',NULL),(161,NULL,4,1,'2017-08-30 22:21:26',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-30 22:36:26',NULL);
+INSERT INTO `pedido_acompanhamento` VALUES (132,NULL,1,1,'2017-08-30 11:40:29',NULL,NULL,NULL,NULL,'1',NULL,2,'Recebido',NULL,NULL),(153,NULL,5,1,'2017-08-30 13:04:25',NULL,NULL,NULL,NULL,'5',NULL,1,'Cozinha','2017-08-30 13:29:25',1),(156,NULL,7,1,'2017-08-30 15:03:12',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-30 15:03:12',NULL),(157,NULL,7,1,'2017-08-30 17:39:36',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-30 17:39:36',NULL),(158,NULL,7,1,'2017-08-30 20:09:28',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-30 20:09:28',NULL),(159,NULL,7,1,'2017-08-30 20:14:45',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-30 20:14:45',NULL),(160,NULL,7,1,'2017-08-30 22:21:21',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-30 22:21:21',NULL),(161,NULL,4,1,'2017-08-30 22:21:26',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-30 22:36:26',NULL),(162,NULL,7,1,'2017-08-31 17:28:53',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-31 17:28:53',NULL),(163,NULL,7,1,'2017-08-31 21:04:51',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-31 21:04:51',NULL),(164,NULL,4,1,'2017-08-31 21:12:15',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-31 21:27:15',NULL),(165,NULL,7,2,'2017-08-31 21:15:09',NULL,NULL,NULL,NULL,'5','com gelo',1,'Recebido','2017-08-31 21:15:09',NULL),(166,NULL,4,1,'2017-08-31 21:17:09',NULL,NULL,NULL,NULL,'5',NULL,1,'Recebido','2017-08-31 21:32:09',NULL),(167,NULL,4,1,'2017-08-31 21:24:01',NULL,NULL,NULL,NULL,'1',NULL,1,'Recebido','2017-08-31 21:39:01',NULL),(168,NULL,4,1,'2017-08-31 21:50:49',NULL,NULL,NULL,NULL,'1',NULL,1,'Recebido','2017-08-31 22:05:49',NULL);
 /*!40000 ALTER TABLE `pedido_acompanhamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -234,4 +237,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-08-31 16:20:43
+-- Dump completed on 2017-08-31 21:53:54

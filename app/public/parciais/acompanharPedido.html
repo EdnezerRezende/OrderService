@@ -20,7 +20,7 @@
 
 <div class="">
   <form name="formulario" class="row  painel-animado gridCardapio " >
-    <div  ng-model="item.tempoAtraso" class="painel-animado zebrarLinhasFormOutr definirTamanhoPedido alinharSeta  thumbnail provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12"
+    <div  ng-model="item.atraso" class="painel-animado zebrarLinhasFormOutr definirTamanhoPedido alinharSeta  thumbnail provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12"
     ng-repeat="item in acompanhamentos | orderBy: 'statusImpressao' "  ng-init="calcularTempoPedido(item)">
           <div class=" descricaoMargin itemGridFormulario2   container-fluid  "
                 ng-disabled="true" >
@@ -32,19 +32,20 @@
                 </div>
 
               </div>
-              <div class="definicaoTituloViewPedido noBorder form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div  class="definicaoTituloViewPedido noBorder form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="layoutTituDescForm form-group" >
                   <p class="textUpperTitulo">{{item.titulo}}</p>
                 </div>
                 <div class=" container textAlto tamanhoFonteHorario" >
-                  <p class="">
+                  <p class="" ng-model="item.tratarTempo">
                     Pedido as {{item.dataHoraStatusAcompanhamentoPedido | date:"HH:mm:ss"}}.
+                     
                   </p>
-                  <p   ng-if="item.statusImpressao < 4 && ((item.tempoAtraso | date: 'mm' ) <= '00' )" >
+                  <p   ng-if="item.statusImpressao < 4 && !item.atraso " >
                       Previsão de Entrega  {{item.dataHoraPrevisaoEntrega | date:"HH:mm"}}  minutos.
                   </p>
-                  <p  ng-if="item.statusImpressao < 4 && ((item.tempoAtraso | date: 'mm' ) > '00' )" >
-                      Atrasado {{(item.tempoAtraso-59)  | date:"mm"}} minutos.
+                  <p  ng-if="item.statusImpressao < 4 && item.atraso" >
+                      Atrasado {{ item.tratarTempo }} minutos.
                   </p>
 
                 </div>
@@ -90,10 +91,10 @@
            <div  ng-hide="!(item.statusImpressao < '4' )"  class="btn btn-default painel-animado"
                  ng-class="{ 'btn-danger': item.statusImpressao === '1', 'btn-info': item.statusImpressao > '1' }">
              
-             <span ng-if="item.statusImpressao === '1' || (item.tempoAtraso | date: 'mm' ) < 00 " ng-class="painel-animado " ng-click="btnCancelar(item.idPedido)">Cancelar</span>
+             <span ng-if="item.statusImpressao === '1' " ng-class="painel-animado " ng-click="btnCancelar(item.idPedido)">Cancelar</span>
            
                     <!-- ng-bootbox-alert="{{mensagemAcompanhamento}}" -->
-             <span  ng-if="item.statusImpressao > '1' && item.statusImpressao < '4' && (item.tempoAtraso | date: 'mm' ) > 00 "
+             <span  ng-if="( item.statusImpressao > '1' && item.statusImpressao < '4' ) && item.atraso "
                     ng-click="btnAlertar(item)"
                >Alertar</span>
            </div>

@@ -70,7 +70,44 @@ angular.module('fazerumpedido')
     };
 
     $scope.calcularTempoPedido = function(item){
-      var calculoPrevisao = new Date(item.dataHoraPrevisaoEntrega)
-      item.tempoAtraso = calculoPrevisao.getTime() - $scope.horaAtual.getTime() ;
+      var calculoPrevisao = new Date(item.dataHoraPrevisaoEntrega);
+      
+        
+        var a =  new Date();
+        var b = new Date(item.dataHoraPrevisaoEntrega); 
+        var diff = a - b;
+         
+        var segundos = Math.round( diff / 1000 );
+        var minutos = Math.round( ( diff / 1000 ) / 60 );
+        var horas = Math.round( ( ( diff / 1000 ) / 60 ) / 60 );
+        var dias = Math.round( ( ( ( diff / 1000 ) / 60 ) / 60 ) / 24 );
+        var calculo = "";
+        var tratarMinutos = 0;
+        item.atraso = false;
+        if(minutos > 0){
+          item.atraso = true;
+          if(minutos>59){
+              tratarMinutos = (minutos - (horas * 60));
+            if(horas > 9){
+              item.tratarTempo = horas + ":" + tratarMinutos;
+            }else{
+              item.tratarTempo = "0" + horas + ":" + tratarMinutos;
+            }
+          }else {
+            if( minutos < 10 ) {
+              item.tratarTempo = "00" + ":" + "0" + minutos;
+            }else{
+              item.tratarTempo = "00" + ":" + minutos;
+            }
+          }
+          
+        }
+
+        item.tempoAtraso = calculoPrevisao.getTime() - $scope.horaAtual.getTime() ;
     };
+
+   
+
+
+
 });
