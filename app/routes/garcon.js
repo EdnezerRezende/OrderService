@@ -5,9 +5,12 @@ module.exports = function(app) {
 
         var garconDAO = new app.infra.GarconDAO(connection);
         garconDAO.lista(function(err, results) {
+        	if(err) throw err;
         	res.json(results);
         });
-
+ 
         connection.end();
     });
+
+
 }

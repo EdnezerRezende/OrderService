@@ -40,11 +40,11 @@
                   <p class="">
                     Pedido as {{item.dataHoraStatusAcompanhamentoPedido | date:"HH:mm:ss"}}.
                   </p>
-                  <p   ng-if="item.statusImpressao < 4 &&  (item.tempoAtraso | date: 'mm' ) <= 00 " >
+                  <p   ng-if="item.statusImpressao < 4 && ((item.tempoAtraso | date: 'mm' ) <= '00' )" >
                       Previsão de Entrega  {{item.dataHoraPrevisaoEntrega | date:"HH:mm"}}  minutos.
                   </p>
-                  <p  ng-if="item.statusImpressao < 4 && (item.tempoAtraso | date: 'mm' ) > 00" >
-                      Atrasado  {{item.tempoAtraso  | date:"mm"}}  minutos.
+                  <p  ng-if="item.statusImpressao < 4 && ((item.tempoAtraso | date: 'mm' ) > '00' )" >
+                      Atrasado {{(item.tempoAtraso-59)  | date:"mm"}} minutos.
                   </p>
 
                 </div>

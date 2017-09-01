@@ -836,6 +836,7 @@ body .corGeral{
 	display: flex;
 	color: #bb4242;
 	width: 100%;
+	text-decoration-line: none !important;
 }
 .configuracoesDetalhePedido{
 	 margin-left: 1px !important;

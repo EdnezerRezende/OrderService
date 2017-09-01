@@ -71,8 +71,6 @@ angular.module('fazerumpedido')
 
     $scope.calcularTempoPedido = function(item){
       var calculoPrevisao = new Date(item.dataHoraPrevisaoEntrega)
-      console.log("calculoPrevisao: " + calculoPrevisao);
-      item.tempoAtraso = $scope.horaAtual.getTime() - calculoPrevisao.getTime() ;
-      console.log("Tempo Atrado: " + item.tempoAtraso);
+      item.tempoAtraso = calculoPrevisao.getTime() - $scope.horaAtual.getTime() ;
     };
 });

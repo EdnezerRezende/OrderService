@@ -14,12 +14,30 @@ angular.module('fazerumpedido').controller('ChamarGarcomController', function($s
       $log.error(err);
     });
 
-    $scope.alertarGarcom = function(nome){
-      $ngBootbox.alert({message: "O Garçon " + nome + "  atendeu a sua chamada. O Aguarde!", title: "Sucesso!"})
-       .then(function() {
-          $scope.mensagem = "";
-          $scope.titleMensagem = "";
-        });
+    $scope.alertarGarcom = function(garcon){
+      var idGarcon = garcon.idGarcon;
+       $http({ 
+                method: 'POST',
+                url: '/garcon_chamado/' + idGarcon
+              })
+              .then(function (success) {
+
+                $ngBootbox.alert({message: "O Garçon " + garcon.nome + "  atendeu a sua chamada. O Aguarde!", title: "Sucesso!"})
+                  .then(function() {
+                      $scope.mensagem = "";
+                      $scope.titleMensagem = "";
+                      $scope.login = 0;
+                  });
+
+              }, function(error){
+                $ngBootbox.alert({message: "Não conseguimos acionar o garçom, tente novamente!", title: "Ops!"})
+                  .then(function() {
+                      $scope.mensagem = "";
+                      $scope.titleMensagem = "";
+                      $scope.login = 0;
+                  });
+               
+              });
 
     }
 });
