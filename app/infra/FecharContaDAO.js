@@ -16,11 +16,10 @@ FecharContaDAO.prototype.salva = function(conta, callback) {
     			statusPagamentoDebito:	conta.opcaoDebito,
     			statusPagamentoRefeicao:	conta.opcaoRefeicao,
     			observacaoPagamento: conta.restricao,
-    			idCliente: conta.idCliente
+    			idQrCode: conta.idQrCode
        	}
 
       ];
-	     
        var sql = 'insert into fechar_conta set ?';
 
     this._connection.query( sql, values, callback );

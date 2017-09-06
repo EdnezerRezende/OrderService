@@ -27,8 +27,8 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
     url: "/pedido",
     templateUrl: 'parciais/fazerPedido.html',
     controller: 'FazerPedidoController'
-    // controllerAs: 'PrincipalController'
   })
+
   // Página ativada quando solicitado Fechar Conta.
   .state('conta', {
     url: "/conta",
@@ -67,8 +67,8 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
 
 
 })
-.run(['$rootScope', '$window', '$state',
-  function ($rootScope, $window, $state) {
+.run(['$rootScope', '$window', '$state', '$ngBootbox', '$http', '$location',
+  function ($rootScope, $window, $state, $ngBootbox, $http, $location) {
     
     $rootScope.tituloPagina = "";
     $rootScope.tituloPagina2 = "";
@@ -91,5 +91,143 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
      $rootScope.detalharCardapio = {};
      $rootScope.garcons = [];
      $rootScope.temPedido = false;
-     $rootScope.idCliente = '';
+     //$rootScope.idCliente = '';
+     $rootScope.idQrCode = '';
+
+    $rootScope.qrcode = {};
+    $rootScope.cameraRequested = true;
+    $rootScope.cameraIsOn = true;
+
+    //flag para validar se está sendo feito um novo pedido ou não. Caso esteja, vai ser encaminhado para o método
+    // de gravarPedido(), se não vai para o método obterItensAcompanhamentoEFecharConta()
+    $rootScope.fazerPedido = false;
+    $rootScope.naoSolicitarParaAcompanhamento = false;
+
+  $rootScope.validarRegistrarQrCode = function() {
+      if(!$rootScope.naoSolicitarParaAcompanhamento){
+        $ngBootbox.customDialog($rootScope.customDialogOptions);
+      }else{
+        $rootScope.naoSolicitarParaAcompanhamento = false;
+        console.log("Cheguei aqui");
+      }
+  };
+
+   $rootScope.customDialogOptions = {
+            //message: 'This is a message!',
+            templateUrl: './parciais/qrCodeIdentificacao.html',
+            title: 'Insira seu QrCode para Confirmar o pedido',
+            onEscape: function() {
+                console.log('Escape was pressed');
+            },
+            show: true,
+            backdrop: true,
+            closeButton: true,
+            animate: true,
+            className: 'test-class',
+            buttons: $rootScope.customDialogButtons,
+            message: 'test'
+  };
+ 
+  $rootScope.customDialogButtons = {
+          danger: {
+              label: "Cancelar",
+              className: "btn-danger",
+              callback: function() { $rootScope.cancelar(); }
+          }
+  };
+
+  $rootScope.cancelar = function(){
+      $rootScope.cameraRequested = false;
+      $rootScope.cameraIsOn = false;
+        if ($window.localMediaStream) {
+          $window.localMediaStream.active = false;
+          $window.localMediaStream = null;
+        }        
+    }
+
+  $rootScope.inserirQrCodeManual = function(){
+      $rootScope.cancelar();
+      bootbox.hideAll();
+      $rootScope.obterIdQrCode();
+  }
+
+  //Se obter o Id do Qr Code com sucesso, o mesmo irá gravar o Pedido do Cliente
+  $rootScope.obterIdQrCode = function(){
+
+      $http({ 
+        method: 'POST',
+        url: '/qrCode_obterid',
+        data:  $rootScope.qrcode  
+      })
+      .then(function (success) {
+        $rootScope.idQrCode = '';
+        
+        if(success != null && success.data[0] != null){
+          $rootScope.idQrCode = success.data[0].idQrCode;
+        }
+
+        $rootScope.idQrCode = success.data[0].idQrCode;
+        if($rootScope.fazerPedido){
+          $rootScope.gravarPedido();
+          $rootScope.naoSolicitarParaAcompanhamento = true;
+        }else{
+          $rootScope.obterItensAcompanhamentoEFecharConta();
+        }
+       
+
+      }, function(error){
+        $rootScope.mensagem = error;
+        $rootScope.titleMensagem = "Ops!";
+      });
+  }
+
+   //grava o Pedido na tabela e chama a página de acompanhamento
+    $rootScope.gravarPedido = function(){
+                $rootScope.envioPedido = {};
+                $rootScope.envioPedido.idProdutoServico = $rootScope.detalharCardapio.idProdutoServico;     
+                $rootScope.envioPedido.quantidade = $rootScope.detalharCardapio.quantidade;
+                $rootScope.envioPedido.statusImpressao = 1;     
+                $rootScope.envioPedido.restricao = $rootScope.detalharCardapio.restricao;   
+                $rootScope.envioPedido.idQrCode = $rootScope.idQrCode;     
+                $rootScope.envioPedido.statusDescricao = "Recebido";     
+                $rootScope.envioPedido.tempoPreparo = $rootScope.detalharCardapio.tempoPreparo;
+         
+                $rootScope.temPedido = true;
+                  $http({ 
+                    method: 'POST',
+                    url: '/pedido_acompanhamento',
+                    data:  $rootScope.envioPedido 
+                  })
+                  .then(function (success) {
+                    $ngBootbox.alert({message: "Pedido Inserido com sucesso, acompanhe o andamento", title: "Sucesso!"})
+                      .then(function() {
+                          $rootScope.mensagem = "";
+                          $rootScope.titleMensagem = "";
+                      });
+                      $location.path('/acompanhamento');
+                      $rootScope.obterItensAcompanhamentoEFecharConta();
+                      $rootScope.fazerPedido = false;
+
+                  }, function(error){
+                    $rootScope.mensagem = error;
+                    $rootScope.titleMensagem = "Ops!";
+                  });
+    }
+
+
+    $rootScope.obterItensAcompanhamentoEFecharConta = function (){
+
+     $http({
+        method: 'GET',
+        url: '/pedido_acompanhamento/' + $rootScope.idQrCode
+      })
+      .then(function (success) {
+          $rootScope.acompanhamentos = success.data;
+          //$rootScope.idQrCode ='';
+      }, function(error){
+        console.log("Erro: " + error);
+      });
+      
+    }
+
 }]);

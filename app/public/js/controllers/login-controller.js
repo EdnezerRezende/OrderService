@@ -120,7 +120,7 @@ angular.module('fazerumpedido').controller('LoginController', function($window, 
           $window.localMediaStream.active = false;
           $window.localMediaStream = null;
         }        
-        $location.path('/home');
+        $location.path('/pedido');
     }
   
 });

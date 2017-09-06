@@ -26,7 +26,7 @@
 
 
 <div class="marginTopFormPedido">
-  <form name="formulario" class="row  painel-animado gridCardapio " ng-action="acompanhamento" method="post" ng-submit="submeter()" >
+  <form  name="formulario" class="row  painel-animado gridCardapio " ng-action="acompanhamento" method="post" ng-submit="validarRegistrarQrCode()" >
     <div class="definirTamanhoPedido alinharSeta  provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
           <div class="descricaoMarginPedido itemGridFormulario2    painel-animado " ng-disabled="true"
                     ng-model="detalharCardapio.descricao">
@@ -55,7 +55,7 @@
                   <div >
                     <b>{{detalharCardapio.observacao}}</b>
                   </div>
-                  <div ng-if="detalharCardapio.tempo != 0 || detalharCardapio.tempo != '' " >
+                  <div ng-if="detalharCardapio.tempo != 0 || detalharCardapio.tempo != '' " ng-show="false">
                     </br>
                     <b>Preparo em {{detalharCardapio.tempoPreparo}} minutos.</b>
                   </div>
@@ -84,14 +84,17 @@
           </br>
           </br>
                <!-- ng-bootbox-prompt-action="promptCallback(result)"  -->
+               <!-- ng-bootbox-custom-dialog
+               ng-bootbox-class-name="test-class"  -->
             <div class="alinharBtnConfirmar col-xs-12 col-sm-12 col-md-12 col-lg-12">
                <button  type="submit" class="btn btn-primary"  
-               
+               ng-bootbox-title="Insira o QRCode!"
+               ng-bootbox-custom-dialog-template="./parciais/qrCodeIdentificacao.html"
+               ng-bootbox-buttons="customDialogButtons"
                > 
                 {{'label.enviar' | translate}}
                </button>
                <!-- <span ng-bootbox-alert="{{mensagem}}"></span> -->
-
 
             </div>
     </div>

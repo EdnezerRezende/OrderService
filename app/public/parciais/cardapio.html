@@ -54,7 +54,7 @@
                     <div >
                       <b>{{item.observacao}}</b>
                     </div>
-                    <div  ng-if="item.tempoPreparo.toString() != '00:00:00' " >
+                    <div  ng-if="item.tempoPreparo.toString() != '00:00:00' " ng-show="false">
                       </br>
                       <b class="textAlto">Preparo em  {{item.tempoPreparo | date:"mm"}} minutos</b>
                     </div>

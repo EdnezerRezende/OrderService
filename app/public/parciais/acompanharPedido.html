@@ -1,5 +1,5 @@
 <!-- <div class="provisorio "> -->
-<div class="container provisorio ">
+<div class="container provisorio " ng-init="validarRegistrarQrCode()">
   <!-- Filtro e MENU -->
   <div class="navbar navbar-default navbar-fixed-top content-center col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
     <nav class="navbar navbar-default navbar-fixed-top" >
@@ -13,7 +13,7 @@
                   <b class="row alinharInputPedidoTitulo">{{tituloPagina2 | translate}}</b>
             </div>
           </div>
-    </nav>
+    </nav> 
   </div> 
 </div>
 
@@ -36,7 +36,7 @@
                 <div class="layoutTituDescForm form-group" >
                   <p class="textUpperTitulo">{{item.titulo}}</p>
                 </div>
-                <div class=" container textAlto tamanhoFonteHorario" >
+                <div class=" container textAlto tamanhoFonteHorario" ng-show="false">
                   <p class="" ng-model="item.tratarTempo">
                     Pedido as {{item.dataHoraStatusAcompanhamentoPedido | date:"HH:mm:ss"}}.
                      
@@ -91,10 +91,10 @@
            <div  ng-hide="!(item.statusImpressao < '4' )"  class="btn btn-default painel-animado"
                  ng-class="{ 'btn-danger': item.statusImpressao === '1', 'btn-info': item.statusImpressao > '1' }">
              
-             <span ng-if="item.statusImpressao === '1' " ng-class="painel-animado " ng-click="btnCancelar(item.idPedido)">Cancelar</span>
+             <span ng-if="item.statusImpressao === '1' " ng-class="painel-animado " ng-click="btnCancelar(item)">Cancelar</span>
            
                     <!-- ng-bootbox-alert="{{mensagemAcompanhamento}}" -->
-             <span  ng-if="( item.statusImpressao > '1' && item.statusImpressao < '4' ) && item.atraso "
+             <span  ng-show="false" ng-if="( item.statusImpressao > '1' && item.statusImpressao < '4' ) && item.atraso "
                     ng-click="btnAlertar(item)"
                >Alertar</span>
            </div>

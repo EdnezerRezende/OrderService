@@ -1,0 +1,30 @@
+<div ng-controller="QrCodeIdentificacaoController">
+	<div class="container text-center">
+		<div>
+	      <bc-qr-reader active="cameraRequested" on-result="processURLfromQR" on-error="onError" camera-status="cameraIsOn" max-width="100px" max-height="100px"></bc-qr-reader>
+	    </div>
+	</div>
+
+	<form ng-submit="inserirQrCodeManual()" >
+			<div class="text-center">
+				<button type="button" class="btn btn-default btn-info" ng-click="ativarDesativarLoginManual()">{{labelButtonAtivarLogin}}</button>
+			</div>
+			</br>
+			</br>
+
+		    <div ng-show="ativaLoginManual">
+		    	<div class="form-group">
+			        <label>Empresa</label>
+			        <input type="text" ng-model="qrcode.empresa" class="form-control">
+			    </div>
+			    <div class="form-group">
+			        <label>Número QrCode</label>
+			        <input type="password" ng-model="qrcode.numeroQrCode" class="form-control">
+			    </div>
+			</div>
+			<div class="list-group text-center" ng-show="ativaLoginManual">
+			    <button  type="submit"  class="btn btn-default btn-primary" > Entrar  </button> 
+			</div>
+	</form>
+</div>
+    

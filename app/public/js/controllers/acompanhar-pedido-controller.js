@@ -1,33 +1,21 @@
 angular.module('fazerumpedido')
 .controller('AcompanharPedidoController', function($scope, $rootScope, $window, $filter, $ngBootbox, $http) {
     $rootScope.tituloPagina2 = "label.tituloAcompanhar";
-    
+    $rootScope.acompanhamentos = [];
     $scope.mostra = false;
-    var now = new Date();
+    var now = new Date(); 
     
     $scope.login = 1;
 
-    $http({
-      method: 'GET',
-      url: '/pedido_acompanhamento/' + $rootScope.idCliente
-    })
-    .then(function (success) {
-      console.log(success.data);
-        $rootScope.acompanhamentos = success.data;
-    }, function(error){
-      console.log("Erro: " + error);
-      //$log.error(err);
-    });
 
     $scope.horaAtual = now;
     $scope.contagem = 0;
     
     $scope.btnCancelar = function (item){
-      var index = $scope.acompanhamentos.indexOf(item);
-      
+      var indice = $rootScope.acompanhamentos.indexOf(item);
       $http({
         method: 'DELETE',
-        url: '/pedido_acompanhamento/' + item,
+        url: '/pedido_acompanhamento/' + item.idPedido
       })
       .then(function (success) {
         $ngBootbox.alert({message: "Pedido Excluído.", title: "Sucesso"})
@@ -36,7 +24,7 @@ angular.module('fazerumpedido')
               $scope.titleMensagem = "";
               $scope.login = 0;
           });
-        $scope.acompanhamentos.splice(index, 1);
+        $rootScope.acompanhamentos.splice(indice, 1);
       }, function(error){
         console.log("Erro: " + error);
       });
@@ -71,7 +59,6 @@ angular.module('fazerumpedido')
 
     $scope.calcularTempoPedido = function(item){
       var calculoPrevisao = new Date(item.dataHoraPrevisaoEntrega);
-      
         
         var a =  new Date();
         var b = new Date(item.dataHoraPrevisaoEntrega); 
@@ -100,14 +87,7 @@ angular.module('fazerumpedido')
               item.tratarTempo = "00" + ":" + minutos;
             }
           }
-          
         }
-
         item.tempoAtraso = calculoPrevisao.getTime() - $scope.horaAtual.getTime() ;
     };
-
-   
-
-
-
 });

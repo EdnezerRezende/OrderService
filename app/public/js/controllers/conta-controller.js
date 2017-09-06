@@ -1,6 +1,7 @@
 angular.module('fazerumpedido').controller('ContaController', function($scope, $stateParams, $rootScope, $http, $ngBootbox, $window, $location) {
 
   $rootScope.tituloPagina3 = "label.tituloFecharConta";
+  $rootScope.acompanhamentos = [];
   $scope.somaVlrTotal = 0;
   $scope.somaTotal = function(item, quantidade){
     $scope.somaVlrTotal = $scope.somaVlrTotal + (item*quantidade);
@@ -12,8 +13,7 @@ angular.module('fazerumpedido').controller('ContaController', function($scope, $
   $scope.solicitarFecharConta.opcaoRefeicao = false;
 
   $scope.fecharConta = function (){
-    console.log($rootScope.idCliente);
-      $scope.solicitarFecharConta.idCliente = $rootScope.idCliente;
+      $scope.solicitarFecharConta.idQrCode = $rootScope.idQrCode;
 
        $http({ 
               method: 'POST',
@@ -21,11 +21,11 @@ angular.module('fazerumpedido').controller('ContaController', function($scope, $
               data:  $scope.solicitarFecharConta 
             })
             .then(function (success) {
-                var idCliente = $scope.solicitarFecharConta.idCliente;
+                var idQrCode = $scope.solicitarFecharConta.idQrCode;
 
                   $http({
                     method: 'PUT',
-                    url: '/pedido_acompanhamento/fechar_itens/' + idCliente,
+                    url: '/pedido_acompanhamento/fechar_itens/' + idQrCode,
                   })
                   .then(function (success) {
                     $ngBootbox.alert({message: "Recebemos sua solicitação, estamos encaminhando o garçom para receber seu pagamento. Muito Obrigado!", title: "Sucesso!"})
@@ -35,6 +35,7 @@ angular.module('fazerumpedido').controller('ContaController', function($scope, $
                           $scope.login = 0;
                       });
                           $scope.solicitarFecharConta = {};
+                          $rootScope.idQrCode = '';
                           $rootScope.acompanhamentos = [];
                           delete $window.sessionStorage.token;
                           $location.path('/home');

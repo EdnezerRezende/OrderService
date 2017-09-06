@@ -4,7 +4,7 @@ module.exports = function(app) {
     //Autenticação de usuário
     app.post('/autenticar', function(req,res) {
 
-    	var usuario = req.body;
+    	var usuario = req.body; 
 
         	var connection = app.infra.connectionFactory();
 
@@ -37,7 +37,7 @@ module.exports = function(app) {
     });
 
     //Rotas que serão verificadas o Login
-    app.use('/pedido_acompanhamento', function(req,res, next) {
+ /*   app.use('/pedido_acompanhamento', function(req,res, next) {
     	
          var token = req.headers['x-access-token'];
 
@@ -78,7 +78,7 @@ module.exports = function(app) {
             console.log('Nenhum token enviado');
             return res.sendStatus(401);
           }
-    });
+    });*/
 
 
    

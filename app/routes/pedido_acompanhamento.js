@@ -1,8 +1,9 @@
 module.exports = function(app) {   
    
-      app.get('/pedido_acompanhamento/:idCliente', function(req, res) {
+      app.get('/pedido_acompanhamento/:idQrCode', function(req, res) {
 
-        var usuario = req.params.idCliente;
+        var usuario = req.params.idQrCode;
+        console.log("Usuario: "+ usuario);
         var connection = app.infra.connectionFactory();
         var pedidoAcompanhamentoDAO = new app.infra.PedidoAcompanhamentoDAO(connection);
   
@@ -15,7 +16,7 @@ module.exports = function(app) {
 
     });
 
-    app.put('/pedido_acompanhamento/:idPedido', function(req, res) {
+    app.put('/pedido_acompanhamento/:idPedido', function(req, res) { 
 
         var idItemPedido = req.params.idPedido;
         var connection = app.infra.connectionFactory();
@@ -30,20 +31,20 @@ module.exports = function(app) {
 
     });  
 
-     app.put('/pedido_acompanhamento/fechar_itens/:idCliente', function(req, res) {
+     app.put('/pedido_acompanhamento/fechar_itens/:idQrCode', function(req, res) {
 
-        var idCliente = req.params.idCliente;
+        var idQrCode = req.params.idQrCode;
         var connection = app.infra.connectionFactory();
         var pedidoAcompanhamentoDAO = new app.infra.PedidoAcompanhamentoDAO(connection);
 
-        pedidoAcompanhamentoDAO.atualizaItens(idCliente, function(err, results) {
+        pedidoAcompanhamentoDAO.atualizaItens(idQrCode, function(err, results) {
             if(err) throw err;
             res.json(results);
         });
 
         connection.end();
 
-    });  
+    });   
 
     app.post('/pedido_acompanhamento', function(req, res) {
     	var pedido = req.body;
@@ -53,11 +54,11 @@ module.exports = function(app) {
 
         pedidoAcompanhamentoDAO.salva(pedido, function(err, results) {
             if(err) throw err; 
-            res.json(results.id);
+            res.json(results.id); 
         });
 
 
-        connection.end();
+        connection.end(); 
 
     });
 
@@ -69,6 +70,7 @@ module.exports = function(app) {
 
         pedidoAcompanhamentoDAO.deleta(identificacao, function(err, results) {
             if(err) throw err;
+            console.log("Resultado da deleção: " + results);
             res.json(results.id);
         });
 
