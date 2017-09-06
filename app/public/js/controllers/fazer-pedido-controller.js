@@ -2,12 +2,12 @@ angular.module('fazerumpedido').controller('FazerPedidoController', function($sc
     
 
   $rootScope.tituloPagina = "Pedido";
-  //$rootScope.detalharCardapio.quantidade = 1;
   $scope.mensagem = "";
   $scope.titleMensagem = "";
   $rootScope.fazerPedido = true;
- 
- 
+  $rootScope.obterLocalizacao();
+
+  $scope.detalharCardapio.idLocalizacao = '';
   $scope.ativaLoginManual = false;
   $scope.labelButtonAtivarLogin = 'Ativa Login Manual';
 

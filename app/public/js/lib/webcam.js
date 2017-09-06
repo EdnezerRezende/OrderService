@@ -111,7 +111,7 @@ angular.module('webcam', [])
 
           // Default variables
           var isStreaming = false,
-            width = element.width = $scope.config.videoWidth || 320,
+            width = element.width = $scope.config.videoWidth || 220,
             height = element.height = 0;
 
           // Check the availability of getUserMedia across supported browsers

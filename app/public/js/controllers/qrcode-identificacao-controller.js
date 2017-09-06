@@ -3,7 +3,6 @@ angular.module('fazerumpedido').controller('QrCodeIdentificacaoController', func
 
   $scope.ativaLoginManual = false;
   $scope.labelButtonAtivarLogin = 'Ativa Login Manual';
-
  
 
    //$scope.login = 0;

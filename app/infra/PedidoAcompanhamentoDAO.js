@@ -63,7 +63,8 @@ PedidoAcompanhamentoDAO.prototype.salva = function(pedido, callback) {
   			quantidade:	pedido.quantidade,
   			statusDescricao: pedido.statusDescricao,
   			statusImpressao: pedido.statusImpressao,
-        dataHoraPrevisaoEntrega: tpreparo
+        dataHoraPrevisaoEntrega: tpreparo,
+        idLocalizacao: pedido.idLocalizacao
      	}
 
     ];

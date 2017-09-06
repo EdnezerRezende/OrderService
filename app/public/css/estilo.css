@@ -54,6 +54,7 @@ background-color: red;
    -moz-box-shadow: 5px -2px 5px rgba(0,0,0,.3);
 }
 #qr-canvas { 
+	width: 100px;
 	display: none; 
 }
 
@@ -683,6 +684,15 @@ footer{
 }
 .bordaPedido{
 	border: ridge;
+}
+.bordaSelectLocalizacao{
+	color: blue;
+	font-weight: bold;
+	border: ridge;
+    border-radius: 10px;
+    font-size: x-large;
+}
+
 }
 .formularioDetalharCardapio{
 

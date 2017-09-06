@@ -83,6 +83,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
       $window.history.back();
     };
 
+     $rootScope.localizacoes = [];
      $rootScope.mensagem = "";
      $rootScope.pedidos = [];
      $rootScope.acompanhamentos = [];
@@ -108,7 +109,6 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
         $ngBootbox.customDialog($rootScope.customDialogOptions);
       }else{
         $rootScope.naoSolicitarParaAcompanhamento = false;
-        console.log("Cheguei aqui");
       }
   };
 
@@ -117,7 +117,9 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
             templateUrl: './parciais/qrCodeIdentificacao.html',
             title: 'Insira seu QrCode para Confirmar o pedido',
             onEscape: function() {
-                console.log('Escape was pressed');
+                $rootScope.naoSolicitarParaAcompanhamento = false;
+                $rootScope.fazerPedido = false;
+                $rootScope.cancelar();
             },
             show: true,
             backdrop: true,
@@ -161,12 +163,9 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
       })
       .then(function (success) {
         $rootScope.idQrCode = '';
-        
-        if(success != null && success.data[0] != null){
-          $rootScope.idQrCode = success.data[0].idQrCode;
-        }
 
         $rootScope.idQrCode = success.data[0].idQrCode;
+
         if($rootScope.fazerPedido){
           $rootScope.gravarPedido();
           $rootScope.naoSolicitarParaAcompanhamento = true;
@@ -191,6 +190,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
                 $rootScope.envioPedido.idQrCode = $rootScope.idQrCode;     
                 $rootScope.envioPedido.statusDescricao = "Recebido";     
                 $rootScope.envioPedido.tempoPreparo = $rootScope.detalharCardapio.tempoPreparo;
+                $rootScope.envioPedido.idLocalizacao = $rootScope.detalharCardapio.idLocalizacao;
          
                 $rootScope.temPedido = true;
                   $http({ 
@@ -205,8 +205,8 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
                           $rootScope.titleMensagem = "";
                       });
                       $location.path('/acompanhamento');
-                      $rootScope.obterItensAcompanhamentoEFecharConta();
                       $rootScope.fazerPedido = false;
+                      $rootScope.obterItensAcompanhamentoEFecharConta();
 
                   }, function(error){
                     $rootScope.mensagem = error;
@@ -216,18 +216,31 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
 
 
     $rootScope.obterItensAcompanhamentoEFecharConta = function (){
-
+      console.log("IdQrCode: "+$rootScope.idQrCode);
      $http({
         method: 'GET',
         url: '/pedido_acompanhamento/' + $rootScope.idQrCode
       })
       .then(function (success) {
+        console.log(success.data);
           $rootScope.acompanhamentos = success.data;
           //$rootScope.idQrCode ='';
       }, function(error){
         console.log("Erro: " + error);
       });
       
+    }
+
+    $rootScope.obterLocalizacao = function(){
+      $http({
+        method: 'GET',
+        url: '/localizacao'
+      })
+      .then(function (success){
+        $rootScope.localizacoes = success.data;
+      }, function(error){
+        console.log( "Erro: " + error );
+      });
     }
 
 }]);

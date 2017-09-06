@@ -1,4 +1,4 @@
-<!-- <div class="provisorio "> -->
+ <!-- <div class="provisorio "> -->
 <div class="container provisorio ">
   <!-- Filtro e MENU -->
     <div class="navbar navbar-default navbar-fixed-top content-center col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
@@ -75,6 +75,18 @@
                   <span class="tamanhoBtn glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                 </a>
               </div>
+            </div>
+            <br/>
+            <!--Seleção de Localização que é obrigatória-->
+            <div class="custom-select " >
+              <select ng-model="detalharCardapio.idLocalizacao" class="bordaSelectLocalizacao"
+                ng-options="localizacao.idLocalizacao as (localizacao.nomeLocalizacao | uppercase) for localizacao in localizacoes | orderBy: 'nomeLocalizacao'" required>
+              <option value="">Onde Será Entregue</option>
+              </select>
+              <span ng-show="formulario.$submitted && formulario.localizacao.$error.required" 
+                class="form-control alert-danger">
+                Necessário Informar onde será feito a Entrega do Pedido
+              </span>
             </div>
             <br/>
             <div class="">

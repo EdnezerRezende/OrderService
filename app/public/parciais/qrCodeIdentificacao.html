@@ -1,10 +1,10 @@
 <div ng-controller="QrCodeIdentificacaoController">
 	<div class="container text-center">
-		<div>
-	      <bc-qr-reader active="cameraRequested" on-result="processURLfromQR" on-error="onError" camera-status="cameraIsOn" max-width="100px" max-height="100px"></bc-qr-reader>
+		<div >
+	      <bc-qr-reader active="cameraRequested" on-result="processURLfromQR" on-error="onError" camera-status="cameraIsOn" width="100%" height="100%"></bc-qr-reader>
 	    </div>
 	</div>
-
+ 
 	<form ng-submit="inserirQrCodeManual()" >
 			<div class="text-center">
 				<button type="button" class="btn btn-default btn-info" ng-click="ativarDesativarLoginManual()">{{labelButtonAtivarLogin}}</button>
