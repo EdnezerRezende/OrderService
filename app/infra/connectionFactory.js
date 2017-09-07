@@ -7,11 +7,11 @@ function createDBConnection(){
             port : 3306,
             method: 'post',
             password : 'admin',
-            database : 'fazerumpedido'
-            /*headers: {
+            database : 'fazerumpedido',
+            headers: {
             	'Accept':'application/json',
             	'Content-type':'application/json'
-            }*/
+            }
 
 		});
 }

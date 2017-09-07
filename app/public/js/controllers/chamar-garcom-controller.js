@@ -1,28 +1,59 @@
-angular.module('fazerumpedido').controller('ChamarGarcomController', function($scope, $stateParams, $rootScope, $http, $ngBootbox) {
+angular.module('fazerumpedido').controller('ChamarGarcomController', function($scope, $stateParams, $rootScope, $http, $ngBootbox, $window) {
 
   $rootScope.tituloPagina4 = "garcons";
   $scope.counter = 0;
+  $rootScope.obterGarcons = true;
+  $rootScope.garcons = [];
 
+  
+
+    $scope.solicitarLocalizacao = function(idGarcon, nome){
+      $rootScope.garconChamado.idGarcon = idGarcon;
+      $rootScope.garconChamado.nome = nome;
+      $ngBootbox.customDialog($scope.localizacaoGarcom);
+    }
+
+    $scope.localizacaoGarcom = {
+            templateUrl: './parciais/garcomLocalizacao.html',
+            title: 'Informe sua Localizacao',
+            onEscape: function() {
+                $scope.cancelar();
+            },
+            show: true,
+            backdrop: true,
+            closeButton: true,
+            animate: true,
+            className: 'test-class',
+            buttons: $scope.botoesCustomizados,
+            message: 'test'
+  };
  
-  $http({
-      method: 'GET',
-      url: '/garcon'
-    })
-    .then(function (success) {
-        $rootScope.garcons = success.data;
-    }, function(error){
-      $log.error(err);
-    });
+  $scope.botoesCustomizados = {
+          danger: {
+              label: "Cancelar",
+              className: "btn-danger",
+              callback: function() { $rootScope.cancelar(); }
+          }
+  };
 
-    $scope.alertarGarcom = function(garcon){
-      var idGarcon = garcon.idGarcon;
+  $scope.cancelar = function(){
+         
+  }
+
+    $scope.alertarGarcom = function(){
+        $rootScope.chamar = {};
+        $rootScope.chamar.idGarcon = $rootScope.garconChamado.idGarcon;
+        $rootScope.chamar.idLocalizacao = $rootScope.garconChamado.idLocalizacao;
+        $rootScope.chamar.idQrCode = $rootScope.idQrCode;
+        bootbox.hideAll();
        $http({ 
                 method: 'POST',
-                url: '/garcon_chamado/' + idGarcon
+                url: '/garcon_chamado' ,
+                data: $rootScope.chamar
               })
               .then(function (success) {
 
-                $ngBootbox.alert({message: "O Garçon " + garcon.nome + "  atendeu a sua chamada. O Aguarde!", title: "Sucesso!"})
+                $ngBootbox.alert({message: "O Garçon " + $rootScope.garconChamado.nome + "  atendeu a sua chamada. O Aguarde!", title: "Sucesso!"})
                   .then(function() {
                       $scope.mensagem = "";
                       $scope.titleMensagem = "";
@@ -38,6 +69,5 @@ angular.module('fazerumpedido').controller('ChamarGarcomController', function($s
                   });
                
               });
-
     }
 });

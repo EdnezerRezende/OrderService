@@ -3,14 +3,15 @@ function GarconChamadoDAO(connection) {
 }
 var moment = require('moment');
 
-GarconChamadoDAO.prototype.salva = function(identificacaoGarcom, callback) {
-
+GarconChamadoDAO.prototype.salva = function(garcon, callback) {
  var now = moment().format('YYYY-MM-DD HH:mm:ss');
 
-	const values = [
+	const values = [ 
       {	
       	dataHoraChamadoMesa: now,
-     	idGarcon: identificacaoGarcom
+       	idGarcon: garcon.idGarcon,
+        idLocalizacao: garcon.idLocalizacao,
+        idQrCode: garcon.idQrCode
       }
     ];
 	    

@@ -82,7 +82,8 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
       $rootScope.detalharCardapio.restricao = "";
       $window.history.back();
     };
-
+     $rootScope.obterGarcons = false;
+     $rootScope.garconChamado =[];
      $rootScope.localizacoes = [];
      $rootScope.mensagem = "";
      $rootScope.pedidos = [];
@@ -155,7 +156,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
 
   //Se obter o Id do Qr Code com sucesso, o mesmo irá gravar o Pedido do Cliente
   $rootScope.obterIdQrCode = function(){
-
+    console.log($rootScope.qrcode);
       $http({ 
         method: 'POST',
         url: '/qrCode_obterid',
@@ -171,6 +172,20 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
           $rootScope.naoSolicitarParaAcompanhamento = true;
         }else{
           $rootScope.obterItensAcompanhamentoEFecharConta();
+          //Só irá obter a Lista de Garcons caso esteja na aba deste.
+          if($rootScope.obterGarcons){
+            $http({
+              method: 'GET',
+              url: '/garcon'
+            })
+            .then(function (success) {
+                $rootScope.garcons = success.data;
+                $rootScope.obterLocalizacao();
+                $rootScope.obterGarcons = false;
+            }, function(error){
+              $log.error(err);
+            });
+          }
         }
        
 
@@ -216,13 +231,11 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
 
 
     $rootScope.obterItensAcompanhamentoEFecharConta = function (){
-      console.log("IdQrCode: "+$rootScope.idQrCode);
      $http({
         method: 'GET',
         url: '/pedido_acompanhamento/' + $rootScope.idQrCode
       })
       .then(function (success) {
-        console.log(success.data);
           $rootScope.acompanhamentos = success.data;
           //$rootScope.idQrCode ='';
       }, function(error){
