@@ -1,6 +1,6 @@
 angular.module('fazerumpedido').controller('FazerPedidoController', function($scope, $stateParams, $rootScope, $window, $ngBootbox, $http, $location){
     
-
+ 
   $rootScope.tituloPagina = "Pedido";
   $scope.mensagem = "";
   $scope.titleMensagem = "";
@@ -8,6 +8,7 @@ angular.module('fazerumpedido').controller('FazerPedidoController', function($sc
   $rootScope.obterLocalizacao();
 
   $scope.detalharCardapio.idLocalizacao = '';
+
   $scope.ativaLoginManual = false;
   $scope.labelButtonAtivarLogin = 'Ativa Login Manual';
 

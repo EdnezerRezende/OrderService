@@ -6,16 +6,17 @@ var moment = require('moment');
 
 PedidoAcompanhamentoDAO.prototype.lista = function(usuario, callback) {
 
-    var sql = 'select * from pedido_acompanhamento join produto_servico ';
-    sql += ' on  pedido_acompanhamento.idProdutoServico = produto_servico.idProdutoServico ';
-    sql += 'where pedido_acompanhamento.idQrCode = ? ';
-    sql += 'and pedido_acompanhamento.statusImpressao != 5 ';
+    var sql = 'select pedido.*, ';
+    sql += '        (SELECT subPedido.sub_titulo from pedido_servico_sub subPedido ';
+    sql += '        where subPedido.idPedidoServicoSub = pedido.idPedidoServicoSub) as sub_titulo,  ';
+    sql += '        (SELECT subPedido.sub_valor from pedido_servico_sub subPedido ';
+    sql += '        where subPedido.idPedidoServicoSub = pedido.idPedidoServicoSub) as sub_valor, ';
+    sql += '        produto.*';
+    sql += ' from pedido_acompanhamento as pedido join produto_servico  as produto ';
+    sql += ' on pedido.idProdutoServico = produto.idProdutoServico ';
+    sql += ' where pedido.idQrCode = 68  ';
+    sql += ' and pedido.statusImpressao != 5  ';
 
-    /*
-    var sql = 'select * from pedido_acompanhamento, produto_servico ';
-    sql += 'where pedido_acompanhamento.idCliente = ? ';
-    sql += 'and pedido_acompanhamento.statusImpressao != 5 ';
-    sql += 'and pedido_acompanhamento.idProdutoServico = produto_servico.idProdutoServico';*/
     
     this._connection.query(sql, usuario, callback);
 }
@@ -42,7 +43,6 @@ PedidoAcompanhamentoDAO.prototype.atualizaItens = function(idQrCode, callback) {
 
 
 PedidoAcompanhamentoDAO.prototype.deleta = function(identificacao, callback) {
-    console.log("Excluir pedido : " + identificacao);
     var sql = 'delete from pedido_acompanhamento where pedido_acompanhamento.idPedido = ' + identificacao ;
     this._connection.query(sql, callback);
 }
@@ -52,8 +52,6 @@ PedidoAcompanhamentoDAO.prototype.salva = function(pedido, callback) {
  var now = moment().format('YYYY-MM-DD HH:mm:ss');
 
  var tpreparo = moment().add(pedido.tempoPreparo.substr(3,2), 'm').format('YYYY-MM-DD HH:mm:ss');
- console.log(pedido.idQrCode);
- console.log(pedido);
 	const values = [
       {	
       	dataHoraStatusAcompanhamentoPedido: now,
@@ -64,11 +62,11 @@ PedidoAcompanhamentoDAO.prototype.salva = function(pedido, callback) {
   			statusDescricao: pedido.statusDescricao,
   			statusImpressao: pedido.statusImpressao,
         dataHoraPrevisaoEntrega: tpreparo,
-        idLocalizacao: pedido.idLocalizacao
+        idLocalizacao: pedido.idLocalizacao,
+        idPedidoServicoSub: pedido.idPedidoServicoSub
      	}
 
     ];
-	    
    var sql = 'insert into pedido_acompanhamento set ?';
 
    this._connection.query(sql, values, callback);

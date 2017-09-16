@@ -306,10 +306,11 @@ background-color: red;
 		}
 
 }
+
 @media (min-width: 560px){
-	.itemAlinhar{
+	/*.itemAlinhar{
 			margin-bottom: -1% !important;
-		}
+		}*/
 	.ajusteButtonTraducao {
     padding: 8px 15px !important;
     margin-top: 0px !important;
@@ -713,7 +714,7 @@ footer{
 	/*color: floralwhite;*/
 }
 .imgCardapio{
-	 max-width: 100%;
+	 max-width: 90%;
 	 margin-top: 5%;
 	 margin-bottom: -12px;
 	 border-radius: 10px;
@@ -1050,7 +1051,7 @@ body .corGeral{
 .progresso{
 	max-width: 100%;
 	margin-top: 10em !important;
-  margin-left: -48%;
+ 	margin-left: -48%;
 	padding-bottom: 10%;
 	/*background: #8bc53f;*/
 	/*color: #8bc53f;*/
@@ -1094,4 +1095,13 @@ body .corGeral{
 .zebrarLinhasFormOutr:nth-child(odd) {background: #FFF}
 .zebrarLinhasFormOutr:nth-child(even) {background: #f9e1c0}
 
+.alinhaPedidoQtdLocalizacao{
+	display: inline-grid;
+    margin-top: 2em;
 }
+.alinhaSelect{
+	margin-left: 3em;
+}
+
+}
+

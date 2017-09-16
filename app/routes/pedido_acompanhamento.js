@@ -3,10 +3,9 @@ module.exports = function(app) {
       app.get('/pedido_acompanhamento/:idQrCode', function(req, res) {
 
         var usuario = req.params.idQrCode;
-        console.log("Usuario: "+ usuario);
         var connection = app.infra.connectionFactory();
         var pedidoAcompanhamentoDAO = new app.infra.PedidoAcompanhamentoDAO(connection);
-  
+        
         pedidoAcompanhamentoDAO.lista(usuario, function(err, results) {
             if(err) throw err;
             res.json(results);
@@ -44,7 +43,7 @@ module.exports = function(app) {
 
         connection.end();
 
-    });   
+    });    
 
     app.post('/pedido_acompanhamento', function(req, res) {
     	var pedido = req.body;
@@ -70,7 +69,6 @@ module.exports = function(app) {
 
         pedidoAcompanhamentoDAO.deleta(identificacao, function(err, results) {
             if(err) throw err;
-            console.log("Resultado da deleção: " + results);
             res.json(results.id);
         });
 

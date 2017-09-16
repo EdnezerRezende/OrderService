@@ -37,8 +37,11 @@
                     <img class=" imgCardapio" src="{{detalharCardapio.foto}}"/>
                   </a>
                 <div class="paddingValorCardapio">
-                  <input class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10" ng-disabled="true"
+                  <input ng-if="detalharCardapio.valorUnitario != '0' " class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10" ng-disabled="true"
                                     value="{{detalharCardapio.valorUnitario | currency: 'R$ '}}">
+
+                  <input ng-if="detalharCardapio.valorUnitario == '0' " class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10" ng-disabled="true"
+                  value="{{detalharCardapio.guardaSubValor | currency: 'R$ '}}">
                 </div>
               </div>
 
@@ -52,10 +55,13 @@
                 </div>
                 <br/>
                 <div class="observacaoCardapio">
-                  <div >
+                  <div ng-if="detalharCardapio.guardaSubValor == ''  ">
                     <b>{{detalharCardapio.observacao}}</b>
                   </div>
-                  <div ng-if="detalharCardapio.tempo != 0 || detalharCardapio.tempo != '' " ng-show="false">
+                  <div ng-if="detalharCardapio.guardaSubValor != '' ">
+                    <b>{{detalharCardapio.subTitulo}}</b>
+                  </div>
+                  <div ng-if="detalharCardapio.tempo!= 0 || detalharCardapio.tempo != '' " ng-show="false">
                     </br>
                     <b>Preparo em {{detalharCardapio.tempoPreparo}} minutos.</b>
                   </div>
@@ -65,28 +71,30 @@
 
 
             </div>
-            <div class="container formatarTamanhoQtd col-xs-12 col-sm-12 col-md-12 col-lg-12">
-              <div class="">
-                <a href="#" ng-click="btnDiminuir()" >
-                  <span class="tamanhoBtn glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
-                </a>
-                  <input class="tamanhoCampoQTD tamanhoRestricao bordaPedido campoBlue" type="text" ng-model="detalharCardapio.quantidade" maxlength="2" size="2" value="{{detalharCardapio.quantidade}}"></input>
-                <a href="#" ng-click="btnAumentar()" >
-                  <span class="tamanhoBtn glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-                </a>
+            <div class="alinhaPedidoQtdLocalizacao">
+              <div class="container formatarTamanhoQtd col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="">
+                  <a href="#" ng-click="btnDiminuir()" >
+                    <span class="tamanhoBtn glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
+                  </a>
+                    <input class="tamanhoCampoQTD tamanhoRestricao bordaPedido campoBlue" type="text" ng-model="detalharCardapio.quantidade" maxlength="2" size="2" value="{{detalharCardapio.quantidade}}"></input>
+                  <a href="#" ng-click="btnAumentar()" >
+                    <span class="tamanhoBtn glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                  </a>
+                </div>
               </div>
-            </div>
-            <br/>
-            <!--Seleção de Localização que é obrigatória-->
-            <div class="custom-select " >
-              <select ng-model="detalharCardapio.idLocalizacao" class="bordaSelectLocalizacao"
-                ng-options="localizacao.idLocalizacao as (localizacao.nomeLocalizacao | uppercase) for localizacao in localizacoes | orderBy: 'nomeLocalizacao'" required>
-              <option value="">Onde Será Entregue</option>
-              </select>
-              <span ng-show="formulario.$submitted && formulario.localizacao.$error.required" 
-                class="form-control alert-danger">
-                Necessário Informar onde será feito a Entrega do Pedido
-              </span>
+              <br/>
+              <!--Seleção de Localização que é obrigatória-->
+              <div class="custom-select " >
+                <select ng-model="detalharCardapio.idLocalizacao" class="bordaSelectLocalizacao alinhaSelect"
+                  ng-options="localizacao.idLocalizacao as (localizacao.nomeLocalizacao | uppercase) for localizacao in localizacoes | orderBy: 'nomeLocalizacao'" required>
+                <option value="">Onde Será Entregue</option>
+                </select>
+                <span ng-show="formulario.$submitted && formulario.localizacao.$error.required" 
+                  class="form-control alert-danger">
+                  Necessário Informar onde será feito a Entrega do Pedido
+                </span>
+              </div>
             </div>
             <br/>
             <div class="">
@@ -113,3 +121,9 @@
   </form>
 
 </div>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+

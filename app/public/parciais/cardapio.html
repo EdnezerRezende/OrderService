@@ -39,45 +39,45 @@
           <div  class="form-group backgroundTitulo">
               <h3 class="textUpper textCategoria" id="{{categoria.tipo}}" ng-bind="categoria.tipo" > {{categoria.tipo}} </h3>
           </div>
-          <table class="table table-striped">
-            <div  class=" zebrarLinhasForm descricaoMargin itemGridFormulario   container-fluid painel-animado " ng-class=""
-                  ng-if="categoria.tipo == item.categoria "  ng-repeat="item in cardapio | orderBy: 'titulo' | filter: filtro">
-            <div>
-              <a id="{{item.idProdutoServico}}" class="itemAlinhar" href="pedido" ng-click="detalhar(item)"> 
-                <div class="table table-striped ">
-                  <img class=" imgCardapio"    src="{{item.foto}}">
-                  <div class="paddingValorCardapio">
-                    <input class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10"
-                            value="{{item.valorUnitario | currency: 'R$ '}}">
-                  </div>
-                  <div class="observacaoCardapio">
-                    <div >
-                      <b>{{item.observacao}}</b>
-                    </div>
-                    <div  ng-if="item.tempoPreparo.toString() != '00:00:00' " ng-show="false">
-                      </br>
-                      <b class="textAlto">Preparo em  {{item.tempoPreparo | date:"mm"}} minutos</b>
-                    </div>
-                  </div>
-                </div>
-                <div class="  noBorder list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                  <div class="layoutTituDescForm form-group" >
-                    <p class=" textUpperTitulo">{{item.titulo}}</p>
-                  </div>
-                  <div class=" form-group descricaoCardapio">
-                    <p>{{item.descricao}}.</p>
-                  </div>
+          <!-- <table class="table table-striped"> -->
+            <div  class=" zebrarLinhasForm descricaoMargin itemGridFormulario  container painel-animado media-left" ng-class=""
+                  ng-if="categoria.tipo == item.categoria "  ng-repeat="item in cardapio | orderBy: 'titulo' | filter: filtro ">
+              <div  class="">
+                <a id="{{item.idProdutoServico}}" class="itemAlinhar "  ng-click="detalhar(item)"> 
+                    <div class=" ">
+                      <div>
+                        <img class=" imgCardapio img-rounded  media-object" src="{{item.foto}}">
+                      </div>
+                      <div class="paddingValorCardapio" ng-hide="detalharCardapio.guardaSubValor != 0">
+                        <input  class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10"
+                                value="{{item.valorUnitario | currency: 'R$ '}}">
+                      </div>
 
-                </div>
-                <div >
-                    <!-- <div class="alinharContainerSeta">
-                        <span class="glyphicon glyphicon-menu-right setaContainer" ></span>
-                    </div> -->
-                </div>
-              </a>
+                      
+                      <div class="observacaoCardapio">
+                        <div >
+                          <b>{{item.observacao}}</b>
+                        </div>
+                        <div  ng-if="item.tempoPreparo.toString() != '00:00:00' " ng-show="false">
+                          </br>
+                          <b class="textAlto">Preparo em  {{item.tempoPreparo | date:"mm"}} minutos</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="  noBorder list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                      <div class="layoutTituDescForm form-group" >
+                        <p class=" textUpperTitulo">{{item.titulo}}</p>
+                      </div>
+                      <div class=" descricaoCardapio">
+                        <p>{{item.descricao}}.</p>
+                      </div>
+
+                    </div>
+                </a>
+
+              </div>
             </div>
-            </div>
-        </table>
+        <!-- </table> -->
     </div>
   </form>
 

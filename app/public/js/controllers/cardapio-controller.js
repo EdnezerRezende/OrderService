@@ -4,13 +4,25 @@ angular.module('fazerumpedido').controller('CardapioController', function($scope
 
     $scope.esconderCategoria = '';
     $scope.filtro = '';
-
+    $rootScope.detalharCardapio.subItemSelecionado = 0;
+    $rootScope.detalharCardapio.guardaSubValor = '';
     $http({
       method: 'GET',
       url: '/cardapio_servico'
     })
     .then(function (success) {
         $rootScope.cardapio = success.data;
+    }, function(error){
+      $log.error(err);
+    });
+
+    $http({
+      method: 'GET',
+      url: '/pedido_servico_sub'
+    })
+    .then(function (success) {
+        console.log(success.data);
+        $rootScope.pedidoServicoSub = success.data;
     }, function(error){
       $log.error(err);
     });
@@ -33,9 +45,25 @@ angular.module('fazerumpedido').controller('CardapioController', function($scope
     };*/
 
     $scope.detalhar = function(item) {
+      var indice = 0;
       $rootScope.detalharCardapio = item;
       $rootScope.detalharCardapio.quantidade = 1;
-      $location.path('/pedido');
+
+      
+      for (var i = 0; i < $rootScope.pedidoServicoSub.length; i++) {
+        
+        indice = $rootScope.pedidoServicoSub[i].idProdutoServico;
+
+        if( item.idProdutoServico == indice ){
+          $rootScope.subItemPossiveis = indice;
+          $rootScope.selecionarSubItem(item);
+          break;
+        }
+      }
+      
+      if( item.idProdutoServico != indice ){
+        $location.path('/pedido');
+      }
      };
 
     $scope.fechaMenu = false;

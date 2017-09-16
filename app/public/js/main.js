@@ -63,8 +63,6 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
 
   });
 
-  
-
 
 })
 .run(['$rootScope', '$window', '$state', '$ngBootbox', '$http', '$location',
@@ -82,8 +80,12 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
       $rootScope.detalharCardapio.restricao = "";
       $window.history.back();
     };
+
+     $rootScope.subItemPossiveis = '';
      $rootScope.obterGarcons = false;
      $rootScope.garconChamado =[];
+     $rootScope.pedidoServicoSub =[];
+     $rootScope.novaPedidoServicoSub =[];
      $rootScope.localizacoes = [];
      $rootScope.mensagem = "";
      $rootScope.pedidos = [];
@@ -93,6 +95,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
      $rootScope.detalharCardapio = {};
      $rootScope.garcons = [];
      $rootScope.temPedido = false;
+     $rootScope.guardarIDPedidoSubItem = '';
      //$rootScope.idCliente = '';
      $rootScope.idQrCode = '';
 
@@ -105,13 +108,36 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
     $rootScope.fazerPedido = false;
     $rootScope.naoSolicitarParaAcompanhamento = false;
 
-  $rootScope.validarRegistrarQrCode = function() {
-      if(!$rootScope.naoSolicitarParaAcompanhamento){
-        $ngBootbox.customDialog($rootScope.customDialogOptions);
-      }else{
-        $rootScope.naoSolicitarParaAcompanhamento = false;
-      }
-  };
+    $rootScope.validarRegistrarQrCode = function() {
+        if(!$rootScope.naoSolicitarParaAcompanhamento){
+          $ngBootbox.customDialog($rootScope.customDialogOptions);
+        }else{
+          $rootScope.naoSolicitarParaAcompanhamento = false;
+        }
+    };
+
+    $rootScope.guardaItem = {};
+
+    $rootScope.selecionarSubItem = function(item) {
+         $rootScope.guardaItem = item; 
+
+         $ngBootbox.customDialog($rootScope.templateSubItem);
+    };
+
+    $rootScope.templateSubItem = {
+            templateUrl: './parciais/templateSubOpcao.html',
+            title: 'Escolha uma das opções para prosseguir',
+            onEscape: function() {
+                $rootScope.cancelar();
+            },
+            show: true,
+            backdrop: true,
+            closeButton: true,
+            animate: true,
+            className: 'test-class',
+            buttons: $rootScope.customDialogButtons,
+            message: 'test'
+    };
 
    $rootScope.customDialogOptions = {
             //message: 'This is a message!',
@@ -206,7 +232,12 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
                 $rootScope.envioPedido.statusDescricao = "Recebido";     
                 $rootScope.envioPedido.tempoPreparo = $rootScope.detalharCardapio.tempoPreparo;
                 $rootScope.envioPedido.idLocalizacao = $rootScope.detalharCardapio.idLocalizacao;
-         
+                $rootScope.envioPedido.idPedidoServicoSub = $rootScope.guardarIDPedidoSubItem;
+                $rootScope.guardarIDPedidoSubItem = '';
+                
+                console.log($rootScope.envioPedido.idProdutoServicoSub);
+                console.log($rootScope.novaPedidoServicoSub.idPedidoServicoSub);
+
                 $rootScope.temPedido = true;
                   $http({ 
                     method: 'POST',
@@ -255,5 +286,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
         console.log( "Erro: " + error );
       });
     }
+
+
 
 }]);

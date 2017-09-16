@@ -35,6 +35,7 @@
               <div  class="definicaoTituloViewPedido noBorder form-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="layoutTituDescForm form-group" >
                   <p class="textUpperTitulo">{{item.titulo}}</p>
+                  <p ng-if="item.sub_titulo.length" class="textUpperTitulo">{{item.sub_titulo}}</p> 
                 </div>
                 <div class=" container textAlto tamanhoFonteHorario" ng-show="false">
                   <p class="" ng-model="item.tratarTempo">
@@ -51,7 +52,9 @@
                 </div>
               </div>
         </div>
-
+        <br/>
+        <br/>
+        <br/>
         <!-- <i-countdown set-date="2015-08-21 10:10:10" format-view="%d dias %h hrs %i min %s seg" expire-message="Acabou o tempo">
         </i-countdown> -->
 

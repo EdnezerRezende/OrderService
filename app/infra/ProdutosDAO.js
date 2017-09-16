@@ -4,7 +4,7 @@ function ProdutosDAO(connection) {
 
 ProdutosDAO.prototype.lista = function(callback) {
 	
-	var sql = 'select * from produto_servico';
+	var sql = 'select * from produto_servico p ';
     this._connection.query(sql, callback);
 }
 

@@ -1,0 +1,24 @@
+ <div ng-controller="selectSubItem">
+	<form ng-submit="continuaPedido()" >
+		<div >
+            <select   ng-model="detalharCardapio.guardaSubValor" class="bordaSelectLocalizacao"
+              ng-options="subItem.sub_valor as (subItem.sub_titulo | uppercase) for subItem in novaPedidoServicoSub | orderBy: 'sub_titulo' " required>
+            <option value="">Escolha opção</option>
+            </select>
+			<input class=" bordaPedido campoBlue" type="text"  name="" maxlength="2" size="10" 
+                   ng-show="detalharCardapio.guardaSubValor != 0" 
+                             value="{{detalharCardapio.guardaSubValor | currency: 'R$ '}}" >
+            <span ng-show="formulario.$submitted && formulario.subItem.$error.required" 
+		        class="form-control alert-danger">
+		        Necessário Informar o tamanho
+		    </span>
+        </div>  
+        <br/>
+        <button type="submit" class="btn btn-primary">
+    		{{'label.enviar' | translate}}
+    	</button>
+    	<button ng-click="sair()" class="btn btn-info">
+    		{{'label.voltar' | translate}}
+    	</button>
+	</form>
+</div>
