@@ -1,33 +1,31 @@
-<!-- <div class="provisorio "> -->
-<div class="container provisorio " ng-init="validarRegistrarQrCode()">
+<div class="  " ng-init="validarRegistrarQrCode()">
   <!-- Filtro e MENU -->
-  <div class="navbar navbar-default navbar-fixed-top content-center col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
-    <nav class="navbar navbar-default navbar-fixed-top" >
-          <div class="container ajustarBarraSuperiorPedidos">
-            <div class="">
-              <a href="#"  ui-sref="cardapio" class="regularBtnVoltarPedido">
-                <span class="glyphicon glyphicon-menu-left" ></span>
-              </a> 
-            </div>
-            <div class="containerInputTitulo">
-                  <b class="row alinharInputPedidoTitulo">{{tituloPagina2 | translate}}</b>
-            </div>
-          </div>
-    </nav> 
-  </div> 
+    <div class="container-fluid "><!-- tirei o fixarFiltro -->
+    <nav class="navbar navbar-default navbar-fixed-top ">
+      <div class=" ajustarBarraSuperiorPedidos">
+        <div class="">
+          <a href="home"  class="regularBtnVoltarPedido">
+            <span class="glyphicon glyphicon-menu-left" ></span>
+          </a>
+        </div>
+        <div class="containerInputTitulo col-xs-5 col-sm-4 col-md-4 col-lg-4">
+              <b class="row alinharInputPedidoTitulo">{{tituloPagina2 | translate}}</b>
+        </div>
+      </div>
+    </nav>
+  </div>
 </div>
 
-
-<div class="">
-  <form name="formulario" class="row  painel-animado gridCardapio " >
-    <div  ng-model="item.atraso" class="painel-animado zebrarLinhasFormOutr definirTamanhoPedido alinharSeta  thumbnail provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12"
+<div class="container-fluid">
+  <form name="formulario" class="row  painel-animado  " >
+    <div  ng-model="item.atraso" class="painel-animado text-center zebrarLinhasFormOutr  alinharAcompanharPedido    col-xs-12 col-sm-12 col-md-12 col-lg-12"
     ng-repeat="item in acompanhamentos | orderBy: 'statusImpressao' "  ng-init="calcularTempoPedido(item)">
-          <div class=" descricaoMargin itemGridFormulario2   container-fluid  "
+          <div class=" itemGridFormulario2 nivelaAlturaDescricaoAcompanhamento   "
                 ng-disabled="true" >
               <div class="">  
                 <div>
                   <a target="_blank" href="{{item.foto}}" title="{{item.titulo}}" rel="shadowbox">
-                    <img class=" imgCardapio" src="{{item.foto}}"/>
+                    <img class=" img-responsive img-rounded" src="{{item.foto}}"/>
                   </a>
                 </div>
 
@@ -89,7 +87,8 @@
                 </div>
             </div>
          </div>
-         <br />
+          </br>
+          </br>
          <div >
            <div  ng-hide="!(item.statusImpressao < '4' )"  class="btn btn-default painel-animado"
                  ng-class="{ 'btn-danger': item.statusImpressao === '1', 'btn-info': item.statusImpressao > '1' }">
@@ -102,6 +101,7 @@
                >Alertar</span>
            </div>
          </div>
+         </br>
     </div>
   </form>
 </div>

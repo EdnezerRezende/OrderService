@@ -1,6 +1,6 @@
 angular.module('fazerumpedido').controller('CardapioController', function($scope, $stateParams, $rootScope, $window, $http, $location) {
     $rootScope.tituloPagina = "Cardapio";
-    var ctrl = this;
+    //var ctrl = this;
 
     $scope.esconderCategoria = '';
     $scope.filtro = '';
@@ -11,9 +11,10 @@ angular.module('fazerumpedido').controller('CardapioController', function($scope
       url: '/cardapio_servico'
     })
     .then(function (success) {
+
         $rootScope.cardapio = success.data;
     }, function(error){
-      $log.error(err);
+      console.log(error);
     });
 
     $http({
@@ -21,10 +22,10 @@ angular.module('fazerumpedido').controller('CardapioController', function($scope
       url: '/pedido_servico_sub'
     })
     .then(function (success) {
-        console.log(success.data);
+
         $rootScope.pedidoServicoSub = success.data;
     }, function(error){
-      $log.error(err);
+      console.log(error);
     });
 
     $http({
@@ -32,9 +33,10 @@ angular.module('fazerumpedido').controller('CardapioController', function($scope
       url: '/categoria'
     })
     .then(function (success) {
+       
         $rootScope.categorias = success.data;
     }, function(error){
-      $log.error(err);
+      console.log(error);
     });
 
    /* $scope.enviarItem = function (item){

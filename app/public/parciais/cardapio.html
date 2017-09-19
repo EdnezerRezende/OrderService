@@ -1,8 +1,8 @@
 <!--Imagens do Cardapio Disponível-->
-<div class="container provisorio ">
+<div class=" provisorio ">
   <!-- Filtro e MENU -->
-  <div class="tamanhoMenuSuperior content-center  col-xs-12 col-sm-12 col-md-12 col-lg-12"><!-- tirei o fixarFiltro -->
-    <nav class="navbar corFundoMenuSuperiorFiltro">
+  <div class="tamanhoMenuSuperior "><!-- tirei o fixarFiltro -->
+    <nav class="navbar navbar-fixed-top corFundoMenuSuperiorFiltro">
       <div class="container">
         <div class="navbar-header">
           <!-- data-target="#collapse-navbar" -->
@@ -34,29 +34,29 @@
 </div>
 <!-- Form contendo a categoria, título, imagem e descrição dos produtos/serviços  -->
 <!-- <div class="">Tirei marginTopForm dessa div-->
-  <form name="formulario" class="row   painel-animado gridCardapio "  ng-repeat="categoria in categorias | orderBy:'tipo'">
-    <div  class="alinharSeta  provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
+  <!-- <form name="formulario" class="row   painel-animado gridCardapio "  ng-repeat="categoria in categorias | orderBy:'tipo'"> -->
+  <form name="formulario" class="    painel-animado "  ng-repeat="categoria in categorias | orderBy:'tipo'">
+    <div  class="  text-center "  >
           <div  class="form-group backgroundTitulo">
               <h3 class="textUpper textCategoria" id="{{categoria.tipo}}" ng-bind="categoria.tipo" > {{categoria.tipo}} </h3>
           </div>
           <!-- <table class="table table-striped"> -->
-            <div  class=" zebrarLinhasForm descricaoMargin itemGridFormulario  container painel-animado media-left" ng-class=""
-                  ng-if="categoria.tipo == item.categoria "  ng-repeat="item in cardapio | orderBy: 'titulo' | filter: filtro ">
-              <div  class="">
-                <a id="{{item.idProdutoServico}}" class="itemAlinhar "  ng-click="detalhar(item)"> 
-                    <div class=" ">
-                      <div>
-                        <img class=" imgCardapio img-rounded  media-object" src="{{item.foto}}">
+
+            <div  class="container-fluid zebrarLinhasForm descricaoMargin itemGridFormulario  painel-animado media-left" ng-if="categoria.tipo == item.categoria "  ng-repeat="item in cardapio | orderBy: 'titulo' | filter: filtro ">
+
+                <a id="{{item.idProdutoServico}}" class="itemAlinhar  row"  ng-click="detalhar(item)"> 
+                    <div class="col-xs-5 col-sm-4 col-md-4 col-lg-4 text-center retiraPaddingRight">
+                      <div class="">
+                        <img class=" img-responsive img-rounded  " src="{{item.foto}}">
                       </div>
                       <div class="paddingValorCardapio" ng-hide="detalharCardapio.guardaSubValor != 0">
                         <input  class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10"
                                 value="{{item.valorUnitario | currency: 'R$ '}}">
                       </div>
-
-                      
                       <div class="observacaoCardapio">
                         <div >
                           <b>{{item.observacao}}</b>
+                          <br/>
                         </div>
                         <div  ng-if="item.tempoPreparo.toString() != '00:00:00' " ng-show="false">
                           </br>
@@ -64,18 +64,18 @@
                         </div>
                       </div>
                     </div>
-                    <div class="  noBorder list-group col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                      <div class="layoutTituDescForm form-group" >
-                        <p class=" textUpperTitulo">{{item.titulo}}</p>
-                      </div>
-                      <div class=" descricaoCardapio">
-                        <p>{{item.descricao}}.</p>
-                      </div>
+                    <div class="col-xs-7 col-sm-8 col-md-8 col-lg-8">
+                        <div class="  noBorder  form-group">
+                          <div class="layoutTituDescForm list-group" >
+                            <p class=" textUpperTitulo">{{item.titulo}}</p>
+                          </div>
+                          <div class=" descricaoCardapio">
+                            <p>{{item.descricao}}.</p>
+                          </div>
 
+                        </div>
                     </div>
                 </a>
-
-              </div>
             </div>
         <!-- </table> -->
     </div>

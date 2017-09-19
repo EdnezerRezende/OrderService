@@ -1,56 +1,57 @@
-<!-- <div class="provisorio "> -->
-<div class="container provisorio " ng-init="validarRegistrarQrCode()">
+<div class="  " ng-init="validarRegistrarQrCode()">
   <!-- Filtro e MENU -->
-  <nav class="navbar navbar-default navbar-fixed-top content-center col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-    <div class="navbar navbar-default  navbar-fixed-top"><!-- tirei o fixarFiltro -->
-        <div class="container ajustarBarraSuperiorPedidos">
-          <div class="">
-            <a href="#"  ui-sref="cardapio" class="regularBtnVoltarPedido">
-              <span class="glyphicon glyphicon-menu-left" ></span>
-            </a>
-          </div>
-          <div class="containerInputTitulo">
-                <b class="row alinharInputPedidoTitulo">{{tituloPagina4 | translate}}</b>
-          </div>
+    <div class="container-fluid "><!-- tirei o fixarFiltro -->
+    <nav class="navbar navbar-default navbar-fixed-top ">
+      <div class=" ajustarBarraSuperiorPedidos">
+        <div class="">
+          <a href="home"  class="regularBtnVoltarPedido">
+            <span class="glyphicon glyphicon-menu-left" ></span>
+          </a>
         </div>
-    </div>
-  </nav>
+        <div class="containerInputTitulo">
+              <b class="row alinharInputPedidoTitulo">{{tituloPagina4 | translate}}</b>
+        </div>
+      </div>
+    </nav>
+  </div>
 </div>
 
-
-<div class="marginTopForm">
-  <form name="formulario" class="row  painel-animado gridCardapio"   >
-    <div class="definirTamanhoPedido alinharSeta   provisorio  col-xs-12 col-sm-12 col-md-12 col-lg-12" >
-          <div class="zebrarLinhasFormOutr descricaoMargin itemGridGarcon   container-fluid painel-animado "
+<!-- <div class="marginTopForm"> -->
+  <form name="formulario" class="row  painel-animado"   >
+    <div class="definirTamanhoPedido   " >
+          <div class="zebrarLinhasFormOutr   container-fluid painel-animado "
             ng-repeat="item in garcons | orderBy: 'nome' " ng-disabled="true" >
-              <div class=" form-group col-xs-4 col-sm-4 col-md-4 col-lg-4 escondeImgGarcaon">
-                <a class="imgGarcon" target="_blank" href="{{item.foto}}" title="{{item.nome}}" rel="shadowbox">
-                  <img class="imgCardapio " src="{{item.foto}}"/>
+            </br>
+              <div class=" col-xs-4 col-sm-3 col-md-3 col-lg-3 escondeImgGarcaon">
+                <a class="" target="_blank" href="{{item.foto}}" title="{{item.nome}}" rel="shadowbox">
+                  <img class="img-responsive img-rounded" src="{{item.foto}}"/>
                 </a>
+                 </br>
               </div>
-              <div class=" noBorder form-group col-xs-5 col-sm-5 col-md-5 col-lg-5">
+              <div class=" noBorder col-xs-8 col-sm-9 col-md-9 col-lg-9">
                 <div class="ajusteDireito">
-                  <div class="layoutTituDescForm form-group" >
+                  <div class="layoutTituDescForm list-group" >
                     <p class="textUpperTitulo">{{item.nome}}</p>
                   </div>
-                  <div class="form-group descricaoCardapio tamanhoApresentacaoGarcon">
+                  <div class="descricaoCardapio tamanhoApresentacaoGarcon">
                     <p>{{item.comentario}}</p>
                   </div>
-
-
-                  <div class="row container">
+                  <div class="row  text-center  ">
                      <button  type="submit" class="btn btn-primary  btn-lg"
                            ng-click="solicitarLocalizacao(item.idGarcon, item.nome)">
-                       <span class="glyphicon glyphicon-earphone"></span>
+                       <span class="glyphicon glyphicon-earphone "></span>
                      </button>
 
                   </div>
                 </div>
               </div>
+            
+             </br>
            </div>
     </div>
+             </br>
   </form>
-</div>
+<!-- </div> -->
 
 </br >
 </br >

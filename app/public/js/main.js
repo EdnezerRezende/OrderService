@@ -209,7 +209,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
                 $rootScope.obterLocalizacao();
                 $rootScope.obterGarcons = false;
             }, function(error){
-              $log.error(err);
+              console.log(error);
             });
           }
         }
@@ -281,6 +281,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
         url: '/localizacao'
       })
       .then(function (success){
+        
         $rootScope.localizacoes = success.data;
       }, function(error){
         console.log( "Erro: " + error );
