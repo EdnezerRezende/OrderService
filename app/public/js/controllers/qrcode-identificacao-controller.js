@@ -2,7 +2,7 @@ angular.module('fazerumpedido').controller('QrCodeIdentificacaoController', func
     
 
   $scope.ativaLoginManual = false;
-  $scope.labelButtonAtivarLogin = 'Ativa Login Manual';
+  $scope.labelButtonAtivarLogin = 'Ativa QRCode Manual';
  
 
    //$scope.login = 0;
@@ -31,16 +31,16 @@ angular.module('fazerumpedido').controller('QrCodeIdentificacaoController', func
   };
 
   $scope.ativarDesativarLoginManual = function(){
-      if ($scope.labelButtonAtivarLogin === 'Ativa Login Manual'){
+      if ($scope.labelButtonAtivarLogin === 'Ativa QRCode Manual'){
           $scope.cameraRequested = false;
           $scope.cameraIsOn = false;
           $scope.ativaLoginManual = true;
-          $scope.labelButtonAtivarLogin = 'Desativar Login Manual';
+          $scope.labelButtonAtivarLogin = 'Desativar QRCode Manual';
       }else{
           $scope.cameraRequested = true;
           $scope.cameraIsOn = true;
           $scope.ativaLoginManual = false;
-          $scope.labelButtonAtivarLogin = 'Ativa Login Manual';
+          $scope.labelButtonAtivarLogin = 'Ativa QRCode Manual';
       }
 
     }

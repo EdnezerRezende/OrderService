@@ -81,6 +81,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
       $window.history.back();
     };
 
+     $rootScope.confirmarQrCodeGarcom = false;
      $rootScope.subItemPossiveis = '';
      $rootScope.obterGarcons = false;
      $rootScope.garconChamado =[];
@@ -109,6 +110,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
     $rootScope.naoSolicitarParaAcompanhamento = false;
 
     $rootScope.validarRegistrarQrCode = function() {
+
         if(!$rootScope.naoSolicitarParaAcompanhamento){
           $ngBootbox.customDialog($rootScope.customDialogOptions);
         }else{
@@ -145,6 +147,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
             title: 'Insira seu QrCode para Confirmar o pedido',
             onEscape: function() {
                 $rootScope.naoSolicitarParaAcompanhamento = false;
+                $rootScope.obterGarcons = false;
                 $rootScope.fazerPedido = false;
                 $rootScope.cancelar();
             },
@@ -177,12 +180,16 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
   $rootScope.inserirQrCodeManual = function(){
       $rootScope.cancelar();
       bootbox.hideAll();
-      $rootScope.obterIdQrCode();
+      if($rootScope.confirmarQrCodeGarcom){
+        $rootScope.alertarGarcom();
+        $rootScope.confirmarQrCodeGarcom = false;
+      }else{
+        $rootScope.obterIdQrCode();
+      }
   }
 
   //Se obter o Id do Qr Code com sucesso, o mesmo irá gravar o Pedido do Cliente
   $rootScope.obterIdQrCode = function(){
-    console.log($rootScope.qrcode);
       $http({ 
         method: 'POST',
         url: '/qrCode_obterid',
@@ -199,7 +206,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
         }else{
           $rootScope.obterItensAcompanhamentoEFecharConta();
           //Só irá obter a Lista de Garcons caso esteja na aba deste.
-          if($rootScope.obterGarcons){
+          if($rootScope.obterGarcons && !$rootScope.confirmarQrCodeGarcom){
             $http({
               method: 'GET',
               url: '/garcon'

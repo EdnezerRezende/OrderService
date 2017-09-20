@@ -1,5 +1,5 @@
-<div ng-controller="ChamarGarcomController" >
-<form name="formulario" ng-submit="alertarGarcom()">
+<div ng-controller="ChamarGarcomController">
+<form name="formulario" ng-submit="validarRegistrarQrCode()">
 	<div class="custom-select " >
       <select ng-model="garconChamado.idLocalizacao" class="bordaSelectLocalizacao"
         ng-options="localizacao.idLocalizacao as (localizacao.nomeLocalizacao | uppercase) for localizacao in localizacoes | orderBy: 'nomeLocalizacao'" required>

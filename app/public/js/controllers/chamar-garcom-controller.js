@@ -1,4 +1,4 @@
-angular.module('fazerumpedido').controller('ChamarGarcomController', function($scope, $stateParams, $rootScope, $http, $ngBootbox, $window) {
+angular.module('fazerumpedido').controller('ChamarGarcomController', function($scope, $stateParams, $rootScope, $http, $ngBootbox, $window, $location) {
 
   $rootScope.tituloPagina4 = "garcons";
   $scope.counter = 0;
@@ -6,10 +6,11 @@ angular.module('fazerumpedido').controller('ChamarGarcomController', function($s
   $rootScope.garcons = [];
 
   
-
+ 
     $scope.solicitarLocalizacao = function(idGarcon, nome){
       $rootScope.garconChamado.idGarcon = idGarcon;
       $rootScope.garconChamado.nome = nome;
+      $rootScope.confirmarQrCodeGarcom = true;
       $ngBootbox.customDialog($scope.localizacaoGarcom);
     }
 
@@ -40,7 +41,7 @@ angular.module('fazerumpedido').controller('ChamarGarcomController', function($s
          
   }
 
-    $scope.alertarGarcom = function(){
+    $rootScope.alertarGarcom = function(){
         $rootScope.chamar = {};
         $rootScope.chamar.idGarcon = $rootScope.garconChamado.idGarcon;
         $rootScope.chamar.idLocalizacao = $rootScope.garconChamado.idLocalizacao;
@@ -59,7 +60,7 @@ angular.module('fazerumpedido').controller('ChamarGarcomController', function($s
                       $scope.titleMensagem = "";
                       $scope.login = 0;
                   });
-
+                  $location.path('/home');
               }, function(error){
                 $ngBootbox.alert({message: "Não conseguimos acionar o garçom, tente novamente!", title: "Ops!"})
                   .then(function() {
