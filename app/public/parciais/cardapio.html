@@ -42,7 +42,7 @@
           </div>
           <!-- <table class="table table-striped"> -->
 
-            <div  class="container-fluid zebrarLinhasForm descricaoMargin itemGridFormulario  painel-animado media-left" ng-if="categoria.tipo == item.categoria "  ng-repeat="item in cardapio | orderBy: 'titulo' | filter: filtro ">
+            <div  class="container-fluid zebrarLinhasForm descricaoMargin itemGridFormulario  painel-animado media-left" ng-if="categoria.idCategoria == item.idCategoria "  ng-repeat="item in cardapio | orderBy: 'titulo' | filter: filtro ">
 
                 <a id="{{item.idProdutoServico}}" class="itemAlinhar  row"  ng-click="detalhar(item)"> 
                     <div class="col-xs-5 col-sm-4 col-md-4 col-lg-4 text-center retiraPaddingRight">
