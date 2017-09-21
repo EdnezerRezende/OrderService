@@ -1,4 +1,4 @@
-angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootbox', 'webcam', 'bcQrReader'])
+angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootbox', 'webcam', 'bcQrReader', 'ngMaterial'])
 .config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider){
 
   $httpProvider.interceptors.push('tokenInterceptor');
@@ -74,6 +74,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
     $rootScope.tituloPagina4 = "";
 
     $rootScope.acesso = 0;
+    
     $rootScope.goBack = function(){
       $rootScope.detalharCardapio.observacao = "";
       $rootScope.detalharCardapio.quantidade = 1;

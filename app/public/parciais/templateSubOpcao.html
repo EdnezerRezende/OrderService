@@ -1,13 +1,13 @@
  <div ng-controller="selectSubItem">
 	<form ng-submit="continuaPedido()" >
 		<div >
-            <select   ng-model="detalharCardapio.guardaSubValor" class="bordaSelectLocalizacao"
-              ng-options="subItem.sub_valor as (subItem.sub_titulo | uppercase) for subItem in novaPedidoServicoSub | orderBy: 'sub_titulo' " required>
-            <option value="">Escolha opção</option>
-            </select>
-			<input class=" bordaPedido campoBlue" type="text"  name="" maxlength="2" size="10" 
-                   ng-show="detalharCardapio.guardaSubValor != 0" 
-                             value="{{detalharCardapio.guardaSubValor | currency: 'R$ '}}" >
+
+            <md-radio-group ng-model="detalharCardapio.idPedidoServicoSub"  >
+
+              <md-radio-button ng-repeat="subItens in novaPedidoServicoSub  | orderBy: 'sub_titulo'" ng-value="subItens.idPedidoServicoSub" ng-if="guardaItem.idProdutoServico == subItens.idProdutoServico" class="md-primary"  ng-class="{'md-align-top-left': $index==1}" required>{{subItens.sub_titulo}} - {{subItens.sub_valor | currency: 'R$ '}}</md-radio-button>
+
+            </md-radio-group>
+            
             <span ng-show="formulario.$submitted && formulario.subItem.$error.required" 
 		        class="form-control alert-danger">
 		        Necessário Informar o tamanho

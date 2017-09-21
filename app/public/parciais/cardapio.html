@@ -49,8 +49,8 @@
                       <div class="">
                         <img class=" img-responsive img-rounded  " src="{{item.foto}}">
                       </div>
-                      <div class="paddingValorCardapio" ng-hide="detalharCardapio.guardaSubValor != 0">
-                        <input  class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10"
+                      <div class="paddingValorCardapio"  >
+                        <input ng-show="item.valorUnitario > 0 " class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10"
                                 value="{{item.valorUnitario | currency: 'R$ '}}">
                       </div>
                       <div class="observacaoCardapio">
@@ -58,6 +58,7 @@
                           <b>{{item.observacao}}</b>
                           <br/>
                         </div>
+               
                         <div  ng-if="item.tempoPreparo.toString() != '00:00:00' " ng-show="false">
                           </br>
                           <b class="textAlto">Preparo em  {{item.tempoPreparo | date:"mm"}} minutos</b>
@@ -71,6 +72,10 @@
                           </div>
                           <div class=" descricaoCardapio">
                             <p>{{item.descricao}}.</p>
+                           
+                            <div ng-repeat="subItens in pedidoServicoSub  | orderBy: 'sub_titulo'" ng-if="item.idProdutoServico == subItens.idProdutoServico">
+                              <p value="subItens.idPedidoServicoSub" class="md-primary">{{subItens.sub_titulo}} - {{subItens.sub_valor | currency: 'R$ '}}</p>
+                            </div>
                           </div>
 
                         </div>
