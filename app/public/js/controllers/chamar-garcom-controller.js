@@ -5,7 +5,16 @@ angular.module('fazerumpedido').controller('ChamarGarcomController', function($s
   $rootScope.obterGarcons = true;
   $rootScope.garcons = [];
 
-  
+  $http({
+    method: 'GET',
+    url: '/garcon'
+  })
+  .then(function (success) {
+      $rootScope.garcons = success.data;
+      $rootScope.obterLocalizacao();
+  }, function(error){
+    console.log(error);
+  });
  
     $scope.solicitarLocalizacao = function(idGarcon, nome){
       $rootScope.garconChamado.idGarcon = idGarcon;

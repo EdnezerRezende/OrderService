@@ -828,20 +828,19 @@ body .corGeral{
 	text-align: center;
 	padding: 1%;
 	text-transform: uppercase;
-	/*background-color: #EF4;*/
-	background-color: #f9e1c0;
+	background-color: red;
 }
 .textUpper{
-		margin-bottom: 1em;
-		margin-top: 1em;
-		font-size: 15px;
+	margin-bottom: 1em;
+	margin-top: 1em;
+	font-size: 15px;
     /* height: 10%; */
     text-transform: uppercase;
     font-weight: bold;
-    display: flex;
-		color: #bb4242;
+    /*display: flex;*/
+	color: white;
     align-items: center;
-    margin-left: 40%;
+    /*margin-left: 40%;*/
 }
 .textAlto{
 	text-transform: uppercase;

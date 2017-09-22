@@ -1,6 +1,7 @@
 angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootbox', 'webcam', 'bcQrReader', 'ngMaterial'])
 .config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider){
 
+
   $httpProvider.interceptors.push('tokenInterceptor');
   
    $locationProvider.html5Mode(true);
@@ -145,11 +146,15 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
    $rootScope.customDialogOptions = {
             //message: 'This is a message!',
             templateUrl: './parciais/qrCodeIdentificacao.html',
-            title: 'Insira seu QrCode para Confirmar o pedido',
+            title: 'Insira seu QrCode para identificá-lo',
             onEscape: function() {
                 $rootScope.naoSolicitarParaAcompanhamento = false;
                 $rootScope.obterGarcons = false;
-                $rootScope.fazerPedido = false;
+                if($rootScope.fazerPedido){
+                  $rootScope.fazerPedido = false;
+                }else{
+                  $location.path('/home');
+                }
                 $rootScope.cancelar();
             },
             show: true,
@@ -289,7 +294,6 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
         url: '/localizacao'
       })
       .then(function (success){
-        
         $rootScope.localizacoes = success.data;
       }, function(error){
         console.log( "Erro: " + error );
