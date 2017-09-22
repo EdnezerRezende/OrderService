@@ -114,6 +114,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
     $rootScope.validarRegistrarQrCode = function() {
 
         if(!$rootScope.naoSolicitarParaAcompanhamento){
+          bootbox.hideAll();
           $ngBootbox.customDialog($rootScope.customDialogOptions);
         }else{
           $rootScope.naoSolicitarParaAcompanhamento = false;

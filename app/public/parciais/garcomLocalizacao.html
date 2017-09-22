@@ -1,11 +1,11 @@
 <div ng-controller="ChamarGarcomController">
 <form name="formulario" ng-submit="validarRegistrarQrCode()">
 
-   <div class="custom-select" layout="column" layout-align="center center" style="padding:10px">
-      <md-select ng-model="garconChamado.idLocalizacao" 
+   <div class="" layout="column" layout-align="center center" style="padding:10px" ng-cloak>
+      <select class="form-control" ng-model="garconChamado.idLocalizacao" 
       placeholder="Onde posso te encontrar?" style="min-width: 200px;" required>
-        <md-option class="" ng-value="localizacao" ng-repeat="localizacao in localizacoes | orderBy: 'nomeLocalizacao'">{{localizacao.nomeLocalizacao}}</md-option>
-      </md-select>
+        <option  class="" ng-value="localizacao" ng-repeat="localizacao in localizacoes | orderBy: 'nomeLocalizacao'">{{localizacao.nomeLocalizacao}}</option>
+      </select>
       <span ng-show="formulario.$submitted && formulario.localizacao.$error.required" 
         class="form-control alert-danger">
         Necessário Informar onde posso te localizar
