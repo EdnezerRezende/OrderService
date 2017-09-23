@@ -49,9 +49,10 @@
                       <div class="">
                         <img class=" img-responsive img-rounded  " src="{{item.foto}}">
                       </div>
-                      <div class="paddingValorCardapio"  >
+                      <div class="paddingValorCardapio" ng-class="{'ativarPadding': item.valorUnitario == $0 }" >
                         <input ng-show="item.valorUnitario > 0 " class=" bordaPedido campoBlue" type="text" name="" maxlength="2" size="10"
                                 value="{{item.valorUnitario | currency: 'R$ '}}">
+                     
                       </div>
                       <div class="observacaoCardapio">
                         <div >
@@ -71,12 +72,28 @@
                             <p class=" textUpperTitulo">{{item.titulo}}</p>
                           </div>
                           <div class=" descricaoCardapio">
-                            <p>{{item.descricao}}.</p>
+                            <p>{{item.descricao}}</p>
                            
-                            <div ng-repeat="subItens in pedidoServicoSub  | orderBy: 'sub_titulo'" ng-if="item.idProdutoServico == subItens.idProdutoServico">
-                              <p value="subItens.idPedidoServicoSub" class="md-primary">{{subItens.sub_titulo}} - {{subItens.sub_valor | currency: 'R$ '}}</p>
-                            </div>
                           </div>
+                            <div class="text-left " style="font-size: 10px;
+    color: #bb4242;">
+                              <table class=" table table-condensed">
+                            <!--     <thead>
+                                  <tr>
+                                    <th class="corGeral"><strong>Produto</strong></th>
+                                    <th><strong>Quantidade</strong></th>
+                                  </tr> 
+                                </thead> -->
+                                <tbody>
+                                  <tr  ng-repeat="subItens in pedidoServicoSub  | orderBy: 'sub_titulo'" ng-if="item.idProdutoServico == subItens.idProdutoServico">
+                                    <td style="border-top: 0px">{{ subItens.sub_titulo }}</td>
+                                    <td style="border-top: 0px">{{ subItens.sub_valor | currency: 'R$ ' }}</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <!-- <p value="subItens.idPedidoServicoSub" class="md-primary">
+                              </p> -->
+                            </div>
 
                         </div>
                     </div>

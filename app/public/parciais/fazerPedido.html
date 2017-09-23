@@ -87,19 +87,21 @@
               <label class="corGeral alinhaLabelObservacaoPedido">Caso queira, coloque suas observações:</label>
               <textarea type="text" maxlength="90" class="tamanhoCampoPedido bordaPedido campoBlue" size="30"         ng-model="detalharCardapio.restricao" ></textarea>
             </div>
-            <!--Seleção de Localização que é obrigatória-->
-                  <!-- ng-options="localizacao.idLocalizacao as (localizacao.nomeLocalizacao | uppercase) for localizacao in localizacoes | orderBy: 'nomeLocalizacao'"  -->
-              <div class="" layout="column" layout-align="center center" style="padding:10px">
-                <md-select ng-model="detalharCardapio.idLocalizacao"   class="" 
-                placeholder="Onde deve ser Entregue" style="min-width: 200px;" required>
-                  <md-option ng-value="localizacao" ng-repeat="localizacao in localizacoes | orderBy: 'nomeLocalizacao'">{{localizacao.nomeLocalizacao}}</md-option>
-                <!-- <option value="">Onde Será Entregue</option> -->
-                </md-select>
-                <span ng-show="formulario.$submitted && formulario.localizacao.$error.required" 
-                  class="form-control alert-danger">
-                  Necessário Informar onde será feito a Entrega do Pedido
-                </span>
-              </div>
+            <!--Seleção de Localização que é obrigatória
+              ng-options="localizacao.idLocalizacao as (localizacao.nomeLocalizacao | uppercase) for localizacao in localizacoes | orderBy: 'nomeLocalizacao'"
+            -->
+            <div class="custom-select " >
+               <select ng-model="detalharCardapio.idLocalizacao" class="bordaSelectLocalizacao"
+                  required data-live-search="true">
+                  <option value="" >Onde Será Entregue</option>
+                  <option ng-repeat="localizacao in localizacoes | orderBy: 'nomeLocalizacao'" value="{{localizacao.idLocalizacao}}">{{localizacao.nomeLocalizacao | uppercase}}</option>
+               </select>
+               <span ng-show="formulario.$submitted && formulario.localizacao.$error.required" 
+                 class="form-control alert-danger">
+                 Necessário Informar onde será feito a Entrega do Pedido
+               </span>
+             </div>
+             <br/>
                <!-- ng-bootbox-prompt-action="promptCallback(result)"  -->
                <!-- ng-bootbox-custom-dialog
                ng-bootbox-class-name="test-class"  -->
