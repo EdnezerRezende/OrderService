@@ -1,4 +1,4 @@
-angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootbox', 'webcam', 'bcQrReader'])
+angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootbox', 'webcam', 'bcQrReader', 'ngMaterial'])
 .config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider){
 
 
