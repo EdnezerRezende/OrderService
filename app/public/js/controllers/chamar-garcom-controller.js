@@ -8,7 +8,7 @@ angular.module('fazerumpedido').controller('ChamarGarcomController', function($s
   $http({
     method: 'GET',
     url: '/garcon'
-  })
+  }) 
   .then(function (success) {
       $rootScope.garcons = success.data;
       $rootScope.obterLocalizacao();
@@ -20,6 +20,7 @@ angular.module('fazerumpedido').controller('ChamarGarcomController', function($s
       $rootScope.garconChamado.idGarcon = idGarcon;
       $rootScope.garconChamado.nome = nome;
       $rootScope.confirmarQrCodeGarcom = true;
+      //$rootScope.obterIdQrCode();
       $ngBootbox.customDialog($scope.localizacaoGarcom);
     }
 
@@ -50,6 +51,7 @@ angular.module('fazerumpedido').controller('ChamarGarcomController', function($s
          
   }
 
+  
     $rootScope.alertarGarcom = function(){
         $rootScope.chamar = {};
         $rootScope.chamar.idGarcon = $rootScope.garconChamado.idGarcon;

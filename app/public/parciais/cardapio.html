@@ -35,14 +35,14 @@
 <!-- Form contendo a categoria, título, imagem e descrição dos produtos/serviços  -->
 <!-- <div class="">Tirei marginTopForm dessa div-->
   <!-- <form name="formulario" class="row   painel-animado gridCardapio "  ng-repeat="categoria in categorias | orderBy:'tipo'"> -->
-  <form name="formulario" class="    painel-animado "  ng-repeat="categoria in categorias | orderBy:'tipo'">
+  <form name="formulario" class="     "  ng-repeat="categoria in categorias | orderBy:'tipo'">
     <div  class="  text-center "  >
           <div  class="form-group backgroundTitulo">
               <h3 class="textUpper text-center " id="{{categoria.tipo}}" ng-bind="categoria.tipo" > {{categoria.tipo}} </h3>
           </div>
           <!-- <table class="table table-striped"> -->
 
-            <div  class="container-fluid zebrarLinhasForm descricaoMargin itemGridFormulario  painel-animado media-left" ng-if="categoria.idCategoria == item.idCategoria "  ng-repeat="item in cardapio | orderBy: 'titulo' | filter: filtro ">
+            <div  class="container-fluid zebrarLinhasForm descricaoMargin itemGridFormulario   media-left" ng-if="categoria.idCategoria == item.idCategoria "  ng-repeat="item in cardapio | orderBy: 'titulo' | filter: filtro ">
 
                 <a id="{{item.idProdutoServico}}" class="itemAlinhar  row"  ng-click="detalhar(item)"> 
                     <div class="col-xs-5 col-sm-4 col-md-4 col-lg-4 text-center retiraPaddingRight">

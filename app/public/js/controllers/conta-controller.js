@@ -1,6 +1,7 @@
 angular.module('fazerumpedido').controller('ContaController', function($scope, $stateParams, $rootScope, $http, $ngBootbox, $window, $location) {
 
   $rootScope.tituloPagina3 = "label.tituloFecharConta";
+  $rootScope.esconderBtnVoltar = false;
   $rootScope.acompanhamentos = [];
   $scope.somaVlrTotal = 0;
   $scope.somaTotal = function(item, quantidade){

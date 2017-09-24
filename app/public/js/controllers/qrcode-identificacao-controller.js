@@ -17,9 +17,10 @@ angular.module('fazerumpedido').controller('QrCodeIdentificacaoController', func
       $scope.cameraRequested = false;
       $scope.cameraIsOn = false;
       var userQrCode = $scope.url;
-      $scope.qrcode = {};
-      $scope.qrcode.empresa = userQrCode.substr(0, userQrCode.indexOf(','));
-      $scope.qrcode.numeroQrCode = userQrCode.substr(userQrCode.indexOf(',')+1);
+      $rootScope.qrcode = {};
+      $rootScope.qrcode.empresa = userQrCode.substr(0, userQrCode.indexOf(','));
+      $rootScope.qrcode.numeroQrCode = userQrCode.substr(userQrCode.indexOf(',')+1);
+      console.log("Recebe: "+$rootScope.qrcode);
       $scope.inserirQrCodeManual();
     }
 

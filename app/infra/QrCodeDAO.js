@@ -7,7 +7,6 @@ QrCodeDAO.prototype.inserir = function(dadosQrCode, callback) {
 		ident_empresa: dadosQrCode.empresa,
 		ident_cliente: dadosQrCode.numeroQrCode
 	}
-
 	var sql = 'INSERT INTO qrcode (ident_empresa, ident_cliente) ';
 	sql += ' SELECT ' + dadosQrCode.empresa + ', ' + dadosQrCode.numeroQrCode;
 	sql += ' FROM DUAL WHERE NOT EXISTS';

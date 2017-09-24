@@ -20,7 +20,7 @@ angular.module('fazerumpedido').controller('selectSubItem', function($scope, $st
  $scope.sair = function(){
  	$rootScope.detalharCardapio = {};
  	bootbox.hideAll();
-  $rootScope.esconderBtnVoltar = false;
+  $rootScope.esconderBtnVoltar = false; 
   //$window.history.back();
  };
 

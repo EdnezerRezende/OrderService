@@ -27,7 +27,7 @@ module.exports = function(app) {
 
     app.post('/qrCode_obterid/lista', function(req, res) {
         var dadosQrCode = req.body;
-
+        console.log(dadosQrCode);
         var connection = app.infra.connectionFactory();
 
         var qrCodeDAO = new app.infra.QrCodeDAO(connection);

@@ -187,12 +187,8 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
   $rootScope.inserirQrCodeManual = function(){
       $rootScope.cancelar();
       bootbox.hideAll();
-      if($rootScope.confirmarQrCodeGarcom){
-        $rootScope.alertarGarcom();
-        $rootScope.confirmarQrCodeGarcom = false;
-      }else{
-        $rootScope.obterIdQrCode();
-      }
+      $rootScope.obterIdQrCode();
+      
   }
 
   //Se obter o Id do Qr Code com sucesso, o mesmo irá gravar o Pedido do Cliente
@@ -206,29 +202,31 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
         $rootScope.idQrCode = '';
 
         $rootScope.idQrCode = success.data[0].idQrCode;
-
         if($rootScope.fazerPedido){
           $rootScope.gravarPedido();
           $rootScope.naoSolicitarParaAcompanhamento = true;
         }else{
           $rootScope.obterItensAcompanhamentoEFecharConta();
           //Só irá obter a Lista de Garcons caso esteja na aba deste.
-          if($rootScope.obterGarcons && !$rootScope.confirmarQrCodeGarcom){
-            $http({
-              method: 'GET',
-              url: '/garcon'
-            })
-            .then(function (success) {
-                $rootScope.garcons = success.data;
-                $rootScope.obterLocalizacao();
-                $rootScope.obterGarcons = false;
-            }, function(error){
-              console.log(error);
-            });
+          if($rootScope.confirmarQrCodeGarcom){
+            $rootScope.alertarGarcom();
+            $rootScope.confirmarQrCodeGarcom = false;
+          }else{
+            if($rootScope.obterGarcons && !$rootScope.confirmarQrCodeGarcom){
+              $http({
+                method: 'GET',
+                url: '/garcon'
+              })
+              .then(function (success) {
+                  $rootScope.garcons = success.data;
+                  $rootScope.obterLocalizacao();
+                  $rootScope.obterGarcons = false;
+              }, function(error){
+                console.log(error);
+              });
+            }
           }
         }
-       
-
       }, function(error){
         $rootScope.mensagem = error;
         $rootScope.titleMensagem = "Ops!";
@@ -249,9 +247,6 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
                 $rootScope.envioPedido.idPedidoServicoSub = $rootScope.guardarIDPedidoSubItem;
                 $rootScope.guardarIDPedidoSubItem = '';
                 
-                console.log($rootScope.envioPedido.idProdutoServicoSub);
-                console.log($rootScope.novaPedidoServicoSub.idPedidoServicoSub);
-
                 $rootScope.temPedido = true;
                   $http({ 
                     method: 'POST',

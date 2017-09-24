@@ -51,7 +51,8 @@ PedidoAcompanhamentoDAO.prototype.salva = function(pedido, callback) {
 
  var now = moment().format('YYYY-MM-DD HH:mm:ss');
 
- var tpreparo = moment().add(pedido.tempoPreparo.substr(3,2), 'm').format('YYYY-MM-DD HH:mm:ss');
+  //var tpreparo = moment().add(pedido.tempoPreparo.substr(3,2), 'm').format('YYYY-MM-DD HH:mm:ss');
+  var tpreparo = new Date();
 	const values = [
       {	
       	dataHoraStatusAcompanhamentoPedido: now,
