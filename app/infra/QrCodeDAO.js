@@ -8,10 +8,9 @@ QrCodeDAO.prototype.inserir = function(dadosQrCode, callback) {
 		ident_cliente: dadosQrCode.numeroQrCode
 	}
 	var sql = 'INSERT INTO qrcode (ident_empresa, ident_cliente) ';
-	sql += ' SELECT ' + dadosQrCode.empresa + ', ' + dadosQrCode.numeroQrCode;
+	sql += ' SELECT ' + values.ident_empresa + ', "' + values.ident_cliente + '"';
 	sql += ' FROM DUAL WHERE NOT EXISTS';
-	sql += ' (SELECT ident_cliente FROM qrcode WHERE ident_cliente = ' + dadosQrCode.numeroQrCode + ') ';
-
+	sql += ' (SELECT ident_cliente FROM qrcode WHERE ident_cliente = "' + values.ident_cliente + '") ';
     this._connection.query(sql, callback);
 }
 
@@ -21,7 +20,7 @@ QrCodeDAO.prototype.lista = function(dadosQrCode, callback) {
 		ident_empresa: dadosQrCode.empresa,
 		ident_cliente: dadosQrCode.numeroQrCode
 	}
-	var sql = ' select idQrCode from qrcode where ident_cliente = ' + dadosQrCode.numeroQrCode;
+	var sql = ' select idQrCode from qrcode where ident_cliente = "' + dadosQrCode.numeroQrCode+'"';
     this._connection.query(sql, callback);
 }
 

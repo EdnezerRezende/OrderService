@@ -1127,7 +1127,9 @@ body .corGeral{
 	margin-left: 1em;
 }
 
-
+.table-striped>tbody>tr.backgroundSubItem:nth-of-type(odd){
+	background-color: silver!important;
+}
 
 }
 

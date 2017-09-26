@@ -5,8 +5,7 @@ var moment = require('moment');
 
 GarconChamadoDAO.prototype.salva = function(garcon, callback) {
  var now = moment().format('YYYY-MM-DD HH:mm:ss');
- console.log("ID Localizacao: "+garcon.idLocalizacao);
- console.log("ID Garcon: "+garcon.idGarcon);
+
 	const values = [ 
       {	
       	dataHoraChamadoMesa: now,

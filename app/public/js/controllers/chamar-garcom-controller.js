@@ -1,5 +1,5 @@
 angular.module('fazerumpedido').controller('ChamarGarcomController', function($scope, $stateParams, $rootScope, $http, $ngBootbox, $window, $location) {
-
+  $rootScope.garconChamado.idLocalizacao = '';
   $rootScope.tituloPagina4 = "garcons";
   $scope.counter = 0;
   $rootScope.obterGarcons = true;

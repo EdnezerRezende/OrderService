@@ -20,7 +20,6 @@ angular.module('fazerumpedido').controller('QrCodeIdentificacaoController', func
       $rootScope.qrcode = {};
       $rootScope.qrcode.empresa = userQrCode.substr(0, userQrCode.indexOf(','));
       $rootScope.qrcode.numeroQrCode = userQrCode.substr(userQrCode.indexOf(',')+1);
-      console.log("Recebe: "+$rootScope.qrcode);
       $scope.inserirQrCodeManual();
     }
 

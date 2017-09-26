@@ -116,7 +116,6 @@ angular.module('fazerumpedido').controller('LoginController', function($window, 
       $scope.cameraRequested = false;
       $scope.cameraIsOn = false;
         if ($window.localMediaStream) {
-            console.log($window);
           $window.localMediaStream.active = false;
           $window.localMediaStream = null;
         }        

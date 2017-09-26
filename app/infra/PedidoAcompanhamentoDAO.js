@@ -14,7 +14,7 @@ PedidoAcompanhamentoDAO.prototype.lista = function(usuario, callback) {
     sql += '        produto.*';
     sql += ' from pedido_acompanhamento as pedido join produto_servico  as produto ';
     sql += ' on pedido.idProdutoServico = produto.idProdutoServico ';
-    sql += ' where pedido.idQrCode = 68  ';
+    sql += ' where pedido.idQrCode =  ' + usuario;
     sql += ' and pedido.statusImpressao != 5  ';
 
     

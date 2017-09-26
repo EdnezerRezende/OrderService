@@ -32,7 +32,7 @@
                     ng-model="detalharCardapio.descricao">
               <div class="regularAlturaImagemPedido col-xs-5 col-sm-4 col-md-4 col-lg-4  ">
                 <div class="ajusteImgPedido">
-                    <a target="_blank" href="{{detalharCardapio.foto}}" title="{{detalharCardapio.titulo}}" rel="shadowbox">
+                    <a target="_blank" href="{{detalharCardapio.foto}}" ng-click="fechar(this.href);" title="{{detalharCardapio.titulo}}" rel="shadowbox">
                       <img class="  img-responsive img-rounded" src="{{detalharCardapio.foto}}"/>
                     </a>
                   <div class="paddingValorCardapio">
@@ -49,7 +49,7 @@
                   <p class="textUpperTitulo">{{detalharCardapio.titulo}}</p>
                 </div>
                 <div class="form-group descricaoCardapio">
-                  <p>{{detalharCardapio.descricao}}.</p>
+                  <p>{{detalharCardapio.descricao}}</p>
                   <p ng-if="detalharCardapio.sub_titulo != '' ">{{detalharCardapio.sub_titulo}}</p>
                 </div>
                 <br/>
