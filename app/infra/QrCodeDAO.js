@@ -16,11 +16,7 @@ QrCodeDAO.prototype.inserir = function(dadosQrCode, callback) {
  
 QrCodeDAO.prototype.lista = function(dadosQrCode, callback) {
 	
-	const values = {
-		ident_empresa: dadosQrCode.empresa,
-		ident_cliente: dadosQrCode.numeroQrCode
-	}
-	var sql = ' select idQrCode from qrcode where ident_cliente = "' + dadosQrCode.numeroQrCode+'"';
+	var sql = ' select qr.idQrCode from qrcode qr where qr.ident_cliente = "' + dadosQrCode.numeroQrCode+'"';
     this._connection.query(sql, callback);
 }
 
