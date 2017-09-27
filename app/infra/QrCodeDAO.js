@@ -10,10 +10,10 @@ QrCodeDAO.prototype.inserir = function(dadosQrCode, callback) {
 	var sql = 'INSERT INTO qrcode (ident_empresa, ident_cliente) ';
 	sql += ' SELECT ' + values.ident_empresa + ', "' + values.ident_cliente + '"';
 	sql += ' FROM DUAL WHERE NOT EXISTS';
-	sql += ' (SELECT ident_cliente FROM qrcode WHERE ident_cliente = "' + values.ident_cliente + '") ';
+	sql += ' (SELECT q.ident_cliente FROM qrcode q WHERE q.ident_cliente = "' + values.ident_cliente + '") ';
     this._connection.query(sql, callback);
 }
-
+ 
 QrCodeDAO.prototype.lista = function(dadosQrCode, callback) {
 	
 	const values = {
