@@ -46,13 +46,14 @@ angular.module('fazerumpedido').controller('ChamarGarcomController', function($s
               callback: function() { $rootScope.cancelar(); }
           }
   };
-
+ 
   $scope.cancelar = function(){
          
   }
 
   
     $rootScope.alertarGarcom = function(){
+      if($rootScope.garconChamado.idLocalizacao.length > 0){
         $rootScope.chamar = {};
         $rootScope.chamar.idGarcon = $rootScope.garconChamado.idGarcon;
         $rootScope.chamar.idLocalizacao = $rootScope.garconChamado.idLocalizacao;
@@ -81,5 +82,13 @@ angular.module('fazerumpedido').controller('ChamarGarcomController', function($s
                   });
                
               });
+        }else{
+            $ngBootbox.alert({message: "Não conseguimos obter sua Localização, favor tente novamente, Obrigado!", title: "Ops!"})
+            .then(function() {
+                $scope.mensagem = "";
+                $scope.titleMensagem = "";
+                $scope.login = 0;
+            });
+        }
     }
 });

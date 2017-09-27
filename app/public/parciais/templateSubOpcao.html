@@ -1,11 +1,19 @@
  <div ng-controller="selectSubItem">
 	<form ng-submit="continuaPedido()" >
-		<div >
+		<div > 
 
             <md-radio-group ng-model="detalharCardapio.idPedidoServicoSub"  >
 
-              <md-radio-button ng-repeat="subItens in novaPedidoServicoSub  | orderBy: 'sub_titulo'" ng-value="subItens.idPedidoServicoSub" ng-if="guardaItem.idProdutoServico == subItens.idProdutoServico" class="md-primary"  ng-class="{'md-align-top-left': $index==1}" required>{{subItens.sub_titulo}} - {{subItens.sub_valor | currency: 'R$ '}}</md-radio-button>
-
+              <md-radio-button  class="zebrarLinhasFormSubItem " ng-repeat="subItens in novaPedidoServicoSub  | orderBy: 'sub_titulo'" ng-value="subItens.idPedidoServicoSub" ng-if="guardaItem.idProdutoServico == subItens.idProdutoServico" class="md-primary"  ng-class="{'md-align-top-left': $index==1}" required>
+                <table class=" table table-condensed  ">
+                    <tbody >
+                      <tr class=" ">
+                        <td style="border-top: 0px">{{ subItens.sub_titulo }}</td>
+                        <td style="border-top: 0px" class="text-right">{{ subItens.sub_valor | currency: 'R$ ' }}</td>
+                      </tr>
+                    </tbody>
+                </table>
+              </md-radio-button>
             </md-radio-group>
             
             <span ng-show="formulario.$submitted && formulario.subItem.$error.required" 

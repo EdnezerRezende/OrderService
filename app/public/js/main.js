@@ -113,7 +113,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
 
     $rootScope.validarRegistrarQrCode = function() {
 
-        if(!$rootScope.naoSolicitarParaAcompanhamento){
+        if(!$rootScope.naoSolicitarParaAcompanhamento ){
           bootbox.hideAll();
           $ngBootbox.customDialog($rootScope.customDialogOptions);
         }else{
@@ -254,11 +254,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
                     data:  $rootScope.envioPedido 
                   })
                   .then(function (success) {
-                    $ngBootbox.alert({message: "Pedido Inserido com sucesso, acompanhe o andamento", title: "Sucesso!"})
-                      .then(function() {
-                          $rootScope.mensagem = "";
-                          $rootScope.titleMensagem = "";
-                      });
+                    
                       $location.path('/acompanhamento');
                       $rootScope.fazerPedido = false;
                       $rootScope.obterItensAcompanhamentoEFecharConta();
@@ -277,6 +273,13 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
       })
       .then(function (success) {
           $rootScope.acompanhamentos = success.data;
+          if($rootScope.acompanhamentos.length == 0 ){
+            $ngBootbox.alert({message: "Nenhuma solicitação até o momento", title: "Sucesso!"})
+              .then(function() {
+                  $rootScope.mensagem = "";
+                  $rootScope.titleMensagem = "";
+              });
+          }
           //$rootScope.idQrCode ='';
       }, function(error){
         console.log("Erro: " + error);

@@ -19,7 +19,7 @@
 <div class="container-fluid">
   <form name="formulario" class="row  painel-animado  " >
     <div  ng-model="item.atraso" class="painel-animado text-center zebrarLinhasFormOutr  alinharAcompanharPedido    col-xs-12 col-sm-12 col-md-12 col-lg-12"
-    ng-repeat="item in acompanhamentos | orderBy: 'statusImpressao' "  ng-init="calcularTempoPedido(item)">
+    ng-repeat="item in acompanhamentos | orderBy: 'statusImpressao' " ng-if="item.statusImpressao != 5" ng-init="calcularTempoPedido(item)">
           <div class=" itemGridFormulario2 nivelaAlturaDescricaoAcompanhamento   "
                 ng-disabled="true" >
               <div class="">  

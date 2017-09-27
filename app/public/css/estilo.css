@@ -1116,6 +1116,10 @@ body .corGeral{
 .zebrarLinhasForm:nth-child(even) {background: #FFF !important}
 .zebrarLinhasForm:nth-child(odd) {background: #f9e1c0 !important}
 
+.zebrarLinhasFormSubItem:nth-child(even) {background: #FFF !important}
+.zebrarLinhasFormSubItem:nth-child(odd) {background: silver !important}
+
+
 .zebrarLinhasFormOutr:nth-child(odd) {background: #FFF}
 .zebrarLinhasFormOutr:nth-child(even) {background: #f9e1c0}
 
