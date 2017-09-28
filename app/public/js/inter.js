@@ -21,7 +21,7 @@ angular.module('fazerumpedido')
     'label.tituloFecharConta': 'Close  account',
     'garcons': 'Garçom',
     'label.chamarGarcom': 'Call',
-    'label.ativaLabelFiltro': 'Enter the desired product',
+    'label.ativaLabelFiltro': 'Enter here',
     'tituloPaginaLogin': 'Login'
 
   });
@@ -45,7 +45,7 @@ angular.module('fazerumpedido')
     'label.tituloFecharConta': 'Fechar Conta',
     'garcons': 'Garçom',
     'label.chamarGarcom': 'Chamar Garçom',
-    'label.ativaLabelFiltro': 'Digite o produto desejado',
+    'label.ativaLabelFiltro': 'Digite aqui',
     'tituloPaginaLogin': 'Login'
   });
 
@@ -68,7 +68,7 @@ angular.module('fazerumpedido')
     'label.tituloFecharConta': 'Cerrar cuenta',
     'garcons': 'Garçom',
     'label.chamarGarcom': 'Call',
-    'label.ativaLabelFiltro': 'Introduzca el producto deseado',
+    'label.ativaLabelFiltro': 'Introduzca aqui',
     'tituloPaginaLogin': 'Login'
 
   });
