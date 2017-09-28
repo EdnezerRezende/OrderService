@@ -1,6 +1,7 @@
-angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootbox', 'webcam', 'bcQrReader', 'ngMaterial'])
-.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider){
+angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootbox', 'webcam', 'bcQrReader', 'ngMaterial', 'angular-loading-bar'])
+.config(function($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, cfpLoadingBarProvider){
 
+  //cfpLoadingBarProvider.latencyThreshold = 500;
 
   $httpProvider.interceptors.push('tokenInterceptor');
   
@@ -99,6 +100,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
      $rootScope.garcons = [];
      $rootScope.temPedido = false;
      $rootScope.guardarIDPedidoSubItem = '';
+
      //$rootScope.idCliente = '';
      $rootScope.idQrCode = '';
 
@@ -273,12 +275,13 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
       })
       .then(function (success) {
           $rootScope.acompanhamentos = success.data;
-          if($rootScope.acompanhamentos.length == 0 ){
-            $ngBootbox.alert({message: "Nenhuma solicitação até o momento", title: "Sucesso!"})
+          if($rootScope.acompanhamentos.length == 0 && !$rootScope.obterGarcons){
+            $ngBootbox.alert({message: "Nenhuma solicitação até o momento", title: ""})
               .then(function() {
                   $rootScope.mensagem = "";
                   $rootScope.titleMensagem = "";
               });
+              $location.path('/cardapio');
           }
           //$rootScope.idQrCode ='';
       }, function(error){
