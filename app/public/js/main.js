@@ -206,7 +206,6 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
           $rootScope.idQrCode = success.data[0].idQrCode;
         }
         if($rootScope.idQrCode != ''){
-
           if($rootScope.fazerPedido){
             $rootScope.gravarPedido();
             $rootScope.naoSolicitarParaAcompanhamento = true;
@@ -285,7 +284,7 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
       })
       .then(function (success) {
           $rootScope.acompanhamentos = success.data;
-          if($rootScope.acompanhamentos.length == 0 && !$rootScope.obterGarcons){
+          if(!$rootScope.acompanhamentos.length && !$rootScope.obterGarcons){
             $ngBootbox.alert({message: "Nenhuma solicitação até o momento", title: ""})
               .then(function() {
                   $rootScope.mensagem = "";

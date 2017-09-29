@@ -54,7 +54,7 @@ angular.module('fazerumpedido').controller('ChamarGarcomController', function($s
   
     $rootScope.alertarGarcom = function(){
       console.log("IdLocalizacao "+$rootScope.garconChamado.idLocalizacao);
-      if($rootScope.garconChamado.idLocalizacao.length > 0){
+      if($rootScope.garconChamado.idLocalizacao.length){
         $rootScope.chamar = {};
         $rootScope.chamar.idGarcon = $rootScope.garconChamado.idGarcon;
         $rootScope.chamar.idLocalizacao = $rootScope.garconChamado.idLocalizacao;
