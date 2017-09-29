@@ -202,36 +202,46 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
       })
       .then(function (success) {
         $rootScope.idQrCode = '';
+        if (success.data[0].idQrCode != ''){
+          $rootScope.idQrCode = success.data[0].idQrCode;
+        }
+        if($rootScope.idQrCode != ''){
 
-        $rootScope.idQrCode = success.data[0].idQrCode;
-        if($rootScope.fazerPedido){
-          $rootScope.gravarPedido();
-          $rootScope.naoSolicitarParaAcompanhamento = true;
-        }else{
-          $rootScope.obterItensAcompanhamentoEFecharConta();
-          //Só irá obter a Lista de Garcons caso esteja na aba deste.
-          if($rootScope.confirmarQrCodeGarcom){
-            $rootScope.alertarGarcom();
-            $rootScope.confirmarQrCodeGarcom = false;
+          if($rootScope.fazerPedido){
+            $rootScope.gravarPedido();
+            $rootScope.naoSolicitarParaAcompanhamento = true;
           }else{
-            if($rootScope.obterGarcons && !$rootScope.confirmarQrCodeGarcom){
-              $http({
-                method: 'GET',
-                url: '/garcon'
-              })
-              .then(function (success) {
-                  $rootScope.garcons = success.data;
-                  $rootScope.obterLocalizacao();
-                  $rootScope.obterGarcons = false;
-              }, function(error){
-                console.log(error);
-              });
+            $rootScope.obterItensAcompanhamentoEFecharConta();
+            //Só irá obter a Lista de Garcons caso esteja na aba deste.
+            if($rootScope.confirmarQrCodeGarcom){
+              $rootScope.alertarGarcom();
+              $rootScope.confirmarQrCodeGarcom = false;
+            }else{
+              if($rootScope.obterGarcons && !$rootScope.confirmarQrCodeGarcom){
+                $http({
+                  method: 'GET',
+                  url: '/garcon'
+                })
+                .then(function (success) {
+                    $rootScope.garcons = success.data;
+                    $rootScope.obterLocalizacao();
+                    $rootScope.obterGarcons = false;
+                }, function(error){
+                  console.log(error);
+                });
+              }
             }
           }
+        }else{
+          $rootScope.validarRegistrarQrCode();
         }
       }, function(error){
-        $rootScope.mensagem = error;
-        $rootScope.titleMensagem = "Ops!";
+        $ngBootbox.alert({message: "Ocorreu um erro, favor tentar novamente!", title: "Ops!"})
+        .then(function() {
+            $rootScope.mensagem = "";
+            $rootScope.titleMensagem = "";
+        });
+        
       });
   }
 

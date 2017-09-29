@@ -10,16 +10,16 @@ module.exports = function(app) {
 
         qrCodeDAO.inserir(dadosQrCode, function(err, results) {
         	if(err) throw err;
-                var dadosQrCode = req.body;
+            //var dadosQrCode = req.body; 
 
-                var connection = app.infra.connectionFactory();
+            var connection = app.infra.connectionFactory();
 
-                var qrCodeDAO = new app.infra.QrCodeDAO(connection);
+            var qrCodeDAO = new app.infra.QrCodeDAO(connection);
 
-                qrCodeDAO.lista(dadosQrCode, function(err, results2) {
-                    if(err) throw err;   
-    	             res.json(results2);
-                });
+            qrCodeDAO.lista(dadosQrCode, function(err, results2) {
+                if(err) throw err;   
+	             res.json(results2);
+            });
 
         });
             connection.end();
