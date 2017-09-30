@@ -1,5 +1,5 @@
 angular.module('fazerumpedido')
-.controller('AcompanharPedidoController', function($scope, $rootScope, $window, $filter, $ngBootbox, $http) {
+.controller('AcompanharPedidoController', function($scope, $rootScope, $window, $filter, $ngBootbox, $location, $http) {
     $rootScope.tituloPagina2 = "label.tituloAcompanhar";
     $rootScope.acompanhamentos = [];
     $scope.mostra = false;
@@ -18,13 +18,22 @@ angular.module('fazerumpedido')
         url: '/pedido_acompanhamento/' + item.idPedido
       })
       .then(function (success) {
-        $ngBootbox.alert({message: "Pedido Excluído.", title: "Sucesso"})
-          .then(function() {
-              $scope.mensagem = "";
-              $scope.titleMensagem = "";
-              $scope.login = 0;
-          });
         $rootScope.acompanhamentos.splice(indice, 1);
+        if(!$rootScope.acompanhamentos.length){
+         $ngBootbox.alert({message: "Não constam solicitações pendentes", title: ""})
+              .then(function() {
+                  $rootScope.mensagem = "";
+                  $rootScope.titleMensagem = "";
+                  $location.path('/cardapio');
+              });
+        }else{
+          $ngBootbox.alert({message: "Pedido Excluído.", title: "Sucesso"})
+            .then(function() {
+                $scope.mensagem = "";
+                $scope.titleMensagem = "";
+                $scope.login = 0;
+            });
+        }
       }, function(error){
         console.log("Erro: " + error);
       });

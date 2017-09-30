@@ -72,8 +72,8 @@ angular.module('fazerumpedido').controller('ChamarGarcomController', function($s
                       $scope.mensagem = "";
                       $scope.titleMensagem = "";
                       $scope.login = 0;
+                      $location.path('/cardapio');
                   });
-                  $location.path('/home');
               }, function(error){
                 $ngBootbox.alert({message: "Não conseguimos acionar o garçom, tente novamente!", title: "Ops!"})
                   .then(function() {

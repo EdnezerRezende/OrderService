@@ -55,7 +55,7 @@ angular.module('fazerumpedido').controller('CardapioController', function($scope
 
         if( item.idProdutoServico == indice ){
           $rootScope.subItemPossiveis = indice;
-          $rootScope.selecionarSubItem(item);
+          $rootScope.selecionarSubItem(item); 
           break;
         }
       }

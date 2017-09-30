@@ -33,6 +33,6 @@ angular.module('fazerumpedido').controller('FazerPedidoController', function($sc
    $scope.continue = false;
 
    $scope.fechar = function(url){
-    window.parent.Shadowbox.close();
+    $window.parent.Shadowbox.close();
    }
 });

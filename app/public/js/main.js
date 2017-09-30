@@ -287,10 +287,10 @@ angular.module('fazerumpedido', ['ui.router', 'pascalprecht.translate', 'ngBootb
           if(!$rootScope.acompanhamentos.length && !$rootScope.obterGarcons){
             $ngBootbox.alert({message: "Nenhuma solicitação até o momento", title: ""})
               .then(function() {
+                  $location.path('/cardapio');
                   $rootScope.mensagem = "";
                   $rootScope.titleMensagem = "";
               });
-              $location.path('/cardapio');
           }
           //$rootScope.idQrCode ='';
       }, function(error){
